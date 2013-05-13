@@ -1,0 +1,38 @@
+{
+  "name": "axelchang",
+  "title": "Axelchang",
+  "description": "Portfolio A.C",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nicolas/axelchang",
+  "author": {
+    "name": "Nico",
+    "email": "nico@sennep.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nicolas/axelchang.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nicolas/axelchang/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/nicolas/axelchang/blob/master/LICENSE-MIT"
+    }
+  ],
+  "keywords": [],
+  "namespace": "AC",
+  "css_preprocessor": "less",
+  "jquery_version": "1.9.1",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.4.3",
+    "underscore": "~1.4.4",
+    "backbone": "~1.0.0",
+    "grunt-contrib-less": "~0.5.1"
+  }
+}
