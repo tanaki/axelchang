@@ -8,6 +8,10 @@ AC.Controller = function() {
 
 		loadingView = null,
 		homeView = null,
+		portfolioView = null,
+		aboutView = null,
+		newsView = null,
+		contactView = null,
 		
 		/*
 		 * init
@@ -48,18 +52,18 @@ AC.Controller = function() {
 		 * display Page
 		 * @private
 		 */
-		displayPage = function ( callbackEvent, slug, hideFirst ) {
+		displayPage = function ( callbackEvent, hideFirst, urlData ) {
 
 			if ( currentView && hideFirst ) {
 				
 				currentView.hide( function() {
-					displayPage(callbackEvent, slug, false);
+					displayPage(callbackEvent, false, urlData);
 				});
 
 			} else {
 
 				AC.EventManager.trigger( AC.Events.APP_LOADING );
-				AC.DataManager.check( callbackEvent, slug );
+				AC.DataManager.check( callbackEvent, urlData );
 			}
 		},
 
@@ -67,7 +71,7 @@ AC.Controller = function() {
 		 * show the page
 		 * @private
 		 */
-		_show = function ( e /*, slug*/ ) {
+		_show = function ( e, urlData ) {
 
 			var view;
 			
@@ -80,18 +84,44 @@ AC.Controller = function() {
 				
 				case AC.Events.SHOW_HOME :
 					if ( !homeView ) {
-						homeView = new AC.View.Home({
-							items : AC.Data.Item
-						});
+						homeView = new AC.View.Home();
 					}
 					view = homeView;
+				break;
+				
+				case AC.Events.SHOW_ABOUT :
+					if ( !aboutView ) {
+						aboutView = new AC.View.About();
+					}
+					view = aboutView;
+				break;
+				
+				case AC.Events.SHOW_PORTFOLIO :
+					if ( !portfolioView ) {
+						portfolioView = new AC.View.Portfolio();
+					}
+					portfolioView.update(urlData.slug, urlData.imgIndex );
+					view = portfolioView;
+				break;
+				
+				case AC.Events.SHOW_CONTACT :
+					if ( !contactView ) {
+						contactView = new AC.View.Contact();
+					}
+					view = contactView;
+				break;
+				
+				case AC.Events.SHOW_NEWS :
+					if ( !newsView ) {
+						newsView = new AC.View.News();
+					}
+					view = newsView;
 				break;
 
 			}
 			
 			view.render();
 			currentView = view;
-
 		};
 
 	init();

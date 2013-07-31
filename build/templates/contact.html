@@ -1,0 +1,7 @@
+<ul>
+	<% _.each ( contact, function ( contact, key ) { %>
+		<li>
+			<a href="<%= contact.link %>" target="_blank" class="<%= key %>"><%= contact.label %></a>
+		</li>
+	<% }) %>
+</ul>

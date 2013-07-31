@@ -5,29 +5,123 @@
 @import "lib.less";
 
 /* Project Specific */
-body {
-	
+html, body, ul, p,
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
 }
 
-#wrapper {
-	
+html, body {
+	min-height: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
 }
 
-	/* Header */
-	header {
+ul {
+	list-style: none;
+}
+
+/* Header */
+header {
+	height: 200px;
+	
+	/* Nav */
+	nav {
+		padding-top: 40px;
+		overflow: hidden;
+		text-align: center;
+		width: 590px;
+		margin: 0 auto;
+
+		ul {
+			text-align: center;
+			display: block;
+
+			li {
+				display: block;
+				float: left;
+				margin-right: 48px;
+				padding-top: 40px;
+
+				a {
+					text-transform: uppercase;
+					text-decoration: none;
+					color: #000;
+					font-size: 18px;
+					line-height: 22px;
+				}
+
+				&.last {
+					margin-right: 0;
+				}
+			}
+		}
 		
-		/* Nav */
-		nav {
-			
+		h1 {
+			margin-right: 48px;
+			text-align: center;
+			display: block;
+			float: left;
+
+			img {
+				display: block;
+				width: 100px;
+			}
+			.logo-white {
+				display: none;
+			}
 		}
 	}
+}
 
-	/* Content */
-	#main-content {
-
+.home,
+.portfolio-detail {
+	header {
+		nav {
+			ul {
+				li {
+					a {
+						color: #fff;
+					}
+				}
+			}
+			h1 {
+				.logo-white {
+					display: block;
+				}
+				.logo-black {
+					display: none;
+				}
+			}
+		}
 	}
+}
 
-	/* Footer */
-	footer {
-		
+/* Footer */
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 44px;
+	background: #fff;
+
+	ul {
+		text-align: center;
+		li {
+			display: inline;
+		}
 	}
+}
+
+.main-content {
+	margin-bottom: 44px;
+}
+
+@import "partials/home.less";
+@import "partials/portfolio.less";
+@import "partials/portfolio-detail.less";
+@import "partials/about.less";
+@import "partials/contact.less";
+@import "partials/news.less";
+

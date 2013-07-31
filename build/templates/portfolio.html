@@ -1,0 +1,40 @@
+<% if ( slug ) { %>
+
+	<div class="project-detail">
+		
+		<div class="project-images">
+
+			<% _.each( project.images, function(image){ %>
+				<div class="project-item" style="background-image:url(<%= image.img %>);">
+					Boom
+				</div>
+			<% }) %>
+
+		</div>
+
+		<div class="project-nav">
+			<a href="#" class="prev">Prev</a>
+			<a href="#" class="next">Next</a>
+		</div>
+
+		<div class="project-global-nav">
+			<% if ( !_.isNull(previous) && !_.isUndefined(previous) ) { %><a href="/portfolio/<%= previous.slug %>">Previous</a><% } %>
+			<span class="project-title"><%= project.title %></span>
+			<% if ( !_.isNull(next) && !_.isUndefined(next) ) { %><a href="/portfolio/<%= next.slug %>">Next</a><% } %>
+		</div>
+	</div>
+
+<% } else { %>
+
+	<div class="projects">
+		<% _.each ( projects, function ( project ) { %>
+			<div class="project" style="background-image:url(/img/portfolio/body-painting/cover.jpg);">
+				<a href="/portfolio/<%= project.slug %>">
+					<span class="project-bg"></span>
+					<span class="project-title"><%= project.title %></span>
+				</a>
+			</div>
+		<% }) %>
+	</div>
+
+<% } %>

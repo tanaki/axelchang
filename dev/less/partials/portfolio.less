@@ -1,0 +1,69 @@
+.portfolio {
+	.projects {
+		margin: 0 auto;
+		max-width: 940px;
+		overflow: hidden;
+
+		.project {
+			position: relative;
+			width: 220px;
+			height: 220px;
+			display: block;
+			float: left;
+			margin: 0 20px 20px 0;
+
+			background: no-repeat center center;
+			background-size: cover;
+
+			&:nth-child(4n) {
+				margin: 0 0 20px 0;
+			}
+			
+			a {
+				display: block;
+				height: 100%;
+				position: relative;
+
+				.project-title {
+					display: block;
+					position: absolute;
+					top: 110px;
+					left: 20px;
+					padding: 10px 0;
+					width:180px;
+
+					text-align: center;
+					text-transform: uppercase;
+					border: 2px solid #fff;
+					color: #fff;
+
+					.opacity(0);
+					.transition( all 0.1s ease-out 0.05s );
+				}
+				.project-bg {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+
+					width: 100%;
+					height: 100%;
+					background: #fff;
+					.opacity(0);
+					.transition( opacity 0.1s ease-out );
+				}
+
+				&:hover {
+					
+					.project-title {
+						top: 90px;
+						.opacity(100);
+					}
+					.project-bg {
+						.opacity(40);
+					}
+				}
+			}
+		}
+	}
+}

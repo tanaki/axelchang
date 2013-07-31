@@ -12,7 +12,7 @@ AC.View.Base = Backbone.View.extend({
 	hide : function ( callback ) {
 
 		var $el = $(this.el);
-		$el.hide();
+		// $el.hide();
 
 		if (callback) {
 			callback();
@@ -36,12 +36,20 @@ AC.View.Base = Backbone.View.extend({
 		var self = this;
 		
 		$("body").attr("class", "").addClass(self.id);
-		$(this.el).html( this.tpl(this.params) ).show({
-			complete : self._displayComplete
-		});
+
+		$(this.el).html( this.tpl(this.params) );
+		this._displayComplete();
+
+		// .show({
+			// complete : self._displayComplete
+		// });
 	},
 
 	_displayComplete : function () {
 		// TODO Overwrite
+	},
+
+	update : function (){
+		
 	}
 });

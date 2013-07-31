@@ -20,14 +20,19 @@ AC.Data = AC.Data || {};
 /* LOCATIONS */
 AC.Locations = AC.Locations || {};
 AC.Locations.Templates = '/templates/';
-AC.Locations.JSON = '/data/';
+AC.Locations.Images = '/img/';
+AC.Locations.JSON = '/data/data.json';
 
 /*
  * EVENTS
  */
 AC.Events = {
 	APP_LOADING : "APP_LOADING",
-    SHOW_HOME : "SHOW_HOME"
+    SHOW_HOME : "SHOW_HOME",
+    SHOW_PORTFOLIO : "SHOW_PORTFOLIO",
+    SHOW_ABOUT : "SHOW_ABOUT",
+    SHOW_CONTACT : "SHOW_CONTACT",
+    SHOW_NEWS : "SHOW_NEWS"
 };
 
 $(window).ready(function(){
@@ -46,6 +51,10 @@ AC.Controller = function() {
 
 		loadingView = null,
 		homeView = null,
+		portfolioView = null,
+		aboutView = null,
+		newsView = null,
+		contactView = null,
 		
 		/*
 		 * init
@@ -86,18 +95,18 @@ AC.Controller = function() {
 		 * display Page
 		 * @private
 		 */
-		displayPage = function ( callbackEvent, slug, hideFirst ) {
+		displayPage = function ( callbackEvent, hideFirst, urlData ) {
 
 			if ( currentView && hideFirst ) {
 				
 				currentView.hide( function() {
-					displayPage(callbackEvent, slug, false);
+					displayPage(callbackEvent, false, urlData);
 				});
 
 			} else {
 
 				AC.EventManager.trigger( AC.Events.APP_LOADING );
-				AC.DataManager.check( callbackEvent, slug );
+				AC.DataManager.check( callbackEvent, urlData );
 			}
 		},
 
@@ -105,7 +114,7 @@ AC.Controller = function() {
 		 * show the page
 		 * @private
 		 */
-		_show = function ( e /*, slug*/ ) {
+		_show = function ( e, urlData ) {
 
 			var view;
 			
@@ -118,18 +127,44 @@ AC.Controller = function() {
 				
 				case AC.Events.SHOW_HOME :
 					if ( !homeView ) {
-						homeView = new AC.View.Home({
-							items : AC.Data.Item
-						});
+						homeView = new AC.View.Home();
 					}
 					view = homeView;
+				break;
+				
+				case AC.Events.SHOW_ABOUT :
+					if ( !aboutView ) {
+						aboutView = new AC.View.About();
+					}
+					view = aboutView;
+				break;
+				
+				case AC.Events.SHOW_PORTFOLIO :
+					if ( !portfolioView ) {
+						portfolioView = new AC.View.Portfolio();
+					}
+					portfolioView.update(urlData.slug, urlData.imgIndex );
+					view = portfolioView;
+				break;
+				
+				case AC.Events.SHOW_CONTACT :
+					if ( !contactView ) {
+						contactView = new AC.View.Contact();
+					}
+					view = contactView;
+				break;
+				
+				case AC.Events.SHOW_NEWS :
+					if ( !newsView ) {
+						newsView = new AC.View.News();
+					}
+					view = newsView;
 				break;
 
 			}
 			
 			view.render();
 			currentView = view;
-
 		};
 
 	init();
@@ -144,7 +179,7 @@ AC.DataManager = AC.DataManager || {
 	currentEvent : null,
 	currentSlug : null,
 
-	itemsLoaded : false,
+	dataLoaded : false,
 
 	check : function ( e, slug ) {
 
@@ -155,9 +190,13 @@ AC.DataManager = AC.DataManager || {
 		switch ( self.currentEvent ) {
 			
 			case AC.Events.SHOW_HOME :
+			case AC.Events.SHOW_ABOUT :
+			case AC.Events.SHOW_PORTFOLIO :
+			case AC.Events.SHOW_CONTACT :
+			case AC.Events.SHOW_NEWS :
 
-				if ( !self.itemsLoaded ) {
-					self.getItems();
+				if ( !self.dataLoaded ) {
+					self.getData();
 				} else {
 					AC.EventManager.trigger( self.currentEvent, self.currentSlug );
 				}
@@ -166,16 +205,17 @@ AC.DataManager = AC.DataManager || {
 		}
 	},
 
-	getItems : function ( ) {
+	getData : function ( ) {
 
 		var self = this;
-		AC.Data.Item = new AC.Collection.ItemCollection();
-		AC.Data.Item.fetch({
-			success : function() {
-				self.itemsLoaded = true;
-				self.check( self.currentEvent, self.currentSlug );
-			}
+		$.get(AC.Locations.JSON, function( data ) {
+
+			AC.Data.JSON = data;
+						
+			self.dataLoaded = true;
+			self.check( self.currentEvent, self.currentSlug );
 		});
+		
 	}
 };
 
@@ -226,7 +266,50 @@ AC.Router = Backbone.Router.extend({
 	 * routes
 	 */
 	routes : {
+
+		"portfolio" : "_portfolioAction",
+		"portfolio/:project" : "_portfolioAction",
+		"portfolio/:project/:index" : "_portfolioAction",
+
+		"about" : "_aboutAction",
+		"contact" : "_contactAction",
+
+		"news" : "_newsAction",
+		"news/:slug" : "_newsAction",
+
 		"*actions" : "_defaultAction"
+	},
+	
+	/*
+	 * _portfolioAction
+	 * @private
+	 */
+	_portfolioAction : function (slug, imgIndex) {
+		this.controller.displayPage( AC.Events.SHOW_PORTFOLIO, true, { "slug" : slug, "imgIndex" : imgIndex } );
+	},
+	
+	/*
+	 * _aboutAction
+	 * @private
+	 */
+	_aboutAction : function () {
+		this.controller.displayPage( AC.Events.SHOW_ABOUT, true );
+	},
+	
+	/*
+	 * _contactAction
+	 * @private
+	 */
+	_contactAction : function () {
+		this.controller.displayPage( AC.Events.SHOW_CONTACT, true );
+	},
+	
+	/*
+	 * _newsAction
+	 * @private
+	 */
+	_newsAction : function (slug) {
+		this.controller.displayPage( AC.Events.SHOW_NEWS, true, slug );
 	},
 	
 	/*
@@ -240,7 +323,23 @@ AC.Router = Backbone.Router.extend({
 });
 
 
-AC.Model.Item = Backbone.Model.extend({
+AC.Model.About = Backbone.Model.extend({
+	
+	defaults: {
+		id : 0,
+		title : "",
+		slug : ""
+	},
+	
+	update : function (){
+
+		console.log( "test", AC.Data.JSON.about );
+		
+	}
+	
+});
+
+AC.Model.News = Backbone.Model.extend({
 	
 	defaults: {
 		id : 0,
@@ -263,21 +362,6 @@ AC.Model.Item = Backbone.Model.extend({
 	
 });
 
-AC.Collection.ItemCollection = Backbone.Collection.extend({
-	
-	model : AC.Model.Item,
-	url : "/data/items.json",
-	
-	initialize : function() {
-		
-	},
-
-	parse : function(data){
-		return data.items;
-	}
-	
-});
-
 AC.View.Base = Backbone.View.extend({
 
 	id : "",
@@ -291,7 +375,7 @@ AC.View.Base = Backbone.View.extend({
 	hide : function ( callback ) {
 
 		var $el = $(this.el);
-		$el.hide();
+		// $el.hide();
 
 		if (callback) {
 			callback();
@@ -315,16 +399,46 @@ AC.View.Base = Backbone.View.extend({
 		var self = this;
 		
 		$("body").attr("class", "").addClass(self.id);
-		$(this.el).html( this.tpl(this.params) ).show({
-			complete : self._displayComplete
-		});
+
+		$(this.el).html( this.tpl(this.params) );
+		this._displayComplete();
+
+		// .show({
+			// complete : self._displayComplete
+		// });
 	},
 
 	_displayComplete : function () {
 		// TODO Overwrite
+	},
+
+	update : function (){
+		
 	}
 });
 
+
+AC.View.About = AC.View.Base.extend({
+
+	id : "about",
+	path : "about.html",
+
+	initialize : function (){
+		this.params.about = AC.Data.JSON.about;
+	}
+	
+});
+
+AC.View.Contact = AC.View.Base.extend({
+
+	id : "contact",
+	path : "contact.html",
+
+	initialize : function(){
+		this.params.contact = AC.Data.JSON.contact;
+	}
+	
+});
 
 AC.View.Home = AC.View.Base.extend({
 
@@ -332,7 +446,7 @@ AC.View.Home = AC.View.Base.extend({
 	path : "home.html",
 	
 	initialize : function(data) {
-		this.params.items = data.items.models;
+		
 	}
 	
 });
@@ -341,5 +455,64 @@ AC.View.Loading = AC.View.Base.extend({
 
 	id : "loading",
 	path : "loading.html"
+	
+});
+
+AC.View.News = AC.View.Base.extend({
+
+	id : "news",
+	path : "news.html",
+
+	initialize : function () {
+		this.params.news = AC.Data.JSON.news;
+	}
+	
+});
+
+AC.View.Portfolio = AC.View.Base.extend({
+
+	id : "portfolio",
+	path : "portfolio.html",
+	initedLinks : false,
+	slug : null,
+
+	initialize : function () {
+		this.params.projects = AC.Data.JSON.portfolio;
+	},
+
+	_displayComplete : function () {
+
+		$(".project a, .project-detail a").on("click", function(e){
+			e.preventDefault();
+			AC.AppRouter.navigate($(this).attr("href"), true);
+		});
+	},
+
+	update : function ( slug, imgIndex ){
+
+		var 
+			self = this,
+			projects = this.params.projects;
+
+		this.slug = slug;
+
+		if ( this.slug ) {
+
+			this.id = "portfolio-detail";
+
+			_.each( projects, function( project, index ){
+				if ( project.slug == self.slug ) {
+					self.params.project = project;
+					if ( index > 0 ) self.params.previous = projects[index - 1];
+					else self.params.previous = null;
+
+					if ( index < projects.length ) self.params.next = projects[index + 1];
+					else self.params.next = null;
+				}
+			});
+		} else {
+			this.id = "portfolio";
+		}
+	}
 	
 });

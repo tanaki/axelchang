@@ -1,0 +1,251 @@
+{
+	"portfolio" : [
+		{
+			"id" : 0,
+			"title" : "Body Painting",
+			"slug" : "body-painting",
+			"cover" : "cover.jpg",
+			"images" : [
+				{
+					"img" : "/img/portfolio/body-painting/1.jpg",
+					"credits" : "blabla"
+				},
+				{
+					"img" : "/img/portfolio/body-painting/2.jpg",
+					"credits" : "blabla 2"
+				},
+				{
+					"img" : "/img/portfolio/body-painting/3.jpg",
+					"credits" : "blabla 3"
+				},
+				{
+					"img" : "/img/portfolio/body-painting/4.jpg",
+					"credits" : "blabla 4"
+				}
+			]
+		},
+		{
+			"id" : 1,
+			"title" : "Body Painting 1",
+			"slug" : "body-painting-1",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 2,
+			"title" : "Body Painting 2",
+			"slug" : "body-painting-2",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 3,
+			"title" : "Body Painting 3",
+			"slug" : "body-painting-3",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 4,
+			"title" : "Body Painting 4",
+			"slug" : "body-painting-4",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 5,
+			"title" : "Body Painting 5",
+			"slug" : "body-painting-5",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 6,
+			"title" : "Body Painting 6",
+			"slug" : "body-painting-6",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 7,
+			"title" : "Body Painting 7",
+			"slug" : "body-painting-7",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 8,
+			"title" : "Body Painting 8",
+			"slug" : "body-painting-8",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 9,
+			"title" : "Body Painting 9",
+			"slug" : "body-painting-9",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 10,
+			"title" : "Body Painting 10",
+			"slug" : "body-painting-10",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 10"
+				}
+			]
+		},
+		{
+			"id" : 11,
+			"title" : "Body Painting 11",
+			"slug" : "body-painting-11",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 12,
+			"title" : "Body Painting 12",
+			"slug" : "body-painting-12",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 13,
+			"title" : "Body Painting 13",
+			"slug" : "body-painting-13",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		},
+		{
+			"id" : 14,
+			"title" : "Body Painting 14",
+			"slug" : "body-painting-14",
+			"cover" : "cover2.jpg",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"credits" : "blabla 2"
+				}
+			]
+		}
+	],
+
+	"about" : {
+		"image" : "axel-chang.jpg",
+		"text" : "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditatum deduceret graece pueri insipientiam amarissimam. Divitiarum doctus amoris captiosa nos fortitudo senserit movet ea, nimium ostendit legatis fructu exedunt doctus dubitemus miseram omnesque libro, perdiderunt ipsarum intellegamus honeste traditur nudus. Corpora accedit occulta oderit incursione, adolescens illud opus referta virtus expetendam pericula foris, sapientium percipi amotio, comparat exhorrescere, adversa venandi necesse tale futuros late, crudelis intercapedo libidinibus habere, munere rectas legum tuentur intus pueros expetendis, dediti tantopere disseruerunt, aequitate refert quosvis.</p>"
+	},
+
+	"contact" : {
+		"email" : {
+			"link" : "email@email.com",
+			"label" : "email@email.com"
+		},
+		"phone" : {
+			"link" : "000",
+			"label" : "000"
+		},
+		"facebook" : {
+			"link" : "http://facebook.com/axel.changmaquilleur",
+			"label" : "facebook.com/axel.changmaquilleur"
+		},
+		"tumblr" : {
+			"link" : "http://axelchang.tumblr.com/",
+			"label" : "axelchang.tumblr.com/"
+		},
+		"twitter" : {
+			"link" : "http://twitter.com/ChangAxel",
+			"label" : "twitter.com/ChangAxel"
+		}
+	},
+
+	"news" : [
+		{
+			"date" : "02 Feb 2012",
+			"slug" : "news-1",
+			"title" : "Title",
+			"text" : "<p>Text news 1</p>",
+			"images" : [
+				{
+					"img" : "img.jpg",
+					"caption" : "caption"
+				}
+			]
+		},
+		{
+			"date" : "03 Feb 2012",
+			"slug" : "news-2",
+			"title" : "Title 2",
+			"text" : "<p>Text news 2</p>",
+			"images" : [
+				{
+					"img" : "img2.jpg",
+					"caption" : "caption 2"
+				}
+			]
+		}
+	]
+}

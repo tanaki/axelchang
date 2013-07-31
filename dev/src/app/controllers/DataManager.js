@@ -4,7 +4,7 @@ AC.DataManager = AC.DataManager || {
 	currentEvent : null,
 	currentSlug : null,
 
-	itemsLoaded : false,
+	dataLoaded : false,
 
 	check : function ( e, slug ) {
 
@@ -15,9 +15,13 @@ AC.DataManager = AC.DataManager || {
 		switch ( self.currentEvent ) {
 			
 			case AC.Events.SHOW_HOME :
+			case AC.Events.SHOW_ABOUT :
+			case AC.Events.SHOW_PORTFOLIO :
+			case AC.Events.SHOW_CONTACT :
+			case AC.Events.SHOW_NEWS :
 
-				if ( !self.itemsLoaded ) {
-					self.getItems();
+				if ( !self.dataLoaded ) {
+					self.getData();
 				} else {
 					AC.EventManager.trigger( self.currentEvent, self.currentSlug );
 				}
@@ -26,16 +30,17 @@ AC.DataManager = AC.DataManager || {
 		}
 	},
 
-	getItems : function ( ) {
+	getData : function ( ) {
 
 		var self = this;
-		AC.Data.Item = new AC.Collection.ItemCollection();
-		AC.Data.Item.fetch({
-			success : function() {
-				self.itemsLoaded = true;
-				self.check( self.currentEvent, self.currentSlug );
-			}
+		$.get(AC.Locations.JSON, function( data ) {
+
+			AC.Data.JSON = data;
+						
+			self.dataLoaded = true;
+			self.check( self.currentEvent, self.currentSlug );
 		});
+		
 	}
 };
 

@@ -20,14 +20,19 @@ AC.Data = AC.Data || {};
 /* LOCATIONS */
 AC.Locations = AC.Locations || {};
 AC.Locations.Templates = '/templates/';
-AC.Locations.JSON = '/data/';
+AC.Locations.Images = '/img/';
+AC.Locations.JSON = '/data/data.json';
 
 /*
  * EVENTS
  */
 AC.Events = {
 	APP_LOADING : "APP_LOADING",
-    SHOW_HOME : "SHOW_HOME"
+    SHOW_HOME : "SHOW_HOME",
+    SHOW_PORTFOLIO : "SHOW_PORTFOLIO",
+    SHOW_ABOUT : "SHOW_ABOUT",
+    SHOW_CONTACT : "SHOW_CONTACT",
+    SHOW_NEWS : "SHOW_NEWS"
 };
 
 $(window).ready(function(){
