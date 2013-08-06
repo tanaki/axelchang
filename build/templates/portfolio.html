@@ -4,8 +4,8 @@
 		
 		<div class="project-images">
 
-			<% _.each( project.images, function(image){ %>
-				<div class="project-item" style="background-image:url(<%= image.img %>);">
+			<% _.each( project.images, function(image, index){ %>
+				<div class="project-item<% if (index == 0) print(' selected') %>" data-item="<%= index %>" style="background-image:url(<%= image.img %>);z-index:<%= 999-index %>;">
 					Boom
 				</div>
 			<% }) %>
@@ -14,6 +14,10 @@
 
 		<div class="project-nav">
 			<a href="#" class="prev">Prev</a>
+			<div class="current-index">
+				<span class="current">1</span>
+				<span class="total"> / <%= project.images.length %></span>
+			</div>
 			<a href="#" class="next">Next</a>
 		</div>
 

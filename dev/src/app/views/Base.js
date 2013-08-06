@@ -11,7 +11,7 @@ AC.View.Base = Backbone.View.extend({
 
 	hide : function ( callback ) {
 
-		var $el = $(this.el);
+		// var $el = $(this.el);
 		// $el.hide();
 
 		if (callback) {

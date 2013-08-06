@@ -2,14 +2,28 @@
 .portfolio-detail {
 	
 	.project-detail {
+
 		.project-images {
 			.fullsize;
+			overflow: hidden;
 			z-index: -1;
 
 			.project-item {
 				.fullsize;
+				left: 100%;
 				background: no-repeat center center;
 				background-size: cover;
+
+				.transition( left 0.6s ease-out );
+
+				&.selected {
+					left: 0;
+				}
+
+				&.prev {
+					left: -100%;
+					.transition( left 0.6s ease-out 0.2s );
+				}
 			}
 		}
 	}

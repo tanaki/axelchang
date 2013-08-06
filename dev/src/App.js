@@ -22,6 +22,7 @@ AC.Locations = AC.Locations || {};
 AC.Locations.Templates = '/templates/';
 AC.Locations.Images = '/img/';
 AC.Locations.JSON = '/data/data.json';
+// AC.Locations.JSON = 'http://axelchang.com/koken';
 
 /*
  * EVENTS

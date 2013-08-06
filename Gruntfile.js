@@ -25,8 +25,8 @@ module.exports = function(grunt) {
       },
       libs : {
         src : [
-          'node_modules/underscore/underscore-min.js',
-          'node_modules/backbone/backbone-min.js',
+          'bower_components/underscore/underscore-min.js',
+          'bower_components/backbone/backbone-min.js',
           'dev/src/libs/*.js'
         ],
         dest: 'build/js/libs/libs.js'
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
         }
       };
 
-      filesToWatch.push('dev/less/*.less');
+      filesToWatch.push('dev/less/**/*.less');
       defaultTasks.unshift('less:dev');
       deployTasks.unshift('less:deploy');
       break;

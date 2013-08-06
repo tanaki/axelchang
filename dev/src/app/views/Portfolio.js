@@ -12,9 +12,57 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_displayComplete : function () {
 
-		$(".project a, .project-detail a").on("click", function(e){
+		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
 			e.preventDefault();
 			AC.AppRouter.navigate($(this).attr("href"), true);
+		});
+
+		this.initProjectNav();
+	},
+
+	initProjectNav : function(){
+
+		var 
+			$container = $(".project-detail .project-nav"),
+			max = $(".project-item").length - 1,
+			$selected, $selectedIndex, newIndex;
+
+		$(".next", $container).on("click", function(e){
+
+			e.preventDefault();
+
+			$selected = $(".selected");
+			$selectedIndex = $selected.data("item");
+
+			if ( $selectedIndex >= max ) return;
+
+			$selected
+				.addClass("prev")
+				.removeClass("selected");
+
+			newIndex = ($selectedIndex + 1);
+			$("[data-item='" + newIndex + "']").addClass("selected");
+
+			$(".current-index .current").html(newIndex+1);
+		});
+
+		$(".prev", $container).on("click", function(e){
+
+			e.preventDefault();
+
+			$selected = $(".selected");
+			$selectedIndex = $selected.data("item");
+
+			if ( $selectedIndex <= 0 ) return;
+
+			$selected.removeClass("selected");
+
+			newIndex = ($selectedIndex - 1);
+			$("[data-item='" + newIndex + "']")
+				.addClass("selected")
+				.removeClass("prev");
+
+			$(".current-index .current").html(newIndex+1);
 		});
 	},
 
@@ -24,6 +72,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			self = this,
 			projects = this.params.projects;
 
+		this.imgIndex = imgIndex;
 		this.slug = slug;
 
 		if ( this.slug ) {

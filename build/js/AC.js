@@ -22,6 +22,7 @@ AC.Locations = AC.Locations || {};
 AC.Locations.Templates = '/templates/';
 AC.Locations.Images = '/img/';
 AC.Locations.JSON = '/data/data.json';
+// AC.Locations.JSON = 'http://axelchang.com/koken';
 
 /*
  * EVENTS
@@ -285,6 +286,7 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_portfolioAction : function (slug, imgIndex) {
+		console.log("PF");
 		this.controller.displayPage( AC.Events.SHOW_PORTFOLIO, true, { "slug" : slug, "imgIndex" : imgIndex } );
 	},
 	
@@ -293,6 +295,7 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_aboutAction : function () {
+		console.log("about");
 		this.controller.displayPage( AC.Events.SHOW_ABOUT, true );
 	},
 	
@@ -301,6 +304,7 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_contactAction : function () {
+		console.log("contact");
 		this.controller.displayPage( AC.Events.SHOW_CONTACT, true );
 	},
 	
@@ -309,6 +313,7 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_newsAction : function (slug) {
+		console.log("news");
 		this.controller.displayPage( AC.Events.SHOW_NEWS, true, slug );
 	},
 	
@@ -317,6 +322,7 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_defaultAction : function () {
+		console.log("home");
 		this.controller.displayPage( AC.Events.SHOW_HOME, true );
 	}
 
@@ -335,6 +341,29 @@ AC.Model.About = Backbone.Model.extend({
 
 		console.log( "test", AC.Data.JSON.about );
 		
+	}
+	
+});
+
+AC.Model.Item = Backbone.Model.extend({
+	
+	defaults: {
+		id : 0,
+		title : "",
+		slug : ""
+	},
+	
+	initialize: function(){
+
+	},
+
+	parse : function(data){
+		
+		this.id = data.id;
+		this.title = data.title;
+		this.slug = data.slug;
+
+		return this;
 	}
 	
 });
@@ -362,6 +391,21 @@ AC.Model.News = Backbone.Model.extend({
 	
 });
 
+AC.Collection.ItemCollection = Backbone.Collection.extend({
+	
+	model : AC.Model.Item,
+	url : "/data/items.json",
+	
+	initialize : function() {
+		
+	},
+
+	parse : function(data){
+		return data.items;
+	}
+	
+});
+
 AC.View.Base = Backbone.View.extend({
 
 	id : "",
@@ -374,7 +418,7 @@ AC.View.Base = Backbone.View.extend({
 
 	hide : function ( callback ) {
 
-		var $el = $(this.el);
+		// var $el = $(this.el);
 		// $el.hide();
 
 		if (callback) {
@@ -445,7 +489,7 @@ AC.View.Home = AC.View.Base.extend({
 	id : "home",
 	path : "home.html",
 	
-	initialize : function(data) {
+	initialize : function() {
 		
 	}
 	
@@ -482,9 +526,57 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_displayComplete : function () {
 
-		$(".project a, .project-detail a").on("click", function(e){
+		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
 			e.preventDefault();
 			AC.AppRouter.navigate($(this).attr("href"), true);
+		});
+
+		this.initProjectNav();
+	},
+
+	initProjectNav : function(){
+
+		var 
+			$container = $(".project-detail .project-nav"),
+			max = $(".project-item").length - 1,
+			$selected, $selectedIndex, newIndex;
+
+		$(".next", $container).on("click", function(e){
+
+			e.preventDefault();
+
+			$selected = $(".selected");
+			$selectedIndex = $selected.data("item");
+
+			if ( $selectedIndex >= max ) return;
+
+			$selected
+				.addClass("prev")
+				.removeClass("selected");
+
+			newIndex = ($selectedIndex + 1);
+			$("[data-item='" + newIndex + "']").addClass("selected");
+
+			$(".current-index .current").html(newIndex+1);
+		});
+
+		$(".prev", $container).on("click", function(e){
+
+			e.preventDefault();
+
+			$selected = $(".selected");
+			$selectedIndex = $selected.data("item");
+
+			if ( $selectedIndex <= 0 ) return;
+
+			$selected.removeClass("selected");
+
+			newIndex = ($selectedIndex - 1);
+			$("[data-item='" + newIndex + "']")
+				.addClass("selected")
+				.removeClass("prev");
+
+			$(".current-index .current").html(newIndex+1);
 		});
 	},
 
@@ -494,6 +586,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			self = this,
 			projects = this.params.projects;
 
+		this.imgIndex = imgIndex;
 		this.slug = slug;
 
 		if ( this.slug ) {
