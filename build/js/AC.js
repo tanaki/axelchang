@@ -522,6 +522,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 	path : "portfolio.html",
 	initedLinks : false,
 	slug : null,
+	detailSwipe : null,
 
 	initialize : function () {
 		this.params.projects = AC.Data.JSON.portfolio;
@@ -536,16 +537,20 @@ AC.View.Portfolio = AC.View.Base.extend({
 			}, 100);
 		}*/
 
-		// .project a,
-		$(".project-detail .project-global-nav a").on("click", function(e){
+		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
 			e.preventDefault();
 			AC.AppRouter.navigate($(this).attr("href"), true);
 		});
 
-		this.detailSwipe = new Swipe(document.getElementById("detail-slider"));
+		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
+			callback : this._callbackSwipe
+		});
 		this.initProjectNav();
 	},
 
+	_callbackSwipe : function(index) {
+		$(".current-index .current").html( index + 1 );
+	},
 	
 	initProjectNav : function(){
 
@@ -555,61 +560,13 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		$(".next", $container).on("click", function(e){
 			e.preventDefault();
-
 			detailSwipe.next();
-			$(".current-index .current").html( detailSwipe.getPos() +1 );
 		});
+
 		$(".prev", $container).on("click", function(e){
 			e.preventDefault();
-
 			detailSwipe.prev();
-			$(".current-index .current").html( detailSwipe.getPos() +1 );
 		});
-
-		/*
-		var 
-			$container = $(".project-detail .project-nav"),
-			max = $(".project-item").length - 1,
-			$selected, $selectedIndex, newIndex;
-
-		$(".next", $container).on("click", function(e){
-
-			e.preventDefault();
-
-			$selected = $(".selected");
-			$selectedIndex = $selected.data("item");
-
-			if ( $selectedIndex >= max ) return;
-
-			$selected
-				.addClass("prev")
-				.removeClass("selected");
-
-			newIndex = ($selectedIndex + 1);
-			$("[data-item='" + newIndex + "']").addClass("selected");
-
-			$(".current-index .current").html(newIndex+1);
-		});
-
-		$(".prev", $container).on("click", function(e){
-
-			e.preventDefault();
-
-			$selected = $(".selected");
-			$selectedIndex = $selected.data("item");
-
-			if ( $selectedIndex <= 0 ) return;
-
-			$selected.removeClass("selected");
-
-			newIndex = ($selectedIndex - 1);
-			$("[data-item='" + newIndex + "']")
-				.addClass("selected")
-				.removeClass("prev");
-
-			$(".current-index .current").html(newIndex+1);
-		});
-		*/
 	},
 
 	update : function ( slug, imgIndex ){
