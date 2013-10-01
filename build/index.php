@@ -28,7 +28,7 @@
 						<li><a href="/about">About</a></li>
 					</ul>
 					<h1>
-						<a href="<?php echo $BASE_URL; ?>">
+						<a href="/">
 							<img src="<?php echo $BASE_URL; ?>img/logo.png" alt="Axel Chang - Make up Artist" class="logo-white">
 							<img src="<?php echo $BASE_URL; ?>img/logo-black.png" alt="Axel Chang - Make up Artist" class="logo-black">
 						</a>
