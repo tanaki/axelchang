@@ -8,23 +8,23 @@
 			"coverLow" : "cover.jpg",
 			"images" : [
 				{
-					"img" : "/img/portfolio/body-painting/1.jpg",
-					"low" : "/img/portfolio/body-painting/1.jpg",
+					"img" : "portfolio/body-painting/1.jpg",
+					"low" : "portfolio/body-painting/1.jpg",
 					"credits" : "blabla"
 				},
 				{
-					"img" : "/img/portfolio/body-painting/2.jpg",
-					"low" : "/img/portfolio/body-painting/2.jpg",
+					"img" : "portfolio/body-painting/2.jpg",
+					"low" : "portfolio/body-painting/2.jpg",
 					"credits" : "blabla 2"
 				},
 				{
-					"img" : "/img/portfolio/body-painting/3.jpg",
-					"low" : "/img/portfolio/body-painting/3.jpg",
+					"img" : "portfolio/body-painting/3.jpg",
+					"low" : "portfolio/body-painting/3.jpg",
 					"credits" : "blabla 3"
 				},
 				{
-					"img" : "/img/portfolio/body-painting/4.jpg",
-					"low" : "/img/portfolio/body-painting/4.jpg",
+					"img" : "portfolio/body-painting/4.jpg",
+					"low" : "portfolio/body-painting/4.jpg",
 					"credits" : "blabla 4"
 				}
 			]

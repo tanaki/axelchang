@@ -5,7 +5,7 @@
 		<div class="project-images">
 
 			<% _.each( project.images, function(image, index){ %>
-				<div class="project-item<% if (index == 0) print(' selected') %>" data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= image.low %>);z-index:<%= 999-index %>;"></div>
+				<div class="project-item<% if (index == 0) print(' selected') %>" data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= AC.Locations.Images + image.low %>);z-index:<%= 999-index %>;"></div>
 			<% }) %>
 
 		</div>
@@ -31,7 +31,7 @@
 
 	<div class="projects">
 		<% _.each ( projects, function ( project, index ) { %>
-			<div class="project project-<%= index %>" style="background-image:url(/img/portfolio/body-painting/cover.jpg);" data-bg="cover.jpg">
+			<div class="project project-<%= index %>" style="background-image:url(<%= AC.Locations.Images %>portfolio/body-painting/cover.jpg);" data-bg="cover.jpg">
 				<a href="/portfolio/<%= project.slug %>">
 					<span class="project-bg"></span>
 					<span class="project-title"><%= project.title %></span>
