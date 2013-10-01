@@ -22,8 +22,8 @@
 			<header>
 				<nav>
 					<ul class="nav-left">
-						<li><a href="<?php echo $BASE_URL; ?>portfolio">Portfolio</a></li>
-						<li><a href="<?php echo $BASE_URL; ?>about">About</a></li>
+						<li><a href="/portfolio">Portfolio</a></li>
+						<li><a href="/about">About</a></li>
 					</ul>
 					<h1>
 						<a href="<?php echo $BASE_URL; ?>">
@@ -32,8 +32,8 @@
 						</a>
 					</h1>
 					<ul class="nav-right">
-						<li><a href="<?php echo $BASE_URL; ?>contact">Contact</a></li>
-						<li class="last"><a href="<?php echo $BASE_URL; ?>news">News</a></li>
+						<li><a href="/contact">Contact</a></li>
+						<li class="last"><a href="/news">News</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -62,7 +62,7 @@
 		<!-- <script type="text/javascript" src="/js/AC.min.js"></script> -->
 		<script type="text/javascript" src="<?php echo $BASE_URL; ?>js/AC.js"></script>
 		<script type="text/javascript">
-			AC.Locations.Root = '';
+			AC.Locations.Root = '<?php echo $BASE_URL; ?>';
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
 			AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/data.json';
