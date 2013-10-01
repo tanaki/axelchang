@@ -98,6 +98,9 @@ AC.Controller = function() {
 		 */
 		displayPage = function ( callbackEvent, hideFirst, urlData ) {
 
+			$("nav .selected").removeClass("selected");
+			$("nav a[href='/"+Backbone.history.fragment+"']").addClass("selected");
+
 			if ( currentView && hideFirst ) {
 				
 				currentView.hide( function() {
@@ -525,6 +528,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 	},
 
 	_displayComplete : function () {
+
+		if ( this.id == "portfolio" ) {
+			setTimeout(function(){
+				$(".project").addClass("to-position");
+			}, 100);
+		}
 
 		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
 			e.preventDefault();

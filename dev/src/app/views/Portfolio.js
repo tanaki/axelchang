@@ -12,6 +12,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_displayComplete : function () {
 
+		if ( this.id == "portfolio" ) {
+			setTimeout(function(){
+				$(".project").addClass("to-position");
+			}, 100);
+		}
+
 		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
 			e.preventDefault();
 			AC.AppRouter.navigate($(this).attr("href"), true);

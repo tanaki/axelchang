@@ -5,21 +5,26 @@
 			"title" : "Body Painting",
 			"slug" : "body-painting",
 			"cover" : "cover.jpg",
+			"coverLow" : "cover.jpg",
 			"images" : [
 				{
 					"img" : "/img/portfolio/body-painting/1.jpg",
+					"low" : "/img/portfolio/body-painting/1.jpg",
 					"credits" : "blabla"
 				},
 				{
 					"img" : "/img/portfolio/body-painting/2.jpg",
+					"low" : "/img/portfolio/body-painting/2.jpg",
 					"credits" : "blabla 2"
 				},
 				{
 					"img" : "/img/portfolio/body-painting/3.jpg",
+					"low" : "/img/portfolio/body-painting/3.jpg",
 					"credits" : "blabla 3"
 				},
 				{
 					"img" : "/img/portfolio/body-painting/4.jpg",
+					"low" : "/img/portfolio/body-painting/4.jpg",
 					"credits" : "blabla 4"
 				}
 			]
@@ -29,9 +34,11 @@
 			"title" : "Body Painting 1",
 			"slug" : "body-painting-1",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -41,9 +48,11 @@
 			"title" : "Body Painting 2",
 			"slug" : "body-painting-2",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -53,9 +62,11 @@
 			"title" : "Body Painting 3",
 			"slug" : "body-painting-3",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -65,9 +76,11 @@
 			"title" : "Body Painting 4",
 			"slug" : "body-painting-4",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -77,9 +90,11 @@
 			"title" : "Body Painting 5",
 			"slug" : "body-painting-5",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -89,9 +104,11 @@
 			"title" : "Body Painting 6",
 			"slug" : "body-painting-6",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -101,9 +118,11 @@
 			"title" : "Body Painting 7",
 			"slug" : "body-painting-7",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -113,9 +132,11 @@
 			"title" : "Body Painting 8",
 			"slug" : "body-painting-8",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -125,9 +146,11 @@
 			"title" : "Body Painting 9",
 			"slug" : "body-painting-9",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -137,9 +160,11 @@
 			"title" : "Body Painting 10",
 			"slug" : "body-painting-10",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 10"
 				}
 			]
@@ -149,9 +174,11 @@
 			"title" : "Body Painting 11",
 			"slug" : "body-painting-11",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -161,9 +188,11 @@
 			"title" : "Body Painting 12",
 			"slug" : "body-painting-12",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -173,9 +202,11 @@
 			"title" : "Body Painting 13",
 			"slug" : "body-painting-13",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -185,9 +216,11 @@
 			"title" : "Body Painting 14",
 			"slug" : "body-painting-14",
 			"cover" : "cover2.jpg",
+			"coverLow" : "cover2.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
+					"low" : "img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]
@@ -196,17 +229,18 @@
 
 	"about" : {
 		"image" : "axel-chang.jpg",
-		"text" : "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditatum deduceret graece pueri insipientiam amarissimam. Divitiarum doctus amoris captiosa nos fortitudo senserit movet ea, nimium ostendit legatis fructu exedunt doctus dubitemus miseram omnesque libro, perdiderunt ipsarum intellegamus honeste traditur nudus. Corpora accedit occulta oderit incursione, adolescens illud opus referta virtus expetendam pericula foris, sapientium percipi amotio, comparat exhorrescere, adversa venandi necesse tale futuros late, crudelis intercapedo libidinibus habere, munere rectas legum tuentur intus pueros expetendis, dediti tantopere disseruerunt, aequitate refert quosvis.</p>"
+		"imagetablet" : "axel-chang-tablet.jpg",
+		"text" : "<p>Bonjour à tous !<br/>Je m'apelle Axel Chang et  je suis maquilleur professionnel depuis dejà plusieurs années...</p><p>Organic kogi cred four loko, salvia marfa church-key mlkshk thundercats actually twee american apparel 8-bit bushwick selvage. You probably haven't heard of them fingerstache put a bird on it skateboard flexitarian pitchfork. Banksy sartorial salvia twee hella. Tonx wayfarers dreamcatcher irony leggings flexitarian, single-origin coffee sustainable meh vice flannel letterpress disrupt yr etsy.</p><p>Odd future fanny pack master cleanse freegan thundercats, lomo blog stumptown food truck. Pour-over seitan try-hard sriracha, raw denim yr next level iphone 3 wolf moon sartorial quinoa. Art party bushwick kogi vice craft beer, keytar narwhal put a bird on </p>"
 	},
 
 	"contact" : {
 		"email" : {
-			"link" : "email@email.com",
-			"label" : "email@email.com"
+			"link" : "mailto:chang.axel@gmail.com",
+			"label" : "chang.axel@gmail.com"
 		},
 		"phone" : {
-			"link" : "000",
-			"label" : "000"
+			"link" : "#",
+			"label" : "06 39 78 52 70"
 		},
 		"facebook" : {
 			"link" : "http://facebook.com/axel.changmaquilleur",

@@ -16,6 +16,9 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 }
+body {
+	background: #f1f0ee;
+}
 
 ul {
 	list-style: none;
@@ -108,8 +111,36 @@ footer {
 
 	ul {
 		text-align: center;
+		width: 80px;
+		margin: 15px auto 0;
+		overflow: hidden;
+
 		li {
-			display: inline;
+			display: block;
+			float: left;
+
+			a {
+				display: block;
+				float: left;
+				width: 25px;
+				height: 20px;
+
+				overflow: hidden;
+				text-indent: -5000px;
+				background: url(../img/sprite_footer.png) no-repeat left top;
+				background-size: 90px 15px;
+
+				&.footer-fb {
+					background-position: 9px top;
+				}
+				&.footer-tb {
+					background-position: -23px top;
+				}
+				&.footer-tw {
+					background-position: -53px top;
+					width: 30px;
+				}
+			}
 		}
 	}
 }
@@ -118,6 +149,7 @@ footer {
 	margin-bottom: 44px;
 }
 
+@import "responsive.less";
 @import "partials/home.less";
 @import "partials/portfolio.less";
 @import "partials/portfolio-detail.less";

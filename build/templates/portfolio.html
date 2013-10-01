@@ -5,23 +5,22 @@
 		<div class="project-images">
 
 			<% _.each( project.images, function(image, index){ %>
-				<div class="project-item<% if (index == 0) print(' selected') %>" data-item="<%= index %>" style="background-image:url(<%= image.img %>);z-index:<%= 999-index %>;">
-					Boom
-				</div>
+				<div class="project-item<% if (index == 0) print(' selected') %>" data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= image.low %>);z-index:<%= 999-index %>;"></div>
 			<% }) %>
 
 		</div>
 
 		<div class="project-nav">
 			<a href="#" class="prev">Prev</a>
-			<div class="current-index">
-				<span class="current">1</span>
-				<span class="total"> / <%= project.images.length %></span>
-			</div>
 			<a href="#" class="next">Next</a>
 		</div>
 
 		<div class="project-global-nav">
+			<div class="current-index">
+				<span class="current">1</span>
+				<span class="total"> / <%= project.images.length %></span>
+			</div>
+			
 			<% if ( !_.isNull(previous) && !_.isUndefined(previous) ) { %><a href="/portfolio/<%= previous.slug %>">Previous</a><% } %>
 			<span class="project-title"><%= project.title %></span>
 			<% if ( !_.isNull(next) && !_.isUndefined(next) ) { %><a href="/portfolio/<%= next.slug %>">Next</a><% } %>
@@ -31,8 +30,8 @@
 <% } else { %>
 
 	<div class="projects">
-		<% _.each ( projects, function ( project ) { %>
-			<div class="project" style="background-image:url(/img/portfolio/body-painting/cover.jpg);">
+		<% _.each ( projects, function ( project, index ) { %>
+			<div class="project project-<%= index %>" style="background-image:url(/img/portfolio/body-painting/cover.jpg);" data-bg="cover.jpg">
 				<a href="/portfolio/<%= project.slug %>">
 					<span class="project-bg"></span>
 					<span class="project-title"><%= project.title %></span>
@@ -40,5 +39,19 @@
 			</div>
 		<% }) %>
 	</div>
+
+	<style type="text/css">
+		<% _.each ( projects, function ( project, index ) { 
+			var delayValue = index * 0.001;
+			%>
+			.project-<%= index %> { 
+				-webkit-transition-delay: <%= delayValue %>s;
+				-moz-transition-delay: <%= delayValue %>s;
+				-o-transition-delay: <%= delayValue %>s;
+				-ms-transition-delay: <%= delayValue %>s;
+				transition-delay: <%= delayValue %>s;
+			}
+		<% }) %>
+	</style>
 
 <% } %>

@@ -1,3 +1,4 @@
+
 .portfolio {
 	.projects {
 		margin: 0 auto;
@@ -10,13 +11,16 @@
 			height: 220px;
 			display: block;
 			float: left;
-			margin: 0 20px 20px 0;
+			margin: 5px 20px 20px 0;
 
 			background: no-repeat center center;
 			background-size: cover;
+			
+			//.transition-duration(0.3s);
 
-			&:nth-child(4n) {
-				margin: 0 0 20px 0;
+			&.to-position {
+				//.opacity(1);
+				//margin-top: 0;
 			}
 			
 			a {
@@ -34,8 +38,8 @@
 
 					text-align: center;
 					text-transform: uppercase;
-					border: 2px solid #fff;
-					color: #fff;
+					border: 2px solid #000;
+					color: #000;
 
 					.opacity(0);
 					.transition( all 0.1s ease-out 0.05s );
@@ -60,9 +64,62 @@
 						.opacity(1);
 					}
 					.project-bg {
-						.opacity(0.4);
+						.opacity(0.8);
 					}
 				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width:1024px) {
+	.portfolio {
+		.projects {
+			.project {
+				&:nth-child(4n) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width:1023px) and (min-width:768px) {
+	.portfolio {
+		.projects {
+			max-width: 700px;
+
+			.project {
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width:767px) and (min-width:480px) {
+	.portfolio {
+		.projects {
+			max-width: 460px;
+			
+			.project {
+				
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width:479px) {
+	.portfolio {
+		.projects {
+			max-width: 220px;
+			
+			.project {
+				margin: 0 auto 20px;
 			}
 		}
 	}

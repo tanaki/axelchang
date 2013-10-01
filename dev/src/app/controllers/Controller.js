@@ -54,6 +54,9 @@ AC.Controller = function() {
 		 */
 		displayPage = function ( callbackEvent, hideFirst, urlData ) {
 
+			$("nav .selected").removeClass("selected");
+			$("nav a[href='/"+Backbone.history.fragment+"']").addClass("selected");
+
 			if ( currentView && hideFirst ) {
 				
 				currentView.hide( function() {
