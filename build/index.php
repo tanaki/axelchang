@@ -61,6 +61,11 @@
 		<!-- COMPILED SCRIPT -->
 		<!-- <script type="text/javascript" src="/js/AC.min.js"></script> -->
 		<script type="text/javascript" src="<?php echo $BASE_URL; ?>js/AC.js"></script>
+		<script type="text/javascript">
+			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
+			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
+			AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/data.json';
+		</script>
 		
 	</body>
 </html>
