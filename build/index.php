@@ -1,3 +1,11 @@
+<?php
+	
+	$BASE_URL = "/";
+
+	if ( preg_match( '/test/', $_SERVER["REQUEST_URI"] ) ) {
+		$BASE_URL = "/test/";
+	}
+?>
 <!doctype html>
 <html>
 	<head>
@@ -5,7 +13,7 @@
 		<title>Axel Chang - Make up Artist</title>
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL; ?>css/style.css">
 	</head>
 	<body>
 
@@ -14,18 +22,18 @@
 			<header>
 				<nav>
 					<ul class="nav-left">
-						<li><a href="/portfolio">Portfolio</a></li>
-						<li><a href="/about">About</a></li>
+						<li><a href="<?php echo $BASE_URL; ?>portfolio">Portfolio</a></li>
+						<li><a href="<?php echo $BASE_URL; ?>about">About</a></li>
 					</ul>
 					<h1>
-						<a href="/">
-							<img src="/img/logo.png" alt="Axel Chang - Make up Artist" class="logo-white">
-							<img src="/img/logo-black.png" alt="Axel Chang - Make up Artist" class="logo-black">
+						<a href="<?php echo $BASE_URL; ?>">
+							<img src="<?php echo $BASE_URL; ?>img/logo.png" alt="Axel Chang - Make up Artist" class="logo-white">
+							<img src="<?php echo $BASE_URL; ?>img/logo-black.png" alt="Axel Chang - Make up Artist" class="logo-black">
 						</a>
 					</h1>
 					<ul class="nav-right">
-						<li><a href="/contact">Contact</a></li>
-						<li class="last"><a href="/news">News</a></li>
+						<li><a href="<?php echo $BASE_URL; ?>contact">Contact</a></li>
+						<li class="last"><a href="<?php echo $BASE_URL; ?>news">News</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -48,11 +56,11 @@
 		<!-- LIBS -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
 		<!-- <script type="text/javascript" src="/js/libs/libs.min.js"></script> -->
-		<script type="text/javascript" src="/js/libs/libs.js"></script>
+		<script type="text/javascript" src="<?php echo $BASE_URL; ?>js/libs/libs.js"></script>
 
 		<!-- COMPILED SCRIPT -->
 		<!-- <script type="text/javascript" src="/js/AC.min.js"></script> -->
-		<script type="text/javascript" src="/js/AC.js"></script>
+		<script type="text/javascript" src="<?php echo $BASE_URL; ?>js/AC.js"></script>
 		
 	</body>
 </html>
