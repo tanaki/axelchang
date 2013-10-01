@@ -39,7 +39,7 @@ AC.Events = {
 $(window).ready(function(){
 	
 	AC.AppRouter = new AC.Router();
-	Backbone.history.start({ pushState : true });
+	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
 
 });
 
