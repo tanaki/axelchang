@@ -16,6 +16,8 @@
     "$": false,
     "_": false,
     "Backbone": false,
-    "AC": true
+    "AC": true,
+    "document" : false,
+    "Swipe" : true
   }
 }

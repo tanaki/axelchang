@@ -4,9 +4,13 @@
 		
 		<div class="project-images">
 
-			<% _.each( project.images, function(image, index){ %>
-				<div class="project-item<% if (index == 0) print(' selected') %>" data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= AC.Locations.Images + image.low %>);z-index:<%= 999-index %>;"></div>
-			<% }) %>
+			<div id="detail-slider" class="swipe">
+				<div class="swipe-wrap">
+					<% _.each( project.images, function(image, index){ %>
+						<div data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= AC.Locations.Images + image.low %>);"></div>
+					<% }) %>
+				</div>
+			</div>
 
 		</div>
 

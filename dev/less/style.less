@@ -149,6 +149,27 @@ footer {
 	margin-bottom: 44px;
 }
 
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+	height: 100%;
+}
+.swipe-wrap {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+.swipe-wrap > div {
+	float:left;
+	width:100%;
+	position: relative;
+
+	height: 100%;
+	background: no-repeat center center;
+	background-size: cover;
+}
+
 @import "responsive.less";
 @import "partials/home.less";
 @import "partials/portfolio.less";

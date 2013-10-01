@@ -216,6 +216,25 @@ footer ul li a.footer-tw {
 .main-content {
   margin-bottom: 44px;
 }
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  height: 100%;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.swipe-wrap > div {
+  float: left;
+  width: 100%;
+  position: relative;
+  height: 100%;
+  background: no-repeat center center;
+  background-size: cover;
+}
 @media screen and (max-width: 680px) {
   header {
     height: 115px;

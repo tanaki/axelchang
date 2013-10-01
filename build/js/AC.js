@@ -529,22 +529,44 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_displayComplete : function () {
 
+		/*
 		if ( this.id == "portfolio" ) {
 			setTimeout(function(){
 				$(".project").addClass("to-position");
 			}, 100);
-		}
+		}*/
 
-		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
+		// .project a,
+		$(".project-detail .project-global-nav a").on("click", function(e){
 			e.preventDefault();
 			AC.AppRouter.navigate($(this).attr("href"), true);
 		});
 
+		this.detailSwipe = new Swipe(document.getElementById("detail-slider"));
 		this.initProjectNav();
 	},
 
+	
 	initProjectNav : function(){
 
+		var 
+			detailSwipe = this.detailSwipe,
+			$container = $(".project-detail .project-nav");
+
+		$(".next", $container).on("click", function(e){
+			e.preventDefault();
+
+			detailSwipe.next();
+			$(".current-index .current").html( detailSwipe.getPos() +1 );
+		});
+		$(".prev", $container).on("click", function(e){
+			e.preventDefault();
+
+			detailSwipe.prev();
+			$(".current-index .current").html( detailSwipe.getPos() +1 );
+		});
+
+		/*
 		var 
 			$container = $(".project-detail .project-nav"),
 			max = $(".project-item").length - 1,
@@ -587,6 +609,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 			$(".current-index .current").html(newIndex+1);
 		});
+		*/
 	},
 
 	update : function ( slug, imgIndex ){
