@@ -3,28 +3,28 @@
 		{
 			"id" : 0,
 			"title" : "Body Painting",
-			"slug" : "1",
+			"slug" : "project-1",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
-					"img" : "portfolio/body-painting/1.jpg",
-					"low" : "portfolio/body-painting/1.jpg",
+					"img" : "1.jpg",
+					"low" : "1.jpg",
 					"credits" : "blabla"
 				},
 				{
-					"img" : "portfolio/body-painting/2.jpg",
-					"low" : "portfolio/body-painting/2.jpg",
+					"img" : "2.jpg",
+					"low" : "2.jpg",
 					"credits" : "blabla 2"
 				},
 				{
-					"img" : "portfolio/body-painting/3.jpg",
-					"low" : "portfolio/body-painting/3.jpg",
+					"img" : "3.jpg",
+					"low" : "3.jpg",
 					"credits" : "blabla 3"
 				},
 				{
-					"img" : "portfolio/body-painting/4.jpg",
-					"low" : "portfolio/body-painting/4.jpg",
+					"img" : "4.jpg",
+					"low" : "4.jpg",
 					"credits" : "blabla 4"
 				}
 			]
@@ -32,7 +32,7 @@
 		{
 			"id" : 1,
 			"title" : "Body Painting 1",
-			"slug" : "2",
+			"slug" : "project-2",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -46,7 +46,7 @@
 		{
 			"id" : 2,
 			"title" : "Body Painting 2",
-			"slug" : "3",
+			"slug" : "project-3",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -60,7 +60,7 @@
 		{
 			"id" : 3,
 			"title" : "Body Painting 3",
-			"slug" : "4",
+			"slug" : "project-4",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -74,7 +74,7 @@
 		{
 			"id" : 4,
 			"title" : "Body Painting 4",
-			"slug" : "5",
+			"slug" : "project-5",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -88,7 +88,7 @@
 		{
 			"id" : 5,
 			"title" : "Body Painting 5",
-			"slug" : "6",
+			"slug" : "project-6",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -102,7 +102,7 @@
 		{
 			"id" : 6,
 			"title" : "Body Painting 6",
-			"slug" : "7",
+			"slug" : "project-7",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -116,7 +116,7 @@
 		{
 			"id" : 7,
 			"title" : "Body Painting 7",
-			"slug" : "8",
+			"slug" : "project-8",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -130,7 +130,7 @@
 		{
 			"id" : 8,
 			"title" : "Body Painting 8",
-			"slug" : "3",
+			"slug" : "project-9",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -144,7 +144,7 @@
 		{
 			"id" : 9,
 			"title" : "Body Painting 9",
-			"slug" : "2",
+			"slug" : "project-10",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [
@@ -158,7 +158,7 @@
 		{
 			"id" : 10,
 			"title" : "Body Painting 10",
-			"slug" : "1",
+			"slug" : "project-11",
 			"cover" : "cover.jpg",
 			"coverLow" : "cover-low.jpg",
 			"images" : [

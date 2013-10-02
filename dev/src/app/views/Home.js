@@ -11,11 +11,14 @@ AC.View.Home = AC.View.Base.extend({
 		this.preload = new createjs.LoadQueue(true);
 		
 		this.preload.addEventListener("fileload", this.handleFileLoad );
-		this.preload.loadFile("img/bg.jpg");
+		this.preload.loadFile({"src" : "img/bg.jpg", "id" : "home-bg"});
+		this.preload.loadFile("img/axel-chang.jpg");
+		this.preload.loadFile("img/axel-chang-tablet.jpg");
 	},
 
-	handleFileLoad : function() {
-		$(".home").addClass("home-loaded");
+	handleFileLoad : function(event) {
+		if ( event.item.id === "home-bg" ) 
+			$(".home").addClass("home-loaded");
 	},
 
 	hide : function ( callback ) {

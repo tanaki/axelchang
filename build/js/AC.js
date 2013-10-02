@@ -499,11 +499,14 @@ AC.View.Home = AC.View.Base.extend({
 		this.preload = new createjs.LoadQueue(true);
 		
 		this.preload.addEventListener("fileload", this.handleFileLoad );
-		this.preload.loadFile("img/bg.jpg");
+		this.preload.loadFile({"src" : "img/bg.jpg", "id" : "home-bg"});
+		this.preload.loadFile("img/axel-chang.jpg");
+		this.preload.loadFile("img/axel-chang-tablet.jpg");
 	},
 
-	handleFileLoad : function() {
-		$(".home").addClass("home-loaded");
+	handleFileLoad : function(event) {
+		if ( event.item.id === "home-bg" ) 
+			$(".home").addClass("home-loaded");
 	},
 
 	hide : function ( callback ) {
@@ -557,6 +560,16 @@ AC.View.Portfolio = AC.View.Base.extend({
 		this.params.projects = AC.Data.JSON.portfolio;
 	},
 
+	hide : function(callback) {
+		
+		if ( $("body").data("all-loaded") === true ) 
+			this.preloadedAll = true;
+
+		if (callback) {
+			callback();
+		}
+	},
+
 	_displayComplete : function () {
 
 		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
@@ -568,7 +581,9 @@ AC.View.Portfolio = AC.View.Base.extend({
 			callback : this._callbackSwipe
 		});
 
-		this.initPreload();
+		if ( !this.preloadedAll ) this.initPreload();
+		else this.prepImages();
+
 		this.initProjectNav();
 	},
 
@@ -593,7 +608,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		this.preload = new createjs.LoadQueue(true);
 		this.preload.addEventListener("fileload", this.handleFileLoad );
+		this.preload.addEventListener("complete", this.handleComplete);
 		this.preload.loadManifest(manifest);
+	},
+
+	handleComplete : function() {
+		$("body").data("all-loaded", true);
 	},
 
 	handleFileLoad : function (event) {
@@ -602,6 +622,16 @@ AC.View.Portfolio = AC.View.Base.extend({
 			.removeClass("to-load")
 			.attr("src", event.item.src)
 			.addClass("loaded");
+	},
+
+	prepImages : function() {
+
+		$(".to-load").each(function(index, el) {
+			$(el)
+				.removeClass("to-load")
+				.attr("src", $(el).data('src'))
+				.addClass("loaded");
+		});
 	},
 	
 	initProjectNav : function(){

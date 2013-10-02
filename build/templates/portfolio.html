@@ -7,7 +7,7 @@
 			<div id="detail-slider" class="swipe">
 				<div class="swipe-wrap">
 					<% _.each( project.images, function(image, index){ %>
-						<div data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= AC.Locations.Images + image.low %>);"></div>
+						<div data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= AC.Locations.Images + 'portfolio/' + project.slug + '/' + image.low %>);"></div>
 					<% }) %>
 				</div>
 			</div>
@@ -44,19 +44,5 @@
 			</div>
 		<% }) %>
 	</div>
-
-	<style type="text/css">
-		<% _.each ( projects, function ( project, index ) { 
-			var delayValue = index * 0.001;
-			%>
-			.project-<%= index %> { 
-				-webkit-transition-delay: <%= delayValue %>s;
-				-moz-transition-delay: <%= delayValue %>s;
-				-o-transition-delay: <%= delayValue %>s;
-				-ms-transition-delay: <%= delayValue %>s;
-				transition-delay: <%= delayValue %>s;
-			}
-		<% }) %>
-	</style>
 
 <% } %>
