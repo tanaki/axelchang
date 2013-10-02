@@ -3,9 +3,9 @@
 		{
 			"id" : 0,
 			"title" : "Body Painting",
-			"slug" : "body-painting",
+			"slug" : "1",
 			"cover" : "cover.jpg",
-			"coverLow" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "portfolio/body-painting/1.jpg",
@@ -32,9 +32,9 @@
 		{
 			"id" : 1,
 			"title" : "Body Painting 1",
-			"slug" : "body-painting-1",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "2",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -46,9 +46,9 @@
 		{
 			"id" : 2,
 			"title" : "Body Painting 2",
-			"slug" : "body-painting-2",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "3",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -60,9 +60,9 @@
 		{
 			"id" : 3,
 			"title" : "Body Painting 3",
-			"slug" : "body-painting-3",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "4",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -74,9 +74,9 @@
 		{
 			"id" : 4,
 			"title" : "Body Painting 4",
-			"slug" : "body-painting-4",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "5",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -88,9 +88,9 @@
 		{
 			"id" : 5,
 			"title" : "Body Painting 5",
-			"slug" : "body-painting-5",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "6",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -102,9 +102,9 @@
 		{
 			"id" : 6,
 			"title" : "Body Painting 6",
-			"slug" : "body-painting-6",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "7",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -116,9 +116,9 @@
 		{
 			"id" : 7,
 			"title" : "Body Painting 7",
-			"slug" : "body-painting-7",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "8",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -130,9 +130,9 @@
 		{
 			"id" : 8,
 			"title" : "Body Painting 8",
-			"slug" : "body-painting-8",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "3",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -144,9 +144,9 @@
 		{
 			"id" : 9,
 			"title" : "Body Painting 9",
-			"slug" : "body-painting-9",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "2",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
@@ -158,70 +158,14 @@
 		{
 			"id" : 10,
 			"title" : "Body Painting 10",
-			"slug" : "body-painting-10",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
+			"slug" : "1",
+			"cover" : "cover.jpg",
+			"coverLow" : "cover-low.jpg",
 			"images" : [
 				{
 					"img" : "img2.jpg",
 					"low" : "img2.jpg",
 					"credits" : "blabla 10"
-				}
-			]
-		},
-		{
-			"id" : 11,
-			"title" : "Body Painting 11",
-			"slug" : "body-painting-11",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
-			"images" : [
-				{
-					"img" : "img2.jpg",
-					"low" : "img2.jpg",
-					"credits" : "blabla 2"
-				}
-			]
-		},
-		{
-			"id" : 12,
-			"title" : "Body Painting 12",
-			"slug" : "body-painting-12",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
-			"images" : [
-				{
-					"img" : "img2.jpg",
-					"low" : "img2.jpg",
-					"credits" : "blabla 2"
-				}
-			]
-		},
-		{
-			"id" : 13,
-			"title" : "Body Painting 13",
-			"slug" : "body-painting-13",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
-			"images" : [
-				{
-					"img" : "img2.jpg",
-					"low" : "img2.jpg",
-					"credits" : "blabla 2"
-				}
-			]
-		},
-		{
-			"id" : 14,
-			"title" : "Body Painting 14",
-			"slug" : "body-painting-14",
-			"cover" : "cover2.jpg",
-			"coverLow" : "cover2.jpg",
-			"images" : [
-				{
-					"img" : "img2.jpg",
-					"low" : "img2.jpg",
-					"credits" : "blabla 2"
 				}
 			]
 		}

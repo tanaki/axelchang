@@ -18,6 +18,7 @@
     "Backbone": false,
     "AC": true,
     "document" : false,
-    "Swipe" : true
+    "Swipe" : true,
+    "createjs" : true
   }
 }

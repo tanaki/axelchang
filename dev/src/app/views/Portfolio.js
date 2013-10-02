@@ -6,19 +6,14 @@ AC.View.Portfolio = AC.View.Base.extend({
 	initedLinks : false,
 	slug : null,
 	detailSwipe : null,
+	preload : null,
+	preloadedAll : false,
 
 	initialize : function () {
 		this.params.projects = AC.Data.JSON.portfolio;
 	},
 
 	_displayComplete : function () {
-
-		/*
-		if ( this.id == "portfolio" ) {
-			setTimeout(function(){
-				$(".project").addClass("to-position");
-			}, 100);
-		}*/
 
 		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
 			e.preventDefault();
@@ -28,11 +23,41 @@ AC.View.Portfolio = AC.View.Base.extend({
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
 			callback : this._callbackSwipe
 		});
+
+		this.initPreload();
 		this.initProjectNav();
 	},
 
 	_callbackSwipe : function(index) {
 		$(".current-index .current").html( index + 1 );
+	},
+
+	initPreload : function() {
+
+		var 
+			o,
+			manifest = [];
+
+		$(".to-load").each(function(index, el) {
+			
+			o = {};
+			o.src = $(el).data("src");
+			o.id = $(el).attr("src");
+
+			manifest.push(o);
+		});
+
+		this.preload = new createjs.LoadQueue(true);
+		this.preload.addEventListener("fileload", this.handleFileLoad );
+		this.preload.loadManifest(manifest);
+	},
+
+	handleFileLoad : function (event) {
+
+		$("[src='" + event.item.id + "']")
+			.removeClass("to-load")
+			.attr("src", event.item.src)
+			.addClass("loaded");
 	},
 	
 	initProjectNav : function(){
