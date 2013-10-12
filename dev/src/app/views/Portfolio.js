@@ -82,6 +82,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 			manifest = [];
 
 		$(".to-load-bg").each(function(index, el) {
+
+			console.log("add this", index);
 			
 			o = {};
 			o.src = $(el).data("img");
@@ -114,6 +116,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleFileLoadBG : function (event) {
 
+		console.log("loaded", event.item.id);
+
 		$("[data-img='" + event.item.id + "']")
 			.removeClass("to-load-bg")
 			.css("background-image", "url(" + event.item.src + ")")
@@ -133,7 +137,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 	prepBG : function() {
 
 		$(".to-load-bg").each(function(index, el) {
-			
+
 			$(el)
 				.removeClass("to-load-bg")
 				.css("background-image", "url(" + $(el).data('img') + ")")
