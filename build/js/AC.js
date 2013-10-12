@@ -218,7 +218,7 @@ AC.DataManager = AC.DataManager || {
 						
 			self.dataLoaded = true;
 			self.check( self.currentEvent, self.currentSlug );
-		});
+		}, 'json');
 		
 	}
 };
