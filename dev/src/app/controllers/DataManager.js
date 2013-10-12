@@ -35,6 +35,9 @@ AC.DataManager = AC.DataManager || {
 		var self = this;
 		$.get(AC.Locations.JSON, function( data ) {
 
+			console.log(data);
+			console.log( $.parseJSON(data) );
+
 			AC.Data.JSON = data;
 						
 			self.dataLoaded = true;
