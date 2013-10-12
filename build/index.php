@@ -1,9 +1,11 @@
 <?php
 	
 	$BASE_URL = "/";
+	$PROD = false;
 
 	if ( preg_match( '/test/', $_SERVER["REQUEST_URI"] ) ) {
 		$BASE_URL = "/test/";
+		$PROD = true;
 	}
 ?>
 <!doctype html>
@@ -67,7 +69,8 @@
 			AC.Locations.Root = '<?php echo $BASE_URL; ?>';
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
-			AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/data.json';
+			//AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/data.json';
+			AC.Locations.JSON = '<?php echo ( $PROD ? '/koken' : $BASE_URL . 'data/data.json'); ?>';
 		</script>
 		
 	</body>
