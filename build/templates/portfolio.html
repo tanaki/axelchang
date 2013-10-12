@@ -7,7 +7,7 @@
 			<div id="detail-slider" class="swipe">
 				<div class="swipe-wrap">
 					<% _.each( project.images, function(image, index){ %>
-						<div data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= AC.Locations.Images + 'portfolio/' + project.slug + '/' + image.low %>);"></div>
+						<div data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= image.low %>);"></div>
 					<% }) %>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 				<a href="/portfolio/<%= project.slug %>">
 					<span class="project-bg"></span>
 					<span class="project-title"><%= project.title %></span>
-					<img class="to-load" src="<%= AC.Locations.Images  + 'portfolio/' + project.slug + '/' + project.coverLow %>" data-src="<%= AC.Locations.Images  + 'portfolio/' + project.slug + '/' + project.cover %>" alt="<%= project.title %>" />
+					<img class="to-load" src="<%= project.coverLow %>" data-src="<%= project.cover %>" alt="<%= project.title %>" />
 				</a>
 			</div>
 		<% }) %>
