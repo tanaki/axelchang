@@ -211,6 +211,8 @@ AC.DataManager = AC.DataManager || {
 
 	getData : function ( ) {
 
+		console.log("get data",AC.Locations.JSON );
+
 		var self = this;
 		$.get(AC.Locations.JSON, function( data ) {
 
