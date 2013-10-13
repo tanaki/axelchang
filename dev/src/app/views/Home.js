@@ -4,26 +4,30 @@ AC.View.Home = AC.View.Base.extend({
 	id : "home",
 	path : "home.html",
 	preload : null,
-	preloaded : false,
 	
 	initialize : function() {
 
 		this.preload = new createjs.LoadQueue(true);
 		
+		this.preload.addEventListener("complete", this.handleComplete );
 		this.preload.addEventListener("fileload", this.handleFileLoad );
 		this.preload.loadFile({"src" : "img/bg.jpg", "id" : "home-bg"});
 		this.preload.loadFile("img/axel-chang.jpg");
 		this.preload.loadFile("img/axel-chang-tablet.jpg");
 	},
 
+	handleComplete : function() {
+		$("body").data("home-preload", true);
+	},
+
 	handleFileLoad : function(event) {
+		
 		if ( event.item.id === "home-bg" ) 
 			$(".home").addClass("home-loaded");
 	},
 
 	hide : function ( callback ) {
-
-		if ( $(".home").hasClass("home-loaded") ) this.preloaded = true;
+		
 		$(".home").removeClass("home-loaded");
 
 		if (callback) {
@@ -33,7 +37,7 @@ AC.View.Home = AC.View.Base.extend({
 
 	_displayComplete : function() {
 
-		if ( this.preloaded ) {
+		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
 		}		
 	}

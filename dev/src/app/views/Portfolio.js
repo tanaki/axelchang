@@ -11,7 +11,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 	preloadedImgAll : false,
 
 	preloadBG : null,
-	preloadedBGAll : false,
 
 	initialize : function () {
 		this.params.projects = AC.Data.JSON.portfolio;
@@ -22,9 +21,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 		if ( $("body").data("all-img-loaded") === true ) 
 			this.preloadedImgAll = true;
 		
-		if ( $("body").data("all-bg-loaded") === true ) 
-			this.preloadedBGAll = true;
-
 		if (callback) {
 			callback();
 		}
@@ -44,9 +40,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 		if ( !this.preloadedImgAll ) this.initImgPreload();
 		else this.prepImages();
 
-		if ( !this.preloadedBGAll ) this.initBGPreload();
-		else this.prepBG();
-
+		this.initBGPreload();
 		this.initProjectNav();
 	},
 
@@ -94,16 +88,11 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		this.preloadBG = new createjs.LoadQueue(true);
 		this.preloadBG.addEventListener("fileload", this.handleFileLoadBG );
-		this.preloadBG.addEventListener("complete", this.handleCompleteBG );
 		this.preloadBG.loadManifest(manifest);
 	},
 
 	handleComplete : function() {
 		$("body").data("all-img-loaded", true);
-	},
-
-	handleCompleteBG : function() {
-		$("body").data("all-bg-loaded", true);
 	},
 
 	handleFileLoad : function (event) {
@@ -115,8 +104,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 	},
 
 	handleFileLoadBG : function (event) {
-
-		console.log("loaded", event.item.id);
 
 		$("[data-img='" + event.item.id + "']")
 			.removeClass("to-load-bg")
@@ -131,17 +118,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 				.removeClass("to-load")
 				.attr("src", $(el).data('src'))
 				.addClass("loaded");
-		});
-	},
-
-	prepBG : function() {
-
-		$(".to-load-bg").each(function(index, el) {
-
-			$(el)
-				.removeClass("to-load-bg")
-				.css("background-image", "url(" + $(el).data('img') + ")")
-				.addClass("loaded-bg");
 		});
 	},
 	
