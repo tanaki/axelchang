@@ -28,7 +28,7 @@
 				foreach ( $jsonAlbum->content as $content ) {
 					echo '{';
 						echo '"img" : "' . $content->presets->huge->url . '",';
-						echo '"low" : "' . $content->presets->tiny->url . '",';
+						echo '"low" : "' . $content->presets->medium->url . '",';
 						echo '"credits" : "' . $content->caption . '"';
 					echo '}';
 
