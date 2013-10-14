@@ -45,8 +45,8 @@
 	echo '],
 
 		"about" : {
-			"image" : "axel-chang.jpg",
-			"imagetablet" : "axel-chang-tablet.jpg",
+			"image" : "img/axel-chang.jpg",
+			"imagetablet" : "img/axel-chang-tablet.jpg",
 			"text" : " ' . addslashes(trim($dataAbout->content)) . '"
 		},
 
