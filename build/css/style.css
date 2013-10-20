@@ -532,3 +532,7 @@ footer ul li a.footer-tw {
     margin: 0;
   }
 }
+.news #news-slider {
+  width: 80%;
+  margin: 0 auto;
+}

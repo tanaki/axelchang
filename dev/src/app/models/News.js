@@ -8,7 +8,7 @@ AC.Model.News = Backbone.Model.extend({
 	},
 	
 	initialize: function(){
-
+		this.params.news = AC.Data.JSON.news;
 	},
 
 	parse : function(data){

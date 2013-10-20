@@ -4,6 +4,7 @@
 
 	$data = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/slug:portfolio/content'));
 	$dataAbout = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text/slug:about') );
+	$dataNews = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/slug:news/content'));
 
 	// Start JSON
 	echo '{';
@@ -42,12 +43,34 @@
 		if ( $i < $max - 1 ) echo ',';
 		$i++;
 	}
+	echo '],';
+
+	echo '"news" : [';
+
+		$maxArticle = count($dataNews->content);
+		$k = 0;
+		
+		foreach ( $dataNews->content as $article ) {
+
+			echo '{';
+				echo '"id" : "' . $article->id . '",';
+				echo '"slug" : "' . $article->slug . '",';
+				echo '"text" : "' . $article->caption . '",';
+				echo '"img" : "' . $article->presets->huge->url . '",';
+				echo '"low" : "' . $article->presets->small->url . '"';
+			echo '}';
+
+			if ( $k < $maxArticle - 1 ) echo ',';
+			$k++;
+
+		}
+
 	echo '],
 
 		"about" : {
 			"image" : "img/axel-chang.jpg",
 			"imagetablet" : "img/axel-chang-tablet.jpg",
-			"text" : " ' . addslashes(trim($dataAbout->content)) . '"
+			"text" : "' . addslashes(trim($dataAbout->content)) . '"
 		},
 
 		"contact" : {

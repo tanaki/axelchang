@@ -1,7 +1,23 @@
-<ul>
-	<% _.each ( news, function ( article ) { %>
-		<li>
-			<%= article.title %>
-		</li>
-	<% }) %>
-</ul>
+<div class="news-list">
+
+	<div class="news-content">
+
+		<div id="news-slider" class="swipe">
+			<div class="swipe-wrap">
+				<% _.each ( news, function ( article ) { %>
+				<div>
+					<img src="<%= article.low %>" data-src="<%= article.img %>">
+					<%= article.text %>
+				</div>
+				<% }) %>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="news-nav">
+		<a href="#" class="prev">Prev</a>
+		<a href="#" class="next">Next</a>
+	</div>
+
+</div>

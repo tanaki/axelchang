@@ -202,28 +202,20 @@
 
 	"news" : [
 		{
-			"date" : "02 Feb 2012",
+			"id" : 0,
 			"slug" : "news-1",
 			"title" : "Title",
 			"text" : "<p>Text news 1</p>",
-			"images" : [
-				{
-					"img" : "img.jpg",
-					"caption" : "caption"
-				}
-			]
+			"img" : "img.jpg",
+			"low" : "low.jpg"
 		},
 		{
-			"date" : "03 Feb 2012",
+			"id" : 1,
 			"slug" : "news-2",
 			"title" : "Title 2",
 			"text" : "<p>Text news 2</p>",
-			"images" : [
-				{
-					"img" : "img2.jpg",
-					"caption" : "caption 2"
-				}
-			]
+			"img" : "img2.jpg",
+			"low" : "low2.jpg"
 		}
 	]
 }
