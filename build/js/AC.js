@@ -36,6 +36,26 @@ AC.Events = {
     SHOW_NEWS : "SHOW_NEWS"
 };
 
+/* Spinner options */
+AC.Spin.Options = {
+	lines: 15,
+	length: 0,
+	width: 2,
+	radius: 15,
+	corners: 1,
+	rotate: 0,
+	direction: 1,
+	color: '#000',
+	speed: 1.1,
+	trail: 10,
+	shadow: false,
+	hwaccel: false,
+	className: 'spinner',
+	zIndex: 2e9,
+	top: 'auto',
+	left: 'auto'
+};
+
 $(window).ready(function(){
 	
 	AC.AppRouter = new AC.Router();
