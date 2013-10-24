@@ -282,8 +282,6 @@ footer ul li a.footer-tw {
   height: 100%;
   margin: 0;
   z-index: -1;
-  background: url("../img/bg_low.jpg") no-repeat center center;
-  background-size: cover;
   filter: blur(3px);
   -webkit-filter: blur(3px);
   -moz-filter: blur(3px);
@@ -295,7 +293,6 @@ footer ul li a.footer-tw {
   transition: -webkit-filter 0.2s linear;
 }
 .home.home-loaded .main-content {
-  background-image: url("../img/bg.jpg");
   filter: blur(none);
   -webkit-filter: none;
   -moz-filter: none;
@@ -534,4 +531,16 @@ footer ul li a.footer-tw {
 .news #news-slider {
   width: 80%;
   margin: 0 auto;
+}
+.mouse-move {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.mouse-move img {
+  display: block;
+  width: 100%;
 }

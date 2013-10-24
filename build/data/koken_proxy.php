@@ -19,7 +19,7 @@
 			echo '"id" : "' . $album->id . '",';
 			echo '"title" : "' . $album->title . '",';
 			echo '"slug" : "' . $album->slug . '",';
-			echo '"cover" : "' . $album->covers[0]->presets->huge->url . '",';
+			echo '"cover" : "' . $album->covers[0]->presets->medium->url . '",';
 			echo '"coverLow" : "' . $album->covers[0]->presets->tiny->url . '",';
 			echo '"images" : [';
 

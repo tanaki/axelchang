@@ -22,8 +22,10 @@ AC.View.Home = AC.View.Base.extend({
 
 	handleFileLoad : function(event) {
 		
-		if ( event.item.id === "home-bg" ) 
+		if ( event.item.id === "home-bg" ) {
 			$(".home").addClass("home-loaded");
+			$("#img-home").attr("src", "img/bg.jpg");
+		}
 	},
 
 	hide : function ( callback ) {
@@ -39,6 +41,7 @@ AC.View.Home = AC.View.Base.extend({
 
 		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
+			$("#img-home").attr("src", "img/bg.jpg");
 		}		
 	}
 	

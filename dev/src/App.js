@@ -37,7 +37,7 @@ AC.Events = {
 };
 
 /* Spinner options */
-AC.Spin.Options = {
+AC.SpinOptions = {
 	lines: 15,
 	length: 0,
 	width: 2,

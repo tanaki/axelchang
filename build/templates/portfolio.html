@@ -7,7 +7,9 @@
 			<div id="detail-slider" class="swipe">
 				<div class="swipe-wrap">
 					<% _.each( project.images, function(image, index){ %>
-						<div class="to-load-bg" data-item="<%= index %>" data-img="<%= image.img %>" style="background-image:url(<%= image.low %>);"></div>
+						<div class="mouse-move to-load-bg" data-item="<%= index %>">
+							<img src="<%= image.low %>" alt="" data-src="<%= image.img %>" />
+						</div>
 					<% }) %>
 				</div>
 			</div>
