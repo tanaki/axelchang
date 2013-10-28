@@ -21,9 +21,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 		if ( $("body").data("all-img-loaded") === true ) 
 			this.preloadedImgAll = true;
 		
-		if (callback) {
-			callback();
-		}
+		var $el = $(this.el);
+		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {
+			if (callback) {
+				callback();
+			}
+		});
 	},
 
 	_displayComplete : function () {
@@ -37,11 +40,23 @@ AC.View.Portfolio = AC.View.Base.extend({
 			callback : this._callbackSwipe
 		});
 
-		if ( !this.preloadedImgAll ) this.initImgPreload();
+		if ( !this.preloadedImgAll ) {
+			this.addLoaders(".project");
+			this.initImgPreload();
+		}
 		else this.prepImages();
 
+		this.addLoaders(".mouse-move");
 		this.initBGPreload();
 		this.initProjectNav();
+	},
+
+	addLoaders : function(selector) {
+		
+		$(selector).each(function(index, el){
+			var spiner = $(AC.Spinner.el).clone();
+			$(el).append( spiner );
+		});	
 	},
 
 	_callbackSwipe : function(index) {
@@ -95,10 +110,13 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleFileLoad : function (event) {
 
-		$("[src='" + event.item.id + "']")
+		var $el = $("[src='" + event.item.id + "']");
+		$el
 			.removeClass("to-load")
 			.attr("src", event.item.src)
 			.addClass("loaded");
+
+		$el.parents(".project").find(".spinner").remove();
 	},
 
 	handleFileLoadBG : function (event) {

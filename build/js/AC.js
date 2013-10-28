@@ -13,9 +13,12 @@ AC.Model = AC.Model || {};
 
 /* VIEWS */
 AC.View = AC.View || {};
+AC.View.Components = AC.View.Components || {};
 
 /* DATA */
 AC.Data = AC.Data || {};
+AC.Data.FADE_IN_DURATION = 400;
+AC.Data.FADE_OUT_DURATION = 100;
 
 /* LOCATIONS */
 AC.Locations = AC.Locations || {};
@@ -45,7 +48,7 @@ AC.SpinOptions = {
 	corners: 1,
 	rotate: 0,
 	direction: 1,
-	color: '#000',
+	color: '#fff',
 	speed: 1.1,
 	trail: 10,
 	shadow: false,
@@ -58,8 +61,36 @@ AC.SpinOptions = {
 
 $(window).ready(function(){
 	
+	AC.Spinner = new Spinner( AC.SpinOptions ).spin();
+	
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
+
+
+	$("body").on('mousemove', function(e){
+
+		var 
+			refH = $(window).height() - 15,
+			$img = $(".mouse-move img", this),
+			$parent = $img.parent(),
+			imgH = $img.height(),
+			maxM = (imgH - refH),
+			newY = maxM * (e.pageY / refH);
+
+		if ( refH < imgH ) {
+			$img.css("margin-top", -newY);
+			$parent
+				.removeClass("img-full")
+				.css("background-image", "none");
+		}
+		else {
+			$parent
+				.addClass("img-full")
+				.css("background-image", "url(" + $img.attr("src") + ")");
+
+			$img.css("margin-top", 0);
+		}
+	});
 
 });
 
@@ -444,13 +475,13 @@ AC.View.Base = Backbone.View.extend({
 	params : {},
 
 	hide : function ( callback ) {
-
-		// var $el = $(this.el);
-		// $el.hide();
-
-		if (callback) {
-			callback();
-		}
+		
+		var $el = $(this.el);
+		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {
+			if (callback) {
+				callback();
+			}
+		});
 	},
 	
 	render : function() {
@@ -467,16 +498,16 @@ AC.View.Base = Backbone.View.extend({
 	
 	_display : function() {
 
+		
 		var self = this;
 		
-		$("body").attr("class", "").addClass(self.id);
-
-		$(this.el).html( this.tpl(this.params) );
-		this._displayComplete();
-
-		// .show({
-			// complete : self._displayComplete
-		// });
+		self.slug = self.params.slug;
+		self.prevId = $("body").attr("class");
+		
+		$("body").removeClass(self.prevId).addClass(self.id);
+		$(this.el).html( this.tpl(this.params) ).fadeIn(AC.Data.FADE_IN_DURATION, function() {
+			self._displayComplete(self);
+		});
 	},
 
 	_displayComplete : function () {
@@ -519,9 +550,14 @@ AC.View.Home = AC.View.Base.extend({
 	
 	initialize : function() {
 
+		$("#wrapper").append( $(AC.Spinner.el) );
+
 		this.preload = new createjs.LoadQueue(true);
 		
-		this.preload.addEventListener("complete", this.handleComplete );
+		var self = this;
+		this.preload.addEventListener("complete", function() {
+			self.handleComplete();
+		});
 		this.preload.addEventListener("fileload", this.handleFileLoad );
 		this.preload.loadFile({"src" : "img/bg.jpg", "id" : "home-bg"});
 		this.preload.loadFile("img/axel-chang.jpg");
@@ -530,6 +566,7 @@ AC.View.Home = AC.View.Base.extend({
 
 	handleComplete : function() {
 		$("body").data("home-preload", true);
+		$(AC.Spinner.el).remove();
 	},
 
 	handleFileLoad : function(event) {
@@ -544,9 +581,12 @@ AC.View.Home = AC.View.Base.extend({
 		
 		$(".home").removeClass("home-loaded");
 
-		if (callback) {
-			callback();
-		}
+		var $el = $(this.el);
+		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {
+			if (callback) {
+				callback();
+			}
+		});
 	},
 
 	_displayComplete : function() {
@@ -554,7 +594,7 @@ AC.View.Home = AC.View.Base.extend({
 		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
 			$("#img-home").attr("src", "img/bg.jpg");
-		}		
+		}
 	}
 	
 });
@@ -627,9 +667,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 		if ( $("body").data("all-img-loaded") === true ) 
 			this.preloadedImgAll = true;
 		
-		if (callback) {
-			callback();
-		}
+		var $el = $(this.el);
+		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {
+			if (callback) {
+				callback();
+			}
+		});
 	},
 
 	_displayComplete : function () {
@@ -643,11 +686,23 @@ AC.View.Portfolio = AC.View.Base.extend({
 			callback : this._callbackSwipe
 		});
 
-		if ( !this.preloadedImgAll ) this.initImgPreload();
+		if ( !this.preloadedImgAll ) {
+			this.addLoaders(".project");
+			this.initImgPreload();
+		}
 		else this.prepImages();
 
+		this.addLoaders(".mouse-move");
 		this.initBGPreload();
 		this.initProjectNav();
+	},
+
+	addLoaders : function(selector) {
+		
+		$(selector).each(function(index, el){
+			var spiner = $(AC.Spinner.el).clone();
+			$(el).append( spiner );
+		});	
 	},
 
 	_callbackSwipe : function(index) {
@@ -701,10 +756,13 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleFileLoad : function (event) {
 
-		$("[src='" + event.item.id + "']")
+		var $el = $("[src='" + event.item.id + "']");
+		$el
 			.removeClass("to-load")
 			.attr("src", event.item.src)
 			.addClass("loaded");
+
+		$el.parents(".project").find(".spinner").remove();
 	},
 
 	handleFileLoadBG : function (event) {
@@ -768,6 +826,14 @@ AC.View.Portfolio = AC.View.Base.extend({
 		} else {
 			this.id = "portfolio";
 		}
+	}
+	
+});
+
+AC.View.Components.Zoom = Backbone.View.extend({
+
+	initialize : function (){
+		
 	}
 	
 });

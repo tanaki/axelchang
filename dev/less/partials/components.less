@@ -1,3 +1,4 @@
+
 .mouse-move {
 	position: absolute;
 	top: 0;
@@ -5,9 +6,26 @@
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	background: transparent no-repeat center center;
+	background-size: cover;
+
+	&.img-full {
+		img {
+			display: none;
+		}
+	}
 
 	img {
 		display: block;
 		width: 100%;
+
+		//.transition( margin-top ease-out 0.2s );
 	}
+}
+
+.spinner {
+	left: 50%;
+}
+.project .spinner {
+	top: -50%;
 }

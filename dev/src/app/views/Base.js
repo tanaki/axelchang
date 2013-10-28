@@ -10,13 +10,13 @@ AC.View.Base = Backbone.View.extend({
 	params : {},
 
 	hide : function ( callback ) {
-
-		// var $el = $(this.el);
-		// $el.hide();
-
-		if (callback) {
-			callback();
-		}
+		
+		var $el = $(this.el);
+		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {
+			if (callback) {
+				callback();
+			}
+		});
 	},
 	
 	render : function() {
@@ -33,16 +33,16 @@ AC.View.Base = Backbone.View.extend({
 	
 	_display : function() {
 
+		
 		var self = this;
 		
-		$("body").attr("class", "").addClass(self.id);
-
-		$(this.el).html( this.tpl(this.params) );
-		this._displayComplete();
-
-		// .show({
-			// complete : self._displayComplete
-		// });
+		self.slug = self.params.slug;
+		self.prevId = $("body").attr("class");
+		
+		$("body").removeClass(self.prevId).addClass(self.id);
+		$(this.el).html( this.tpl(this.params) ).fadeIn(AC.Data.FADE_IN_DURATION, function() {
+			self._displayComplete(self);
+		});
 	},
 
 	_displayComplete : function () {

@@ -7,9 +7,14 @@ AC.View.Home = AC.View.Base.extend({
 	
 	initialize : function() {
 
+		$("#wrapper").append( $(AC.Spinner.el) );
+
 		this.preload = new createjs.LoadQueue(true);
 		
-		this.preload.addEventListener("complete", this.handleComplete );
+		var self = this;
+		this.preload.addEventListener("complete", function() {
+			self.handleComplete();
+		});
 		this.preload.addEventListener("fileload", this.handleFileLoad );
 		this.preload.loadFile({"src" : "img/bg.jpg", "id" : "home-bg"});
 		this.preload.loadFile("img/axel-chang.jpg");
@@ -18,6 +23,7 @@ AC.View.Home = AC.View.Base.extend({
 
 	handleComplete : function() {
 		$("body").data("home-preload", true);
+		$(AC.Spinner.el).remove();
 	},
 
 	handleFileLoad : function(event) {
@@ -32,9 +38,12 @@ AC.View.Home = AC.View.Base.extend({
 		
 		$(".home").removeClass("home-loaded");
 
-		if (callback) {
-			callback();
-		}
+		var $el = $(this.el);
+		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {
+			if (callback) {
+				callback();
+			}
+		});
 	},
 
 	_displayComplete : function() {
@@ -42,7 +51,7 @@ AC.View.Home = AC.View.Base.extend({
 		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
 			$("#img-home").attr("src", "img/bg.jpg");
-		}		
+		}
 	}
 	
 });

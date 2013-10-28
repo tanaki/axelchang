@@ -19,6 +19,7 @@
     "AC": true,
     "document" : false,
     "Swipe" : true,
-    "createjs" : true
+    "createjs" : true,
+    "Spinner" : true
   }
 }

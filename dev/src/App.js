@@ -13,9 +13,12 @@ AC.Model = AC.Model || {};
 
 /* VIEWS */
 AC.View = AC.View || {};
+AC.View.Components = AC.View.Components || {};
 
 /* DATA */
 AC.Data = AC.Data || {};
+AC.Data.FADE_IN_DURATION = 400;
+AC.Data.FADE_OUT_DURATION = 100;
 
 /* LOCATIONS */
 AC.Locations = AC.Locations || {};
@@ -45,7 +48,7 @@ AC.SpinOptions = {
 	corners: 1,
 	rotate: 0,
 	direction: 1,
-	color: '#000',
+	color: '#fff',
 	speed: 1.1,
 	trail: 10,
 	shadow: false,
@@ -58,7 +61,35 @@ AC.SpinOptions = {
 
 $(window).ready(function(){
 	
+	AC.Spinner = new Spinner( AC.SpinOptions ).spin();
+	
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
+
+
+	$("body").on('mousemove', function(e){
+
+		var 
+			refH = $(window).height() - 15,
+			$img = $(".mouse-move img", this),
+			$parent = $img.parent(),
+			imgH = $img.height(),
+			maxM = (imgH - refH),
+			newY = maxM * (e.pageY / refH);
+
+		if ( refH < imgH ) {
+			$img.css("margin-top", -newY);
+			$parent
+				.removeClass("img-full")
+				.css("background-image", "none");
+		}
+		else {
+			$parent
+				.addClass("img-full")
+				.css("background-image", "url(" + $img.attr("src") + ")");
+
+			$img.css("margin-top", 0);
+		}
+	});
 
 });
