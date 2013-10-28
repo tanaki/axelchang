@@ -58,7 +58,8 @@
 
 
 		<!-- LIBS -->
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+		<!-- // <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script> -->
+		<script type="text/javascript" src="<?php echo $BASE_URL; ?>js/libs/jquery-1.10.2.min.js"></script>
 		<!-- <script type="text/javascript" src="/js/libs/libs.min.js"></script> -->
 		<script type="text/javascript" src="<?php echo $BASE_URL; ?>js/libs/libs.js"></script>
 
