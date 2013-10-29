@@ -70,10 +70,9 @@
 			AC.Locations.Root = '<?php echo $BASE_URL; ?>';
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
-			//AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/data.json';
-			//AC.Locations.JSON = '<?php echo ( $PROD ? "/koken/" : $BASE_URL . "data/koken_proxy.php"); ?>';
-			//AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
-			AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
+			
+			AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
+			// AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
 		</script>
 		
 	</body>

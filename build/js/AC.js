@@ -67,9 +67,9 @@ $(window).ready(function(){
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
 
 	
-	AC.loop();
+	// AC.loop();
 
-	/*
+	
 	$("body").on('mousemove', function(e){
 
 		var 
@@ -94,7 +94,6 @@ $(window).ready(function(){
 			$img.css("margin-top", 0);
 		}
 	});
-	*/
 });
 
 AC.loop = function() {
