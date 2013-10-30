@@ -153,7 +153,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			detailSwipe.prev();
 		});
 
-		$(document).keydown(function(e){
+		$(".project-images").keydown(function(e){
 			if ( e.keyCode == 37 ) {
 				detailSwipe.prev();
 			} else if ( e.keyCode == 39 ) {

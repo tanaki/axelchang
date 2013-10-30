@@ -677,7 +677,7 @@ AC.View.News = AC.View.Base.extend({
 			newsSwipe.prev();
 		});
 
-		$(document).keydown(function(e){
+		$(".news-content").keydown(function(e){
 			if ( e.keyCode == 37 ) {
 				newsSwipe.prev();
 			} else if ( e.keyCode == 39 ) {
@@ -842,7 +842,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			detailSwipe.prev();
 		});
 
-		$(document).keydown(function(e){
+		$(".project-images").keydown(function(e){
 			if ( e.keyCode == 37 ) {
 				detailSwipe.prev();
 			} else if ( e.keyCode == 39 ) {
