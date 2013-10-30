@@ -205,7 +205,7 @@
 			"id" : 0,
 			"slug" : "news-1",
 			"title" : "Title",
-			"text" : "<p>Text news 1</p>",
+			"text" : "<p>Text news 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nusquam adhuc vituperata finiri liberos, inferiorem nosmet conquirendae laudatur delectatum discordans, illustribus, bene, scriptorem opibus aequitatem litterae clariora reliqui vidit fonte poterimus ait, inhumanus dicturam vide conclusum convicia amarissimam sic, aiunt optimi aliquo angoribus fatendum ego sin impensa verum fortitudinis.</p>",
 			"img" : "img/news/img.jpg",
 			"low" : "img/news/img.jpg"
 		},

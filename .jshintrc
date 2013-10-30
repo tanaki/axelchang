@@ -21,6 +21,7 @@
     "Swipe" : true,
     "createjs" : true,
     "Spinner" : true,
-    "requestAnimationFrame" : true
+    "requestAnimationFrame" : true,
+    "Modernizr" : true
   }
 }

@@ -66,38 +66,65 @@ $(window).ready(function(){
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
 
-	
-	// AC.loop();
+	if ( !Modernizr.touch ) {
+		AC.loop();
+		
+		$("body").on('mousemove', function(e){
 
-	
-	$("body").on('mousemove', function(e){
+			AC.MouseY = e.pageY;
 
-		var 
-			refH = $(window).height() - 15,
-			$img = $(".mouse-move img", this),
-			$parent = $img.parent(),
-			imgH = $img.height(),
-			maxM = (imgH - refH),
-			newY = maxM * (e.pageY / refH);
+			/*
 
-		if ( refH < imgH ) {
-			$img.css("margin-top", -newY);
-			$parent
-				.removeClass("img-full")
-				.css("background-image", "none");
-		}
-		else {
-			$parent
-				.addClass("img-full")
-				.css("background-image", "url(" + $img.attr("src") + ")");
+			var 
+				refH = $(window).height() - 15,
+				$img = $(".mouse-move img", this),
+				$parent = $img.parent(),
+				imgH = $img.height(),
+				maxM = (imgH - refH),
+				newY = maxM * (e.pageY / refH);
 
-			$img.css("margin-top", 0);
-		}
-	});
+			if ( refH < imgH ) {
+				$img.css("margin-top", -newY);
+				$parent
+					.removeClass("img-full")
+					.css("background-image", "none");
+			}
+			else {
+				$parent
+					.addClass("img-full")
+					.css("background-image", "url(" + $img.attr("src") + ")");
+
+				$img.css("margin-top", 0);
+			}
+			*/
+		});
+	}
 });
 
 AC.loop = function() {
-	console.log('loop');
+
+	
+	var $img = $(".mouse-move img");
+	if ( $img.length === 0 ) {
+		setTimeout(AC.loop, 600);
+		return;
+	}
+
+	var 
+		refH = $(window).height() - 15,
+		currentY = parseInt($img.css("margin-top"), 10),
+		// $parent = $img.parent(),
+		imgH = $img.height(),
+		maxM = (imgH - refH),
+		targetY = -(maxM * (AC.MouseY / refH));
+
+	if ( refH > imgH ) {
+		setTimeout(AC.loop, 600);
+		return;
+	}
+	currentY += (targetY - currentY) * 0.1;
+	$img.css("margin-top", currentY);
+
 	requestAnimationFrame(AC.loop);
 };
 
@@ -649,6 +676,14 @@ AC.View.News = AC.View.Base.extend({
 			e.preventDefault();
 			newsSwipe.prev();
 		});
+
+		$(document).keydown(function(e){
+			if ( e.keyCode == 37 ) {
+				newsSwipe.prev();
+			} else if ( e.keyCode == 39 ) {
+				newsSwipe.next();
+			}
+		});
 	},
 	
 });
@@ -805,6 +840,14 @@ AC.View.Portfolio = AC.View.Base.extend({
 		$(".prev", $container).on("click", function(e){
 			e.preventDefault();
 			detailSwipe.prev();
+		});
+
+		$(document).keydown(function(e){
+			if ( e.keyCode == 37 ) {
+				detailSwipe.prev();
+			} else if ( e.keyCode == 39 ) {
+				detailSwipe.next();
+			}
 		});
 	},
 

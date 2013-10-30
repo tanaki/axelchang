@@ -17,8 +17,8 @@
 		</div>
 
 		<div class="project-nav">
-			<a href="#" class="prev">Prev</a>
-			<a href="#" class="next">Next</a>
+			<a href="#" class="prev"><</a>
+			<a href="#" class="next">></a>
 		</div>
 
 		<div class="project-global-nav">
@@ -27,9 +27,9 @@
 				<span class="total"> / <%= project.images.length %></span>
 			</div>
 			
-			<% if ( !_.isNull(previous) && !_.isUndefined(previous) ) { %><a href="/portfolio/<%= previous.slug %>">Previous</a><% } %>
+			<% if ( !_.isNull(previous) && !_.isUndefined(previous) ) { %><a class="prev-project" href="/portfolio/<%= previous.slug %>"><</a><% } %>
 			<span class="project-title"><%= project.title %></span>
-			<% if ( !_.isNull(next) && !_.isUndefined(next) ) { %><a href="/portfolio/<%= next.slug %>">Next</a><% } %>
+			<% if ( !_.isNull(next) && !_.isUndefined(next) ) { %><a class="next-project" href="/portfolio/<%= next.slug %>">></a><% } %>
 		</div>
 	</div>
 

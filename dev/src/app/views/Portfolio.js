@@ -152,6 +152,14 @@ AC.View.Portfolio = AC.View.Base.extend({
 			e.preventDefault();
 			detailSwipe.prev();
 		});
+
+		$(document).keydown(function(e){
+			if ( e.keyCode == 37 ) {
+				detailSwipe.prev();
+			} else if ( e.keyCode == 39 ) {
+				detailSwipe.next();
+			}
+		});
 	},
 
 	update : function ( slug, imgIndex ){

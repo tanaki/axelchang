@@ -6,8 +6,10 @@
 			<div class="swipe-wrap">
 				<% _.each ( news, function ( article ) { %>
 				<div>
-					<img src="<%= article.low %>" data-src="<%= article.img %>">
-					<%= article.text %>
+					<img class="news-img" src="<%= article.low %>" data-src="<%= article.img %>">
+					<div class="news-text">
+						<%= article.text %>
+					</div>
 				</div>
 				<% }) %>
 			</div>
@@ -16,8 +18,8 @@
 	</div>
 
 	<div class="news-nav">
-		<a href="#" class="prev">Prev</a>
-		<a href="#" class="next">Next</a>
+		<a href="#" class="prev"><</a>
+		<a href="#" class="next">></a>
 	</div>
 
 </div>

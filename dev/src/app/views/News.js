@@ -34,6 +34,14 @@ AC.View.News = AC.View.Base.extend({
 			e.preventDefault();
 			newsSwipe.prev();
 		});
+
+		$(document).keydown(function(e){
+			if ( e.keyCode == 37 ) {
+				newsSwipe.prev();
+			} else if ( e.keyCode == 39 ) {
+				newsSwipe.next();
+			}
+		});
 	},
 	
 });
