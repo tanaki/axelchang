@@ -782,10 +782,14 @@ AC.View.Portfolio = AC.View.Base.extend({
 		$(".to-load-bg").each(function(index, el) {
 			
 			o = {};
-			o.src = $(el).data("src");
-			o.id = $(el).data("src");
+			o.src = $("img", el).data("src");
+			o.id = $("img", el).data("src");
 
 			manifest.push(o);
+
+			if ( Modernizr.touch ) {
+				$(this).css("background-image", "url(" + $("img", el).attr('src') + ")");
+			}
 		});
 
 		this.preloadBG = new createjs.LoadQueue(true);
@@ -810,10 +814,17 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleFileLoadBG : function (event) {
 
-		$("[data-src='" + event.item.id + "']")
-			.removeClass("to-load-bg")
-			.attr("src", event.item.src)
-			.addClass("loaded-bg");
+		if ( Modernizr.touch ) {
+			$("[data-src='" + event.item.id + "']")
+				.parent()
+				.css("background-image", "url(" + event.item.src + ")");
+
+		} else {
+			$("[data-src='" + event.item.id + "']")
+				.removeClass("to-load-bg")
+				.attr("src", event.item.src)
+				.addClass("loaded-bg");
+		}
 	},
 
 	prepImages : function() {
