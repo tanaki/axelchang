@@ -165,15 +165,15 @@ header nav h1 img {
 header nav h1 .logo-white {
   display: none;
 }
-.home header nav ul li a,
+.home-loaded header nav ul li a,
 .portfolio-detail header nav ul li a {
   color: #fff;
 }
-.home header nav h1 .logo-white,
+.home-loaded header nav h1 .logo-white,
 .portfolio-detail header nav h1 .logo-white {
   display: block;
 }
-.home header nav h1 .logo-black,
+.home-loaded header nav h1 .logo-black,
 .portfolio-detail header nav h1 .logo-black {
   display: none;
 }
