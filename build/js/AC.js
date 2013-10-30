@@ -48,7 +48,7 @@ AC.SpinOptions = {
 	corners: 1,
 	rotate: 0,
 	direction: 1,
-	color: '#fff',
+	color: '#000',
 	speed: 1.1,
 	trail: 10,
 	shadow: false,
@@ -585,7 +585,7 @@ AC.View.Home = AC.View.Base.extend({
 	
 	initialize : function() {
 
-		$("#wrapper").append( $(AC.Spinner.el) );
+		$(".spin-box").append( $(AC.Spinner.el) );
 
 		this.preload = new createjs.LoadQueue(true);
 		
@@ -677,7 +677,7 @@ AC.View.News = AC.View.Base.extend({
 			newsSwipe.prev();
 		});
 
-		$(".news-content").keydown(function(e){
+		$(document).keydown(function(e){
 			if ( e.keyCode == 37 ) {
 				newsSwipe.prev();
 			} else if ( e.keyCode == 39 ) {
@@ -762,7 +762,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			
 			o = {};
 			o.src = $(el).data("src");
-			o.id = $(el).attr("src");
+			o.id = $(el).data("src");
 
 			manifest.push(o);
 		});
@@ -803,11 +803,11 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleFileLoad : function (event) {
 
-		var $el = $("[src='" + event.item.id + "']");
+		var $el = $("[data-src='" + event.item.id + "']");
 		$el
 			.removeClass("to-load")
 			.attr("src", event.item.src)
-			.addClass("loaded");
+			.parents(".project").addClass("loaded");
 
 		$el.parents(".project").find(".spinner").remove();
 	},
@@ -833,7 +833,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			$(el)
 				.removeClass("to-load")
 				.attr("src", $(el).data('src'))
-				.addClass("loaded");
+				.parents(".project").addClass("loaded");
 		});
 	},
 	
@@ -853,7 +853,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			detailSwipe.prev();
 		});
 
-		$(".project-images").keydown(function(e){
+		$(document).keydown(function(e){
 			if ( e.keyCode == 37 ) {
 				detailSwipe.prev();
 			} else if ( e.keyCode == 39 ) {

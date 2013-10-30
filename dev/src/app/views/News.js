@@ -35,7 +35,7 @@ AC.View.News = AC.View.Base.extend({
 			newsSwipe.prev();
 		});
 
-		$(".news-content").keydown(function(e){
+		$(document).keydown(function(e){
 			if ( e.keyCode == 37 ) {
 				newsSwipe.prev();
 			} else if ( e.keyCode == 39 ) {

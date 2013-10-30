@@ -54,6 +54,8 @@
 				</ul>
 			</footer>
 
+			<div class="spin-box"></div>
+
 		</div>
 
 

@@ -322,8 +322,12 @@ footer ul li a.footer-tw {
   display: block;
   float: left;
   margin: 5px 20px 20px 0;
-  background: no-repeat center center;
-  background-size: cover;
+  background-color: #ccc;
+  -webkit-transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out;
+}
+.portfolio .projects .project.loaded {
+  background-color: transparent !important;
 }
 .portfolio .projects .project a {
   display: block;
@@ -364,21 +368,6 @@ footer ul li a.footer-tw {
   position: relative;
   z-index: -1;
   width: 100%;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: url(blur.svg#blur);
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='@valueIE');
-}
-.portfolio .projects .project a img.loaded {
-  filter: blur(none);
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
 }
 .portfolio .projects .project a:hover .project-title {
   top: 90px;
@@ -678,4 +667,15 @@ footer ul li a.footer-tw {
 }
 .project .spinner {
   top: -50%;
+}
+.spin-box {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  margin-left: -50px;
+}
+.spin-box .spinner {
+  top: 50%;
 }

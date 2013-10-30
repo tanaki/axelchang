@@ -73,7 +73,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			
 			o = {};
 			o.src = $(el).data("src");
-			o.id = $(el).attr("src");
+			o.id = $(el).data("src");
 
 			manifest.push(o);
 		});
@@ -114,11 +114,11 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleFileLoad : function (event) {
 
-		var $el = $("[src='" + event.item.id + "']");
+		var $el = $("[data-src='" + event.item.id + "']");
 		$el
 			.removeClass("to-load")
 			.attr("src", event.item.src)
-			.addClass("loaded");
+			.parents(".project").addClass("loaded");
 
 		$el.parents(".project").find(".spinner").remove();
 	},
@@ -144,7 +144,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			$(el)
 				.removeClass("to-load")
 				.attr("src", $(el).data('src'))
-				.addClass("loaded");
+				.parents(".project").addClass("loaded");
 		});
 	},
 	
@@ -164,7 +164,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			detailSwipe.prev();
 		});
 
-		$(".project-images").keydown(function(e){
+		$(document).keydown(function(e){
 			if ( e.keyCode == 37 ) {
 				detailSwipe.prev();
 			} else if ( e.keyCode == 39 ) {

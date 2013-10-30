@@ -7,7 +7,7 @@ AC.View.Home = AC.View.Base.extend({
 	
 	initialize : function() {
 
-		$("#wrapper").append( $(AC.Spinner.el) );
+		$(".spin-box").append( $(AC.Spinner.el) );
 
 		this.preload = new createjs.LoadQueue(true);
 		
