@@ -66,6 +66,9 @@ $(window).ready(function(){
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
 
+	// TEMP
+	// $("html").removeClass("no-touch").addClass("touch");
+
 	if ( !Modernizr.touch ) {
 		AC.loop();
 		
@@ -122,7 +125,7 @@ AC.loop = function() {
 		setTimeout(AC.loop, 600);
 		return;
 	}
-	currentY += (targetY - currentY) * 0.1;
+	currentY += (targetY - currentY) * 0.15;
 	$img.css("margin-top", currentY);
 
 	requestAnimationFrame(AC.loop);
@@ -585,6 +588,8 @@ AC.View.Home = AC.View.Base.extend({
 	
 	initialize : function() {
 
+		this.params.preloaded = false;
+
 		$(".spin-box").append( $(AC.Spinner.el) );
 
 		this.preload = new createjs.LoadQueue(true);
@@ -600,6 +605,8 @@ AC.View.Home = AC.View.Base.extend({
 	},
 
 	handleComplete : function() {
+
+		this.params.preloaded = true;
 		$("body").data("home-preload", true);
 		$(AC.Spinner.el).remove();
 	},
@@ -628,7 +635,8 @@ AC.View.Home = AC.View.Base.extend({
 
 		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
-			$("#img-home").attr("src", "img/bg.jpg");
+			$(AC.Spinner.el).remove();
+			// $("#img-home").attr("src", "img/bg.jpg");
 		}
 	}
 	
@@ -703,12 +711,15 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	initialize : function () {
 		this.params.projects = AC.Data.JSON.portfolio;
+		this.params.preloaded = false;
 	},
 
 	hide : function(callback) {
 		
-		if ( $("body").data("all-img-loaded") === true ) 
+		if ( $("body").data("all-img-loaded") === true ) {
 			this.preloadedImgAll = true;
+			this.params.preloaded = true;
+		}
 		
 		var $el = $(this.el);
 		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {

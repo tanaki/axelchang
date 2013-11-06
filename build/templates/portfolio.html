@@ -31,17 +31,39 @@
 			<span class="project-title"><%= project.title %></span>
 			<% if ( !_.isNull(next) && !_.isUndefined(next) ) { %><a class="next-project" href="/portfolio/<%= next.slug %>">></a><% } %>
 		</div>
+
+		<div class="project-mobile-nav">
+			<a href="#" class="link-back">Back to portfolio</a>
+
+			<div class="mobile-index">
+				<ul>
+					<% _.each( project.images, function(img, index) { %>
+					<li <% print( index == 0 ? 'class="current"' : '' ) %>></li>
+					<% }) %>
+				</ul>
+			</div>
+			
+			<a href="#" class="link-credits">Credits</a>
+			<div class="mobile-credits">
+				<span class="project-title"><%= project.title %></span>
+			</div>
+		</div>
 	</div>
 
 <% } else { %>
 
 	<div class="projects">
 		<% _.each ( projects, function ( project, index ) { %>
-			<div class="project project-<%= index %>">
+			<div class="project project-<%= index %> <% if ( preloaded ) { print('loaded') } %>">
 				<a href="/portfolio/<%= project.slug %>">
 					<span class="project-bg"></span>
 					<span class="project-title"><%= project.title %></span>
-					<img class="to-load" src="" data-src="<%= project.cover %>" alt="<%= project.title %>" />
+
+					<% if ( preloaded ) { %>
+						<img src="<%= project.cover %>" alt="<%= project.title %>" />
+					<% } else { %>
+						<img class="to-load" src="" data-src="<%= project.cover %>" alt="<%= project.title %>" />
+					<% } %>
 				</a>
 			</div>
 		<% }) %>

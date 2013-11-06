@@ -14,12 +14,15 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	initialize : function () {
 		this.params.projects = AC.Data.JSON.portfolio;
+		this.params.preloaded = false;
 	},
 
 	hide : function(callback) {
 		
-		if ( $("body").data("all-img-loaded") === true ) 
+		if ( $("body").data("all-img-loaded") === true ) {
 			this.preloadedImgAll = true;
+			this.params.preloaded = true;
+		}
 		
 		var $el = $(this.el);
 		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {

@@ -1,3 +1,7 @@
 <div class="mouse-move">
-	<img id="img-home" src="" data-img="<%= AC.Locations.Images %>bg.jpg" alt="">
+	<% if ( preloaded ) { %>
+		<img id="img-home" src="<%= AC.Locations.Images %>bg.jpg" alt="">
+	<% } else { %>
+		<img id="img-home" src="" data-img="<%= AC.Locations.Images %>bg.jpg" alt="">
+	<% } %>
 </div>

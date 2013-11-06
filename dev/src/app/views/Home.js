@@ -7,6 +7,8 @@ AC.View.Home = AC.View.Base.extend({
 	
 	initialize : function() {
 
+		this.params.preloaded = false;
+
 		$(".spin-box").append( $(AC.Spinner.el) );
 
 		this.preload = new createjs.LoadQueue(true);
@@ -22,6 +24,8 @@ AC.View.Home = AC.View.Base.extend({
 	},
 
 	handleComplete : function() {
+
+		this.params.preloaded = true;
 		$("body").data("home-preload", true);
 		$(AC.Spinner.el).remove();
 	},
@@ -50,7 +54,8 @@ AC.View.Home = AC.View.Base.extend({
 
 		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
-			$("#img-home").attr("src", "img/bg.jpg");
+			$(AC.Spinner.el).remove();
+			// $("#img-home").attr("src", "img/bg.jpg");
 		}
 	}
 	

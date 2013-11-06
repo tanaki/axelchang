@@ -411,21 +411,26 @@ footer ul li a.footer-tw {
   position: absolute;
   top: 50%;
   width: 100%;
-  margin-top: -55px;
+  margin-top: -80px;
 }
 .portfolio-detail .project-detail .project-nav .prev,
 .portfolio-detail .project-detail .project-nav .next {
   display: block;
   color: #fff;
   text-decoration: none;
-  margin: 20px;
-  font-size: 40px;
+  margin: 48px;
+  width: 32px;
+  height: 60px;
+  background: url(../img/big-arrows.png) no-repeat left center;
+  overflow: hidden;
+  text-indent: -5000px;
 }
 .portfolio-detail .project-detail .project-nav .prev {
   float: left;
 }
 .portfolio-detail .project-detail .project-nav .next {
   float: right;
+  background-position: right center;
 }
 .portfolio-detail .project-detail .project-images {
   position: absolute;
@@ -458,37 +463,84 @@ footer ul li a.footer-tw {
   color: #fff;
   text-align: center;
   position: absolute;
-  bottom: 60px;
+  bottom: 84px;
   left: 50%;
-  width: 450px;
-  margin-left: -225px;
+  width: 380px;
+  margin-left: -190px;
 }
 .portfolio-detail .project-detail .project-global-nav .current-index {
   margin-bottom: 10px;
+  font-size: 24px;
 }
 .portfolio-detail .project-detail .project-global-nav .project-title {
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
   border: 3px solid #fff;
   padding: 10px;
-  width: 350px;
+  width: 300px;
 }
 .portfolio-detail .project-detail .project-global-nav .prev-project,
 .portfolio-detail .project-detail .project-global-nav .next-project {
+  display: block;
+  width: 10px;
+  height: 18px;
   position: absolute;
+  bottom: -5px;
+  padding: 20px;
   color: #fff;
   text-decoration: none;
-  top: 45px;
+  overflow: hidden;
+  text-indent: -5000px;
+  background: url(../img/small-arrows.png) no-repeat left center;
 }
 .portfolio-detail .project-detail .project-global-nav .prev-project {
   left: 0;
 }
 .portfolio-detail .project-detail .project-global-nav .next-project {
   right: 0;
+  background-position: right center;
+}
+.portfolio-detail .project-detail .project-mobile-nav {
+  display: none;
+}
+.portfolio-detail .project-detail .mobile-credits {
+  display: none;
 }
 .touch .portfolio-detail .project-detail .project-nav {
   display: none;
+}
+.touch .portfolio-detail .project-detail .project-global-nav {
+  display: none;
+}
+.touch .portfolio-detail .project-detail .project-mobile-nav {
+  display: block;
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  width: 100%;
+}
+.touch .portfolio-detail .project-detail .project-mobile-nav .link-back,
+.touch .portfolio-detail .project-detail .project-mobile-nav .link-credits {
+  display: block;
+  overflow: hidden;
+  width: 34px;
+  height: 26px;
+  background: url(../img/sprite_touch.png) no-repeat left top;
+  background-size: 34px 53px;
+  text-indent: -5000px;
+}
+.touch .portfolio-detail .project-detail .project-mobile-nav .link-credits {
+  background-position: left bottom;
+}
+.touch .portfolio-detail .project-detail .project-mobile-nav .mobile-index ul li {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 .touch .portfolio-detail .project-detail .project-images .mouse-move {
   background: no-repeat center center;
@@ -607,21 +659,26 @@ footer ul li a.footer-tw {
   position: absolute;
   top: 50%;
   width: 100%;
-  margin-top: -55px;
+  margin-top: -80px;
 }
 .news .news-nav .prev,
 .news .news-nav .next {
   display: block;
   color: #000;
   text-decoration: none;
-  margin: 20px;
-  font-size: 40px;
+  margin: 48px;
+  width: 32px;
+  height: 60px;
+  background: url(../img/big-arrows-black.png) no-repeat left center;
+  overflow: hidden;
+  text-indent: -5000px;
 }
 .news .news-nav .prev {
   float: left;
 }
 .news .news-nav .next {
   float: right;
+  background-position: right center;
 }
 .news .news-list .news-content {
   outline: none;

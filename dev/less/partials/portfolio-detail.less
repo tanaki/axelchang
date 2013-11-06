@@ -7,21 +7,27 @@
 			position: absolute;
 			top: 50%;
 			width: 100%;
-			margin-top: -55px;
+			margin-top: -80px;
 
 			.prev,
 			.next {
 				display: block;
 				color: #fff;
 				text-decoration: none;
-				margin: 20px;
-				font-size: 40px;
+				margin: 48px;
+
+				width: 32px;
+				height: 60px;
+				background: url(../img/big-arrows.png) no-repeat left center;
+				overflow: hidden;
+				text-indent: -5000px;
 			}
 			.prev {
 				float: left;
 			}
 			.next {
 				float: right;
+				background-position: right center;
 			}
 		}
 
@@ -54,37 +60,57 @@
 			text-align:center;
 
 			position: absolute;
-			bottom: 60px;
+			bottom: 84px;
 			left: 50%;
-			width: 450px;
-			margin-left: -225px;
+			width: 380px;
+			margin-left: -190px;
 
 			.current-index {
 				margin-bottom: 10px;
+				font-size: 24px;
 			}
 
 			.project-title {
 				display: inline-block;
-				font-size: 18px;
+				font-size: 16px;
 				text-transform: uppercase;
 				border: 3px solid #fff;
 				padding: 10px;
-				width: 350px;
+				width: 300px;
 			}
 			
 			.prev-project,
 			.next-project {
+
+				display: block;
+				width: 10px;
+				height: 18px;
 				position: absolute;
+				bottom: -5px;
+				padding: 20px;
+
 				color: #fff;
 				text-decoration: none;
-				top: 45px;
+
+				overflow: hidden;
+				text-indent: -5000px;
+				background: url(../img/small-arrows.png) no-repeat left center;
 			}
 			.prev-project {
 				left: 0;
 			}
 			.next-project {
 				right: 0;
+				background-position: right center;
 			}
+		}
+
+		.project-mobile-nav {
+			display: none;
+		}
+
+		.mobile-credits {
+			display: none;
 		}
 	}
 
@@ -95,6 +121,46 @@
 		.project-detail {
 			.project-nav {
 				display: none;
+			}
+			.project-global-nav {
+				display: none;
+			}
+			.project-mobile-nav {
+				display: block;
+
+				position: absolute;
+				bottom: 45px;
+				left: 0;
+				width: 100%;
+
+				.link-back,
+				.link-credits {
+					display: block;
+					overflow: hidden;
+					width: 34px;
+					height: 26px;
+					background: url(../img/sprite_touch.png) no-repeat left top;
+					background-size: 34px 53px;
+					text-indent: -5000px;
+				}
+				.link-credits {
+					background-position: left bottom;
+				}
+
+				.mobile-index {
+					ul {
+						li {
+							display: block;
+							width: 10px;
+							height: 10px;
+							background: #fff;
+							float: left;
+							margin-right: 10px;
+
+							border-radius: 10px;
+						}
+					}
+				}
 			}
 			.project-images {
 				.mouse-move {

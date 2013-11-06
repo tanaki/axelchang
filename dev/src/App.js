@@ -66,6 +66,9 @@ $(window).ready(function(){
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
 
+	// TEMP
+	// $("html").removeClass("no-touch").addClass("touch");
+
 	if ( !Modernizr.touch ) {
 		AC.loop();
 		
@@ -122,7 +125,7 @@ AC.loop = function() {
 		setTimeout(AC.loop, 600);
 		return;
 	}
-	currentY += (targetY - currentY) * 0.1;
+	currentY += (targetY - currentY) * 0.15;
 	$img.css("margin-top", currentY);
 
 	requestAnimationFrame(AC.loop);
