@@ -30,7 +30,7 @@
 					echo '{';
 						echo '"img" : "' . $content->presets->huge->url . '",';
 						// echo '"low" : "' . $content->presets->medium->url . '",';
-						echo '"credits" : "' . $content->caption . '"';
+						echo '"credits" : "' . clean($content->caption) . '"';
 					echo '}';
 
 					if ( $j < $maxContent - 1 ) echo ',';
@@ -56,8 +56,7 @@
 				echo '"id" : "' . $article->id . '",';
 				echo '"slug" : "' . $article->slug . '",';
 				echo '"text" : "' . $article->caption . '",';
-				echo '"img" : "' . $article->presets->huge->url . '",';
-				echo '"low" : "' . $article->presets->small->url . '"';
+				echo '"img" : "' . $article->presets->huge->url . '"';
 			echo '}';
 
 			if ( $k < $maxArticle - 1 ) echo ',';
@@ -98,5 +97,10 @@
 	
 	// End JSON
 	echo '}';
+
+	function clean($string) {
+		$string = str_replace('', '-', $string); // Replaces all spaces with hyphens.
+		return preg_replace('/[^A-Za-z0-9 \-]/', '', $string); // Removes special chars.
+	}
 
 ?>
