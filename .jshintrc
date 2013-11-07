@@ -17,6 +17,7 @@
     "_": false,
     "Backbone": false,
     "AC": true,
+    "alert" : false,
     "document" : false,
     "Swipe" : true,
     "createjs" : true,

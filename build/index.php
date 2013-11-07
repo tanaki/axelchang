@@ -69,6 +69,7 @@
 		<!-- <script type="text/javascript" src="/js/AC.min.js"></script> -->
 		<script type="text/javascript" src="<?php echo $BASE_URL; ?>js/AC.js"></script>
 		<script type="text/javascript">
+			AC.Utils.isProd = '<?php echo $PROD; ?>';
 			AC.Locations.Root = '<?php echo $BASE_URL; ?>';
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';

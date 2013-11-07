@@ -7,8 +7,11 @@
 			<div id="detail-slider" class="swipe">
 				<div class="swipe-wrap">
 					<% _.each( project.images, function(image, index){ %>
-						<div class="mouse-move to-load-bg" data-item="<%= index %>">
+						<div class="mouse-move to-load-bg<%= (index == 0 ? ' move-current' : '') %>" data-item="<%= index %>">
 							<img src="<%= image.low %>" alt="" data-src="<%= image.img %>" />
+							<div class="credits">
+								<%= image.credits %>
+							</div>
 						</div>
 					<% }) %>
 				</div>
@@ -16,10 +19,12 @@
 
 		</div>
 
-		<div class="project-nav">
-			<a href="#" class="prev"><</a>
-			<a href="#" class="next">></a>
-		</div>
+		<% if ( project.images.length > 1 ) { %>
+			<div class="project-nav">
+				<a href="#" class="prev"><</a>
+				<a href="#" class="next">></a>
+			</div>
+		<% } %>
 
 		<div class="project-global-nav">
 			<div class="current-index">

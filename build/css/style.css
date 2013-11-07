@@ -459,6 +459,12 @@ footer ul li a.footer-tw {
 .portfolio-detail .project-detail .project-images .project-item.prev {
   left: -100%;
 }
+.portfolio-detail .project-detail .credits {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+}
 .portfolio-detail .project-detail .project-global-nav {
   color: #fff;
   text-align: center;

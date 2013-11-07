@@ -69,37 +69,18 @@ $(window).ready(function(){
 	// TEMP
 	// $("html").removeClass("no-touch").addClass("touch");
 
+	if ( AC.Utils.isProd ) {
+		$("html").on("contextmenu", function(e){
+			e.preventDefault();
+			alert("© Copyright 2013 - Content Protected");
+		});
+	}
+
 	if ( !Modernizr.touch ) {
 		AC.loop();
 		
 		$("body").on('mousemove', function(e){
-
 			AC.MouseY = e.pageY;
-
-			/*
-
-			var 
-				refH = $(window).height() - 15,
-				$img = $(".mouse-move img", this),
-				$parent = $img.parent(),
-				imgH = $img.height(),
-				maxM = (imgH - refH),
-				newY = maxM * (e.pageY / refH);
-
-			if ( refH < imgH ) {
-				$img.css("margin-top", -newY);
-				$parent
-					.removeClass("img-full")
-					.css("background-image", "none");
-			}
-			else {
-				$parent
-					.addClass("img-full")
-					.css("background-image", "url(" + $img.attr("src") + ")");
-
-				$img.css("margin-top", 0);
-			}
-			*/
 		});
 	}
 });
@@ -107,7 +88,7 @@ $(window).ready(function(){
 AC.loop = function() {
 
 	
-	var $img = $(".mouse-move img");
+	var $img = $(".mouse-move.move-current img");
 	if ( $img.length === 0 ) {
 		setTimeout(AC.loop, 600);
 		return;
@@ -116,7 +97,6 @@ AC.loop = function() {
 	var 
 		refH = $(window).height() - 15,
 		currentY = parseInt($img.css("margin-top"), 10),
-		// $parent = $img.parent(),
 		imgH = $img.height(),
 		maxM = (imgH - refH),
 		targetY = -(maxM * (AC.MouseY / refH));

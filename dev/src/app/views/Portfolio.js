@@ -13,8 +13,19 @@ AC.View.Portfolio = AC.View.Base.extend({
 	preloadBG : null,
 
 	initialize : function () {
-		this.params.projects = AC.Data.JSON.portfolio;
+		this.params.projects = this._processText( AC.Data.JSON.portfolio );
 		this.params.preloaded = false;
+	},
+
+	_processText : function( data ) {
+
+		_.each( data, function ( el ) {
+			_.each( el.images, function(img) {
+				img.credits = AC.Utils.textToHTML(img.credits);
+			} );
+		} );
+
+		return data;
 	},
 
 	hide : function(callback) {
@@ -64,6 +75,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_callbackSwipe : function(index) {
 		$(".current-index .current").html( index + 1 );
+		$(".swipe-wrap .move-current").removeClass("move-current");
+		$($(".swipe-wrap .mouse-move").get(index)).addClass("move-current");
 	},
 
 	initImgPreload : function() {
@@ -128,17 +141,22 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleFileLoadBG : function (event) {
 
+		var $el = $("[data-src='" + event.item.id + "']"),
+			$parent = $el.parent(),
+			$spinner = $(".spinner", $parent);
+
 		if ( Modernizr.touch ) {
-			$("[data-src='" + event.item.id + "']")
-				.parent()
-				.css("background-image", "url(" + event.item.src + ")");
+			$parent.css("background-image", "url(" + event.item.src + ")");
 
 		} else {
 			$("[data-src='" + event.item.id + "']")
-				.removeClass("to-load-bg")
 				.attr("src", event.item.src)
 				.addClass("loaded-bg");
+
+			$parent.removeClass("to-load-bg");
 		}
+
+		$spinner.remove();
 	},
 
 	prepImages : function() {

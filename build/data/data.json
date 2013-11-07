@@ -10,7 +10,7 @@
 				{
 					"img" : "/img/portfolio/project-1/1.jpg",
 					"low" : "/img/portfolio/project-1/1.jpg",
-					"credits" : "blabla"
+					"credits" : "Maquillage [url(http://test.com)]untel[/url][br]Model [url(http://modele.com)]unetelle[/url]"
 				},
 				{
 					"img" : "/img/portfolio/project-1/2.jpg",
@@ -37,8 +37,8 @@
 			"coverLow" : "img/portfolio/project-2/cover-low.jpg",
 			"images" : [
 				{
-					"img" : "img2.jpg",
-					"low" : "img2.jpg",
+					"img" : "/img/portfolio/project-2/img2.jpg",
+					"low" : "/img/portfolio/project-2/img2.jpg",
 					"credits" : "blabla 2"
 				}
 			]

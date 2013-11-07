@@ -69,37 +69,18 @@ $(window).ready(function(){
 	// TEMP
 	// $("html").removeClass("no-touch").addClass("touch");
 
+	if ( AC.Utils.isProd ) {
+		$("html").on("contextmenu", function(e){
+			e.preventDefault();
+			alert("© Copyright 2013 - Content Protected");
+		});
+	}
+
 	if ( !Modernizr.touch ) {
 		AC.loop();
 		
 		$("body").on('mousemove', function(e){
-
 			AC.MouseY = e.pageY;
-
-			/*
-
-			var 
-				refH = $(window).height() - 15,
-				$img = $(".mouse-move img", this),
-				$parent = $img.parent(),
-				imgH = $img.height(),
-				maxM = (imgH - refH),
-				newY = maxM * (e.pageY / refH);
-
-			if ( refH < imgH ) {
-				$img.css("margin-top", -newY);
-				$parent
-					.removeClass("img-full")
-					.css("background-image", "none");
-			}
-			else {
-				$parent
-					.addClass("img-full")
-					.css("background-image", "url(" + $img.attr("src") + ")");
-
-				$img.css("margin-top", 0);
-			}
-			*/
 		});
 	}
 });
@@ -107,7 +88,7 @@ $(window).ready(function(){
 AC.loop = function() {
 
 	
-	var $img = $(".mouse-move img");
+	var $img = $(".mouse-move.move-current img");
 	if ( $img.length === 0 ) {
 		setTimeout(AC.loop, 600);
 		return;
@@ -116,7 +97,6 @@ AC.loop = function() {
 	var 
 		refH = $(window).height() - 15,
 		currentY = parseInt($img.css("margin-top"), 10),
-		// $parent = $img.parent(),
 		imgH = $img.height(),
 		maxM = (imgH - refH),
 		targetY = -(maxM * (AC.MouseY / refH));
@@ -300,12 +280,8 @@ AC.DataManager = AC.DataManager || {
 
 	getData : function ( ) {
 
-		console.log("get data");
-
 		var self = this;
 		$.get(AC.Locations.JSON, function( data ) {
-
-			console.log("data", data);
 			
 			AC.Data.JSON = data;
 						
@@ -710,8 +686,19 @@ AC.View.Portfolio = AC.View.Base.extend({
 	preloadBG : null,
 
 	initialize : function () {
-		this.params.projects = AC.Data.JSON.portfolio;
+		this.params.projects = this._processText( AC.Data.JSON.portfolio );
 		this.params.preloaded = false;
+	},
+
+	_processText : function( data ) {
+
+		_.each( data, function ( el ) {
+			_.each( el.images, function(img) {
+				img.credits = AC.Utils.textToHTML(img.credits);
+			} );
+		} );
+
+		return data;
 	},
 
 	hide : function(callback) {
@@ -761,6 +748,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_callbackSwipe : function(index) {
 		$(".current-index .current").html( index + 1 );
+		$(".swipe-wrap .move-current").removeClass("move-current");
+		$($(".swipe-wrap .mouse-move").get(index)).addClass("move-current");
 	},
 
 	initImgPreload : function() {
@@ -825,17 +814,22 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleFileLoadBG : function (event) {
 
+		var $el = $("[data-src='" + event.item.id + "']"),
+			$parent = $el.parent(),
+			$spinner = $(".spinner", $parent);
+
 		if ( Modernizr.touch ) {
-			$("[data-src='" + event.item.id + "']")
-				.parent()
-				.css("background-image", "url(" + event.item.src + ")");
+			$parent.css("background-image", "url(" + event.item.src + ")");
 
 		} else {
 			$("[data-src='" + event.item.id + "']")
-				.removeClass("to-load-bg")
 				.attr("src", event.item.src)
 				.addClass("loaded-bg");
+
+			$parent.removeClass("to-load-bg");
 		}
+
+		$spinner.remove();
 	},
 
 	prepImages : function() {
@@ -910,3 +904,13 @@ AC.View.Components.Zoom = Backbone.View.extend({
 	}
 	
 });
+AC.Utils = AC.Utils || {};
+
+AC.Utils.textToHTML = function( text ) {
+
+	return text
+		.replace(/\[url\(/g, '<a href="')
+		.replace(/\)\]/g, '" target="_blank">')
+		.replace(/\[\/url\]/g, '</a>')
+		.replace(/\[br\]/g, '<br/>');
+};
