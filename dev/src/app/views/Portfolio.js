@@ -137,7 +137,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 						.css("margin-left", (( $($el.parent()).height() - $el.width()) * 0.5) + "px" );
 				}
 			});
-		}, 200 );
+		}, 1000 );
 	},
 
 	handleFileLoad : function (event) {
