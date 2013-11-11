@@ -89,7 +89,7 @@
 					<% if ( preloaded ) { %>
 						<img src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" class="<%= extraClass %>" />
 					<% } else { %>
-						<img class="to-load" src="" data-src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" class="<%= extraClass %>" />
+						<img class="to-load <%= extraClass %>" src="" data-src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" />
 					<% } %>
 				</a>
 			</div>
