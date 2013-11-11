@@ -3,9 +3,7 @@
 	header('Content-type: application/json');
 
 	$data = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/slug:portfolio/content'));
-	$dataAboutFR = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text/slug:about-french') );
-	$dataAboutEN = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text/slug:about-english') );
-	$dataAboutDE = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text/slug:about-german') );
+	$dataAbout = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text') );
 	$dataNews = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/slug:news/content'));
 
 	// Start JSON
@@ -66,15 +64,27 @@
 
 		}
 
+		foreach ( $dataAbout->text as $text ) {
+			if ( $text->slug == "about-french" ) {
+				$dataAboutFR = $text->content;
+			}
+			if ( $text->slug == "about-english" ) {
+				$dataAboutEN = $text->content;
+			}
+			if ( $text->slug == "about-german" ) {
+				$dataAboutDE = $text->content;
+			}
+		}
+
 
 	echo '],
 
 		"about" : {
 			"image" : "img/axel-chang.jpg",
 			"imagetablet" : "img/axel-chang-tablet.jpg",
-			"fr" : "' . addslashes(encodeAccent(trim($dataAboutFR->content))) . '",
-			"en" : "' . addslashes(encodeAccent(trim($dataAboutEN->content))) . '",
-			"de" : "' . addslashes(encodeAccent(trim($dataAboutDE->content))) . '"
+			"fr" : "' . addslashes(encodeAccent(trim($dataAboutFR))) . '",
+			"en" : "' . addslashes(encodeAccent(trim($dataAboutEN))) . '",
+			"de" : "' . addslashes(encodeAccent(trim($dataAboutDE))) . '"
 		},
 
 		"contact" : {
