@@ -69,12 +69,14 @@ $(window).ready(function(){
 	// TEMP
 	// $("html").removeClass("no-touch").addClass("touch");
 
+	/*
 	if ( AC.Utils.isProd ) {
 		$("html").on("contextmenu", function(e){
 			e.preventDefault();
 			alert("© Copyright 2013 - Content Protected");
 		});
 	}
+	*/
 
 	if ( !Modernizr.touch ) {
 		AC.loop();

@@ -69,12 +69,14 @@ $(window).ready(function(){
 	// TEMP
 	// $("html").removeClass("no-touch").addClass("touch");
 
+	/*
 	if ( AC.Utils.isProd ) {
 		$("html").on("contextmenu", function(e){
 			e.preventDefault();
 			alert("© Copyright 2013 - Content Protected");
 		});
 	}
+	*/
 
 	if ( !Modernizr.touch ) {
 		AC.loop();
@@ -859,10 +861,17 @@ AC.View.Portfolio = AC.View.Base.extend({
 	prepImages : function() {
 
 		$(".to-load").each(function(index, el) {
-			$(el)
+			var $el = $(el);
+			$el
 				.removeClass("to-load")
 				.attr("src", $(el).data('src'))
 				.parents(".project").addClass("loaded");
+
+			if ( $el.height() < $($el.parent()).height() ) {
+				$el
+					.addClass("resized")
+					.css("margin-left", (( $($el.parent()).height() - $el.width()) * 0.5) + "px" );
+			}
 		});
 	},
 	
