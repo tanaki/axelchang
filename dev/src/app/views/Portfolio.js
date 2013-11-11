@@ -127,15 +127,17 @@ AC.View.Portfolio = AC.View.Base.extend({
 	handleComplete : function() {
 		$("body").data("all-img-loaded", true);
 
-		$(".loaded img").each(function(index, el){
+		setTimeout( function() {
+			$(".loaded img").each(function(index, el){
 
-			var $el = $(el);
-			if ( $el.height() < $($el.parent()).height() ) {
-				$el
-					.addClass("resized")
-					.css("margin-left", (( $($el.parent()).height() - $el.width()) * 0.5) + "px" );
-			}
-		});
+				var $el = $(el);
+				if ( $el.height() < $($el.parent()).height() ) {
+					$el
+						.addClass("resized")
+						.css("margin-left", (( $($el.parent()).height() - $el.width()) * 0.5) + "px" );
+				}
+			});
+		}, 200 );
 	},
 
 	handleFileLoad : function (event) {
