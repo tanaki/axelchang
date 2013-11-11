@@ -69,6 +69,7 @@
 
 					var newW = (220 * project.width) / project.height;
 					extraCSS = "margin-left:" + Math.round(( 220 - newW ) * 0.5) + "px;";
+					extraClass = "resized";
 
 				} else {
 
@@ -86,9 +87,9 @@
 					<span class="project-title"><%= project.title %></span>
 
 					<% if ( preloaded ) { %>
-						<img src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" />
+						<img src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" class="<%= extraClass %>" />
 					<% } else { %>
-						<img class="to-load" src="" data-src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" />
+						<img class="to-load" src="" data-src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" class="<%= extraClass %>" />
 					<% } %>
 				</a>
 			</div>
