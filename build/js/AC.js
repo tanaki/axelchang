@@ -819,18 +819,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleComplete : function() {
 		$("body").data("all-img-loaded", true);
-
-		setTimeout( function() {
-			$(".loaded img").each(function(index, el){
-
-				var $el = $(el);
-				if ( $el.height() < $($el.parent()).height() ) {
-					$el
-						.addClass("resized")
-						.css("margin-left", (( $($el.parent()).height() - $el.width()) * 0.5) + "px" );
-				}
-			});
-		}, 1000 );
 	},
 
 	handleFileLoad : function (event) {
@@ -840,6 +828,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 			.removeClass("to-load")
 			.attr("src", event.item.src)
 			.parents(".project").addClass("loaded");
+
+		// TODO RESIZE IMAGES HERE
 
 		$el.parents(".project").find(".spinner").remove();
 	},
@@ -873,11 +863,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 				.attr("src", $(el).data('src'))
 				.parents(".project").addClass("loaded");
 
-			if ( $el.height() < $($el.parent()).height() ) {
-				$el
-					.addClass("resized")
-					.css("margin-left", (( $($el.parent()).height() - $el.width()) * 0.5) + "px" );
-			}
+			// TODO RESIZE IMAGES HERE
 		});
 	},
 	

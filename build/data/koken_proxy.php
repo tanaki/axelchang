@@ -22,7 +22,8 @@
 			echo '"title" : "' . $album->title . '",';
 			echo '"slug" : "' . $album->slug . '",';
 			echo '"cover" : "' . $album->covers[0]->presets->medium->url . '",';
-			// echo '"coverLow" : "' . $album->covers[0]->presets->tiny->url . '",';
+			echo '"width" : "' . $album->covers[0]->presets->medium->width . '",';
+			echo '"height" : "' . $album->covers[0]->presets->medium->height . '",';
 			echo '"images" : [';
 
 				$jsonAlbum = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/'.$album->id.'/content')); 
@@ -31,7 +32,6 @@
 				foreach ( $jsonAlbum->content as $content ) {
 					echo '{';
 						echo '"img" : "' . $content->presets->huge->url . '",';
-						// echo '"low" : "' . $content->presets->medium->url . '",';
 						echo '"credits" : "' . clean($content->caption) . '"';
 					echo '}';
 
