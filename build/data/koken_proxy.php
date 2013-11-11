@@ -6,6 +6,18 @@
 	$dataAbout = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text') );
 	$dataNews = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/slug:news/content'));
 
+	foreach ( $dataAbout->text as $text ) {	
+		if ( $text->slug == "about-french" ) {
+			$dataAboutFR = $text->content;
+		}
+		if ( $text->slug == "about-english" ) {
+			$dataAboutEN = $text->content;
+		}
+		if ( $text->slug == "about-german" ) {
+			$dataAboutDE = $text->content;
+		}
+	}
+
 	// Start JSON
 	echo '{';
 
@@ -62,18 +74,6 @@
 			if ( $k < $maxArticle - 1 ) echo ',';
 			$k++;
 
-		}
-
-		foreach ( $dataAbout->text as $text ) {
-			if ( $text->slug == "about-french" ) {
-				$dataAboutFR = $text->content;
-			}
-			if ( $text->slug == "about-english" ) {
-				$dataAboutEN = $text->content;
-			}
-			if ( $text->slug == "about-german" ) {
-				$dataAboutDE = $text->content;
-			}
 		}
 
 
