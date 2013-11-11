@@ -23,6 +23,7 @@
     "createjs" : true,
     "Spinner" : true,
     "requestAnimationFrame" : true,
-    "Modernizr" : true
+    "Modernizr" : true,
+    "_gaq" : true
   }
 }

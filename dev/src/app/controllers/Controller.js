@@ -21,6 +21,7 @@ AC.Controller = function() {
 
 			_initEventHandlers();
 			_initNav();
+			_initLang();
 		},
 
 		/*
@@ -49,6 +50,22 @@ AC.Controller = function() {
 		},
 		
 		/*
+		 * init language links
+		 * @private
+		 */
+		_initLang = function() {
+
+			$('.lang').on("click", function(e){
+				e.preventDefault();
+
+				AC.Lang = $(this).data("lang");
+
+				Backbone.history.stop();
+				Backbone.history.start();
+			});
+		},
+		
+		/*
 		 * display Page
 		 * @private
 		 */
@@ -61,6 +78,12 @@ AC.Controller = function() {
 				
 				currentView.hide( function() {
 					displayPage(callbackEvent, false, urlData);
+
+					/*
+					if ( _gaq ) {
+						_gaq.push(['_trackPageview', '/'+Backbone.history.fragment ]);
+					}
+					*/
 				});
 
 			} else {

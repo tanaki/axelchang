@@ -3,7 +3,9 @@
 	header('Content-type: application/json');
 
 	$data = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/slug:portfolio/content'));
-	$dataAbout = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text/slug:about') );
+	$dataAboutFR = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text/slug:about-french') );
+	$dataAboutEN = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text/slug:about-english') );
+	$dataAboutDE = json_decode( file_get_contents('http://axelchang.com/koken/api.php?/text/slug:about-german') );
 	$dataNews = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/slug:news/content'));
 
 	// Start JSON
@@ -64,12 +66,15 @@
 
 		}
 
+
 	echo '],
 
 		"about" : {
 			"image" : "img/axel-chang.jpg",
 			"imagetablet" : "img/axel-chang-tablet.jpg",
-			"text" : "' . addslashes(trim($dataAbout->content)) . '"
+			"fr" : "' . addslashes(encodeAccent(trim($dataAboutFR->content))) . '",
+			"en" : "' . addslashes(encodeAccent(trim($dataAboutEN->content))) . '",
+			"de" : "' . addslashes(encodeAccent(trim($dataAboutDE->content))) . '"
 		},
 
 		"contact" : {
@@ -101,6 +106,10 @@
 	function clean($string) {
 		$string = str_replace('', '-', $string); // Replaces all spaces with hyphens.
 		return preg_replace('/[^A-Za-z0-9 \-]/', '', $string); // Removes special chars.
+	}
+
+	function encodeAccent($temp) {
+		return htmlspecialchars_decode(htmlentities($temp, ENT_NOQUOTES, 'UTF-8'), ENT_NOQUOTES);
 	}
 
 ?>

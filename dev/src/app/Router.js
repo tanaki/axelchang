@@ -39,7 +39,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_portfolioAction : function (slug, imgIndex) {
-		console.log("PF");
 		this.controller.displayPage( AC.Events.SHOW_PORTFOLIO, true, { "slug" : slug, "imgIndex" : imgIndex } );
 	},
 	
@@ -48,7 +47,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_aboutAction : function () {
-		console.log("about");
 		this.controller.displayPage( AC.Events.SHOW_ABOUT, true );
 	},
 	
@@ -57,7 +55,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_contactAction : function () {
-		console.log("contact");
 		this.controller.displayPage( AC.Events.SHOW_CONTACT, true );
 	},
 	
@@ -66,7 +63,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_newsAction : function (slug) {
-		console.log("news");
 		this.controller.displayPage( AC.Events.SHOW_NEWS, true, slug );
 	},
 	
@@ -75,7 +71,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_defaultAction : function () {
-		console.log("home");
 		this.controller.displayPage( AC.Events.SHOW_HOME, true );
 	}
 

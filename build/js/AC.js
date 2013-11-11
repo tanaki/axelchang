@@ -134,6 +134,7 @@ AC.Controller = function() {
 
 			_initEventHandlers();
 			_initNav();
+			_initLang();
 		},
 
 		/*
@@ -162,6 +163,22 @@ AC.Controller = function() {
 		},
 		
 		/*
+		 * init language links
+		 * @private
+		 */
+		_initLang = function() {
+
+			$('.lang').on("click", function(e){
+				e.preventDefault();
+
+				AC.Lang = $(this).data("lang");
+
+				Backbone.history.stop();
+				Backbone.history.start();
+			});
+		},
+		
+		/*
 		 * display Page
 		 * @private
 		 */
@@ -174,6 +191,12 @@ AC.Controller = function() {
 				
 				currentView.hide( function() {
 					displayPage(callbackEvent, false, urlData);
+
+					/*
+					if ( _gaq ) {
+						_gaq.push(['_trackPageview', '/'+Backbone.history.fragment ]);
+					}
+					*/
 				});
 
 			} else {
@@ -358,7 +381,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_portfolioAction : function (slug, imgIndex) {
-		console.log("PF");
 		this.controller.displayPage( AC.Events.SHOW_PORTFOLIO, true, { "slug" : slug, "imgIndex" : imgIndex } );
 	},
 	
@@ -367,7 +389,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_aboutAction : function () {
-		console.log("about");
 		this.controller.displayPage( AC.Events.SHOW_ABOUT, true );
 	},
 	
@@ -376,7 +397,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_contactAction : function () {
-		console.log("contact");
 		this.controller.displayPage( AC.Events.SHOW_CONTACT, true );
 	},
 	
@@ -385,7 +405,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_newsAction : function (slug) {
-		console.log("news");
 		this.controller.displayPage( AC.Events.SHOW_NEWS, true, slug );
 	},
 	
@@ -394,7 +413,6 @@ AC.Router = Backbone.Router.extend({
 	 * @private
 	 */
 	_defaultAction : function () {
-		console.log("home");
 		this.controller.displayPage( AC.Events.SHOW_HOME, true );
 	}
 
@@ -808,6 +826,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 			.removeClass("to-load")
 			.attr("src", event.item.src)
 			.parents(".project").addClass("loaded");
+
+		if ( $el.height() < $($el.parent()).height() ) {
+			$el
+				.addClass("resized")
+				.css("margin-left", (( $($el.parent()).height() - $el.width()) * 0.5) + "px" );
+		}
 
 		$el.parents(".project").find(".spinner").remove();
 	},

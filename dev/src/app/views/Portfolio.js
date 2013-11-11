@@ -136,6 +136,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 			.attr("src", event.item.src)
 			.parents(".project").addClass("loaded");
 
+		if ( $el.height() < $($el.parent()).height() ) {
+			$el
+				.addClass("resized")
+				.css("margin-left", (( $($el.parent()).height() - $el.width()) * 0.5) + "px" );
+		}
+
 		$el.parents(".project").find(".spinner").remove();
 	},
 

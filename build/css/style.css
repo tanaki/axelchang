@@ -369,6 +369,11 @@ footer ul li a.footer-tw {
   z-index: -1;
   width: 100%;
 }
+.portfolio .projects .project a img.resized {
+  max-width: inherit;
+  width: auto;
+  height: 100%;
+}
 .portfolio .projects .project a:hover .project-title {
   top: 90px;
   opacity: 1;
