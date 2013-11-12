@@ -7,11 +7,14 @@
 			<div id="detail-slider" class="swipe">
 				<div class="swipe-wrap">
 					<% _.each( project.images, function(image, index){ %>
-						<div class="mouse-move to-load-bg<%= (index == 0 ? ' move-current' : '') %>" data-item="<%= index %>">
+						<div class="mouse-move project-item to-load-bg<%= (index == 0 ? ' move-current' : '') %>" data-item="<%= index %>">
 							<img src="<%= image.low %>" alt="" data-src="<%= image.img %>" />
 							<div class="credits">
 								<%= image.credits %>
 							</div>
+
+							<div class="gradient-top"></div>
+							<div class="gradient-bottom"></div>
 						</div>
 					<% }) %>
 				</div>

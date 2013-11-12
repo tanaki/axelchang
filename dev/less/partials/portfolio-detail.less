@@ -37,20 +37,21 @@
 			z-index: -1;
 
 			.project-item {
-				.fullsize;
-				left: 100%;
-				background: no-repeat center center;
-				background-size: cover;
-
-				.transition( left 0.3s ease-out );
-
-				&.selected {
+				.gradient-top {
+					position: absolute;
+					top: 0;
 					left: 0;
+					width: 100%;
+					height: 253px;
+					background: url(../img/gradient-top.png) repeat-x left top;
 				}
-
-				&.prev {
-					left: -100%;
-					// .transition( left 0.6s ease-out );
+				.gradient-bottom {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 177px;
+					background: url(../img/gradient-bottom.png) repeat-x left top;
 				}
 			}
 		}
