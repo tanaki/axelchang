@@ -165,6 +165,22 @@ header nav h1 img {
 header nav h1 .logo-white {
   display: none;
 }
+header .lang-container {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 12px;
+}
+header .lang-container ul li {
+  display: block;
+  float: left;
+}
+header .lang-container ul li a {
+  display: block;
+  margin-right: 10px;
+  color: #000;
+  text-decoration: none;
+}
 .home-loaded header nav ul li a,
 .portfolio-detail header nav ul li a {
   color: #fff;
@@ -176,6 +192,10 @@ header nav h1 .logo-white {
 .home-loaded header nav h1 .logo-black,
 .portfolio-detail header nav h1 .logo-black {
   display: none;
+}
+.home-loaded header .lang-container ul li a,
+.portfolio-detail header .lang-container ul li a {
+  color: #fff;
 }
 /* Footer */
 footer {
