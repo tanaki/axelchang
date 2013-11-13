@@ -315,7 +315,7 @@ AC.DataManager = AC.DataManager || {
 			AC.Data.JSON = data;
 			
 			$spin.fadeOut(100, function(){
-				$spin.empty();
+				$spin.remove();
 			});
 
 			self.dataLoaded = true;

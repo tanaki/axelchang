@@ -484,6 +484,12 @@ footer ul li a.footer-tw {
   overflow: hidden;
   z-index: -1;
 }
+.portfolio-detail .project-detail .project-images .project-item img {
+  cursor: crosshair;
+}
+.portfolio-detail .project-detail .project-images .project-item .spinner {
+  top: 300px;
+}
 .portfolio-detail .project-detail .project-images .project-item .gradient-top {
   position: absolute;
   top: 0;
