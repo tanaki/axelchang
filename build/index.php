@@ -14,7 +14,6 @@
 		$lang = $_COOKIE["acm_lang"];
 	} else {
 		$lang = "fr";
-		setcookie('acm_lang', $lang, time() + (86400 * 7 * 365));
 	}
 ?>
 <!doctype html>
