@@ -62,6 +62,7 @@ AC.SpinOptions = {
 $(window).ready(function(){
 	
 	AC.Spinner = new Spinner( AC.SpinOptions ).spin();
+	$(".spin-box").append( $(AC.Spinner.el) );
 	
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });

@@ -13,16 +13,32 @@ AC.View.Portfolio = AC.View.Base.extend({
 	preloadBG : null,
 
 	initialize : function () {
-		this.params.projects = AC.Data.JSON.portfolio;
-		// this.params.projects = this._processText( AC.Data.JSON.portfolio );
+		this.params.projects = this._resizeCover( AC.Data.JSON.portfolio );
 		this.params.preloaded = false;
 	},
 
-	_processText : function( data ) {
+	_resizeCover : function( data ) {
 
 		_.each( data, function ( el ) {
 			_.each( el.images, function(img) {
-				img.credits = AC.Utils.textToHTML(img.credits);
+
+				var 
+					imgWidth = img.width,
+					imgHeight = img.height,
+					extraClass = "",
+					extraCSS = "";
+					
+				if ( imgWidth > imgHeight ) {
+					var newW = (220 * imgWidth) / imgHeight;
+					extraCSS = "margin-left:" + Math.round(( 220 - newW ) * 0.5) + "px;";
+					extraClass = "resized";
+				} else {
+					var newH = (220 * imgHeight) / imgWidth;
+					extraCSS = "margin-top:" + Math.round(( 220 - newH ) * 0.5) + "px;";
+				}
+
+				img.extraCSS = extraCSS;
+				img.extraClass = extraClass;
 			} );
 		} );
 

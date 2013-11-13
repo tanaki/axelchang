@@ -32,11 +32,18 @@ AC.DataManager = AC.DataManager || {
 
 	getData : function ( ) {
 
-		var self = this;
+		var 
+			$spin = $(".spin-box"),
+			self = this;
+
 		$.get(AC.Locations.JSON, function( data ) {
 			
 			AC.Data.JSON = data;
-						
+			
+			$spin.fadeOut(100, function(){
+				$spin.empty();
+			});
+
 			self.dataLoaded = true;
 			self.check( self.currentEvent, self.currentSlug );
 		}, 'json');

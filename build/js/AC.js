@@ -62,6 +62,7 @@ AC.SpinOptions = {
 $(window).ready(function(){
 	
 	AC.Spinner = new Spinner( AC.SpinOptions ).spin();
+	$(".spin-box").append( $(AC.Spinner.el) );
 	
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
@@ -305,11 +306,18 @@ AC.DataManager = AC.DataManager || {
 
 	getData : function ( ) {
 
-		var self = this;
+		var 
+			$spin = $(".spin-box"),
+			self = this;
+
 		$.get(AC.Locations.JSON, function( data ) {
 			
 			AC.Data.JSON = data;
-						
+			
+			$spin.fadeOut(100, function(){
+				$spin.empty();
+			});
+
 			self.dataLoaded = true;
 			self.check( self.currentEvent, self.currentSlug );
 		}, 'json');
@@ -586,8 +594,6 @@ AC.View.Home = AC.View.Base.extend({
 
 		this.params.preloaded = false;
 
-		$(".spin-box").append( $(AC.Spinner.el) );
-
 		this.preload = new createjs.LoadQueue(true);
 		
 		var self = this;
@@ -604,7 +610,6 @@ AC.View.Home = AC.View.Base.extend({
 
 		this.params.preloaded = true;
 		$("body").data("home-preload", true);
-		$(AC.Spinner.el).remove();
 	},
 
 	handleFileLoad : function(event) {
@@ -631,8 +636,6 @@ AC.View.Home = AC.View.Base.extend({
 
 		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
-			$(AC.Spinner.el).remove();
-			// $("#img-home").attr("src", "img/bg.jpg");
 		}
 	}
 	
@@ -706,16 +709,32 @@ AC.View.Portfolio = AC.View.Base.extend({
 	preloadBG : null,
 
 	initialize : function () {
-		this.params.projects = AC.Data.JSON.portfolio;
-		// this.params.projects = this._processText( AC.Data.JSON.portfolio );
+		this.params.projects = this._resizeCover( AC.Data.JSON.portfolio );
 		this.params.preloaded = false;
 	},
 
-	_processText : function( data ) {
+	_resizeCover : function( data ) {
 
 		_.each( data, function ( el ) {
 			_.each( el.images, function(img) {
-				img.credits = AC.Utils.textToHTML(img.credits);
+
+				var 
+					imgWidth = img.width,
+					imgHeight = img.height,
+					extraClass = "",
+					extraCSS = "";
+					
+				if ( imgWidth > imgHeight ) {
+					var newW = (220 * imgWidth) / imgHeight;
+					extraCSS = "margin-left:" + Math.round(( 220 - newW ) * 0.5) + "px;";
+					extraClass = "resized";
+				} else {
+					var newH = (220 * imgHeight) / imgWidth;
+					extraCSS = "margin-top:" + Math.round(( 220 - newH ) * 0.5) + "px;";
+				}
+
+				img.extraCSS = extraCSS;
+				img.extraClass = extraClass;
 			} );
 		} );
 

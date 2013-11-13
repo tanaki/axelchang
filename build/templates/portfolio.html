@@ -66,33 +66,16 @@
 	<div class="projects">
 		<% 
 			_.each ( projects, function ( project, index ) { 
-
-				var 
-					extraClass = "",
-					extraCSS = "";
-
-				if ( project.width > project.height ) {
-
-					var newW = (220 * project.width) / project.height;
-					extraCSS = "margin-left:" + Math.round(( 220 - newW ) * 0.5) + "px;";
-					extraClass = "resized";
-
-				} else {
-
-					var newH = (220 * project.height) / project.width;
-					extraCSS = "margin-top:" + Math.round(( 220 - newH ) * 0.5) + "px;";
-
-				}
-			%>
+		%>
 			<div class="project project-<%= index %> <% if ( preloaded ) { print('loaded') } %>">
 				<a href="/portfolio/<%= project.slug %>">
 					<span class="project-bg"></span>
 					<span class="project-title"><%= project.title %></span>
 
 					<% if ( preloaded ) { %>
-						<img src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" class="<%= extraClass %>" />
+						<img src="<%= project.cover %>" alt="<%= project.title %>" style="<%= project.extraCSS %>" class="<%= project.extraClass %>" />
 					<% } else { %>
-						<img class="to-load <%= extraClass %>" src="" data-src="<%= project.cover %>" alt="<%= project.title %>" style="<%= extraCSS %>" />
+						<img class="to-load <%= project.extraClass %>" src="" data-src="<%= project.cover %>" alt="<%= project.title %>" style="<%= project.extraCSS %>" />
 					<% } %>
 				</a>
 			</div>
