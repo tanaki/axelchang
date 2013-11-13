@@ -715,27 +715,27 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_resizeCover : function( data ) {
 
-		_.each( data, function ( el ) {
-			_.each( el.images, function(img) {
+		_.each( data, function ( img ) {
 
-				var 
-					imgWidth = img.width,
-					imgHeight = img.height,
-					extraClass = "",
-					extraCSS = "";
-					
-				if ( imgWidth > imgHeight ) {
-					var newW = (220 * imgWidth) / imgHeight;
-					extraCSS = "margin-left:" + Math.round(( 220 - newW ) * 0.5) + "px;";
-					extraClass = "resized";
-				} else {
-					var newH = (220 * imgHeight) / imgWidth;
-					extraCSS = "margin-top:" + Math.round(( 220 - newH ) * 0.5) + "px;";
-				}
+			var 
+				imgWidth = img.width,
+				imgHeight = img.height,
+				extraClass = "",
+				extraCSS = "";
+				
+			if ( imgWidth > imgHeight ) {
+				var newW = (220 * imgWidth) / imgHeight;
+				extraCSS = "margin-left:" + Math.round(( 220 - newW ) * 0.5) + "px;";
+				extraClass = "resized";
+			} else {
+				var newH = (220 * imgHeight) / imgWidth;
+				extraCSS = "margin-top:" + Math.round(( 220 - newH ) * 0.5) + "px;";
+			}
 
-				img.extraCSS = extraCSS;
-				img.extraClass = extraClass;
-			} );
+			img.extraCSS = extraCSS;
+			img.extraClass = extraClass;
+
+			console.log( img );
 		} );
 
 		return data;
