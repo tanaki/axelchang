@@ -64,10 +64,16 @@
 		
 		foreach ( $dataNews->content as $article ) {
 
+			$translations = getTranslation($article->caption);
+
 			echo '{';
 				echo '"id" : "' . $article->id . '",';
 				echo '"slug" : "' . $article->slug . '",';
-				echo '"text" : "' . $article->caption . '",';
+				echo '"text" : {';
+					echo '"en" : "' . $translations["en"] . '",';
+					echo '"fr" : "' . $translations["fr"] . '",';
+					echo '"de" : "' . $translations["de"] . '"';
+				echo '},';
 				echo '"img" : "' . $article->presets->huge->url . '"';
 			echo '}';
 
@@ -112,6 +118,7 @@
 	
 	// End JSON
 	echo '}';
+	
 
 	function clean($string) {
 		$string = str_replace('', '-', $string); // Replaces all spaces with hyphens.
@@ -120,6 +127,21 @@
 
 	function encodeAccent($temp) {
 		return htmlspecialchars_decode(htmlentities($temp, ENT_NOQUOTES, 'UTF-8'), ENT_NOQUOTES);
+	}
+
+	function getTranslation ( $text ) {
+		$trans = array();
+
+		$splitted = ( preg_split("/\{\/[a-z]{2}\}/", $text) );
+
+		foreach ( $splitted as $split ) {
+
+			$split = preg_replace("/\{/", "", $split);
+			$split = explode("}", $split);
+			$trans[ $split[0] ] = $split[1];
+		}
+
+		return $trans;
 	}
 
 ?>

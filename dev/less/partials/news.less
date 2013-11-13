@@ -17,32 +17,27 @@
 		}
 	}
 
-	.news-nav {
+	.news-prev,
+	.news-next {
 		position: absolute;
 		top: 50%;
-		width: 100%;
-		margin-top: -80px;
+		display: block;
+		color: #000;
+		text-decoration: none;
+		margin: -30px 48px 48px;
 
-		.prev,
-		.next {
-			display: block;
-			color: #000;
-			text-decoration: none;
-			margin: 48px;
-
-			width: 32px;
-			height: 60px;
-			background: url(../img/big-arrows-black.png) no-repeat left center;
-			overflow: hidden;
-			text-indent: -5000px;
-		}
-		.prev {
-			float: left;
-		}
-		.next {
-			float: right;
-			background-position: right center;
-		}
+		width: 32px;
+		height: 60px;
+		background: url(../img/big-arrows-black.png) no-repeat left center;
+		overflow: hidden;
+		text-indent: -5000px;
+	}
+	.news-prev {
+		left: 0;
+	}
+	.news-next {
+		right: 0;
+		background-position: right center;
 	}
 	
 	.news-list {

@@ -174,9 +174,9 @@ AC.Controller = function() {
 				e.preventDefault();
 
 				AC.Lang = $(this).data("lang");
-
-				Backbone.history.stop();
-				Backbone.history.start();
+				AC.Utils.eraseCookie("acm_lang");
+				AC.Utils.createCookie("acm_lang", AC.Lang, 365);
+				window.location.reload();
 			});
 		},
 		
@@ -669,14 +669,14 @@ AC.View.News = AC.View.Base.extend({
 
 		var 
 			newsSwipe = this.newsSwipe,
-			$container = $(".news-list .news-nav");
+			$container = $(".news-list");
 
-		$(".next", $container).on("click", function(e){
+		$(".news-next", $container).on("click", function(e){
 			e.preventDefault();
 			newsSwipe.next();
 		});
 
-		$(".prev", $container).on("click", function(e){
+		$(".news-prev", $container).on("click", function(e){
 			e.preventDefault();
 			newsSwipe.prev();
 		});
@@ -706,7 +706,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 	preloadBG : null,
 
 	initialize : function () {
-		this.params.projects = this._processText( AC.Data.JSON.portfolio );
+		this.params.projects = AC.Data.JSON.portfolio;
+		// this.params.projects = this._processText( AC.Data.JSON.portfolio );
 		this.params.preloaded = false;
 	},
 
@@ -738,9 +739,15 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_displayComplete : function () {
 
-		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
+		$(".project a, .project-detail .project-global-nav a:not(.link-credits)").on("click", function(e){
 			e.preventDefault();
 			AC.AppRouter.navigate($(this).attr("href"), true);
+		});
+
+		
+		$(".link-credits").on("click", function(e){
+			e.preventDefault();
+			$(".move-current .credits").toggle();
 		});
 
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
@@ -767,8 +774,13 @@ AC.View.Portfolio = AC.View.Base.extend({
 	},
 
 	_callbackSwipe : function(index) {
+
 		$(".current-index .current").html( index + 1 );
-		$(".swipe-wrap .move-current").removeClass("move-current");
+
+		var $currentImg = $(".swipe-wrap .move-current");
+		$currentImg
+			.removeClass("move-current")
+			.find(".credits").hide();
 		$($(".swipe-wrap .mouse-move").get(index)).addClass("move-current");
 	},
 
@@ -871,14 +883,14 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		var 
 			detailSwipe = this.detailSwipe,
-			$container = $(".project-detail .project-nav");
+			$container = $(".project-detail");
 
-		$(".next", $container).on("click", function(e){
+		$(".news-next", $container).on("click", function(e){
 			e.preventDefault();
 			detailSwipe.next();
 		});
 
-		$(".prev", $container).on("click", function(e){
+		$(".news-prev", $container).on("click", function(e){
 			e.preventDefault();
 			detailSwipe.prev();
 		});
@@ -938,4 +950,30 @@ AC.Utils.textToHTML = function( text ) {
 		.replace(/\)\]/g, '" target="_blank">')
 		.replace(/\[\/url\]/g, '</a>')
 		.replace(/\[br\]/g, '<br/>');
+};
+
+AC.Utils.createCookie = function(name,value,days) {
+
+	var expires = "";
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		expires = "; expires="+date.toGMTString();
+	}
+	document.cookie = name+"="+value+expires+"; path=/";
+};
+
+AC.Utils.readCookie = function(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+};
+
+AC.Utils.eraseCookie = function(name) {
+	AC.Utils.createCookie(name,"",-1);
 };

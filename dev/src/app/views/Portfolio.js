@@ -13,7 +13,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 	preloadBG : null,
 
 	initialize : function () {
-		this.params.projects = this._processText( AC.Data.JSON.portfolio );
+		this.params.projects = AC.Data.JSON.portfolio;
+		// this.params.projects = this._processText( AC.Data.JSON.portfolio );
 		this.params.preloaded = false;
 	},
 
@@ -45,9 +46,15 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	_displayComplete : function () {
 
-		$(".project a, .project-detail .project-global-nav a").on("click", function(e){
+		$(".project a, .project-detail .project-global-nav a:not(.link-credits)").on("click", function(e){
 			e.preventDefault();
 			AC.AppRouter.navigate($(this).attr("href"), true);
+		});
+
+		
+		$(".link-credits").on("click", function(e){
+			e.preventDefault();
+			$(".move-current .credits").toggle();
 		});
 
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
@@ -74,8 +81,13 @@ AC.View.Portfolio = AC.View.Base.extend({
 	},
 
 	_callbackSwipe : function(index) {
+
 		$(".current-index .current").html( index + 1 );
-		$(".swipe-wrap .move-current").removeClass("move-current");
+
+		var $currentImg = $(".swipe-wrap .move-current");
+		$currentImg
+			.removeClass("move-current")
+			.find(".credits").hide();
 		$($(".swipe-wrap .mouse-move").get(index)).addClass("move-current");
 	},
 
@@ -178,14 +190,14 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		var 
 			detailSwipe = this.detailSwipe,
-			$container = $(".project-detail .project-nav");
+			$container = $(".project-detail");
 
-		$(".next", $container).on("click", function(e){
+		$(".news-next", $container).on("click", function(e){
 			e.preventDefault();
 			detailSwipe.next();
 		});
 
-		$(".prev", $container).on("click", function(e){
+		$(".news-prev", $container).on("click", function(e){
 			e.preventDefault();
 			detailSwipe.prev();
 		});

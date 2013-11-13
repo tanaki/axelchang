@@ -129,12 +129,13 @@ header nav {
   padding-top: 40px;
   overflow: hidden;
   text-align: center;
-  width: 600px;
   margin: 0 auto;
 }
 header nav ul {
   text-align: center;
   display: block;
+  overflow: hidden;
+  float: left;
 }
 header nav ul li {
   display: block;
@@ -196,6 +197,27 @@ header .lang-container ul li a {
 .home-loaded header .lang-container ul li a,
 .portfolio-detail header .lang-container ul li a {
   color: #fff;
+}
+.lang-en header nav {
+  width: 600px;
+}
+.lang-en header .en {
+  font-weight: bold;
+}
+.lang-fr header nav {
+  width: 645px;
+}
+.lang-fr header .fr {
+  font-weight: bold;
+}
+.lang-de header nav {
+  width: 700px;
+}
+.lang-de header nav .nav-left {
+  margin-left: 60px;
+}
+.lang-de header .de {
+  font-weight: bold;
 }
 /* Footer */
 footer {
@@ -432,29 +454,25 @@ footer ul li a.footer-tw {
     margin: 0 auto 20px;
   }
 }
-.portfolio-detail .project-detail .project-nav {
+.portfolio-detail .project-detail .news-prev,
+.portfolio-detail .project-detail .news-next {
   position: absolute;
   top: 50%;
-  width: 100%;
-  margin-top: -80px;
-}
-.portfolio-detail .project-detail .project-nav .prev,
-.portfolio-detail .project-detail .project-nav .next {
   display: block;
   color: #fff;
   text-decoration: none;
-  margin: 48px;
+  margin: -30px 48px 48px;
   width: 32px;
   height: 60px;
   background: url(../img/big-arrows.png) no-repeat left center;
   overflow: hidden;
   text-indent: -5000px;
 }
-.portfolio-detail .project-detail .project-nav .prev {
-  float: left;
+.portfolio-detail .project-detail .news-prev {
+  left: 0;
 }
-.portfolio-detail .project-detail .project-nav .next {
-  float: right;
+.portfolio-detail .project-detail .news-next {
+  right: 0;
   background-position: right center;
 }
 .portfolio-detail .project-detail .project-images {
@@ -483,10 +501,16 @@ footer ul li a.footer-tw {
   background: url(../img/gradient-bottom.png) repeat-x left top;
 }
 .portfolio-detail .project-detail .credits {
+  display: none;
   position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 200px;
+  top: 200px;
+  width: 100%;
+}
+.portfolio-detail .project-detail .credits .credits-inside {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
 }
 .portfolio-detail .project-detail .project-global-nav {
   color: #fff;
@@ -508,6 +532,11 @@ footer ul li a.footer-tw {
   border: 3px solid #fff;
   padding: 10px;
   width: 300px;
+}
+.portfolio-detail .project-detail .project-global-nav .link-credits {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 .portfolio-detail .project-detail .project-global-nav .prev-project,
 .portfolio-detail .project-detail .project-global-nav .next-project {
@@ -684,29 +713,25 @@ footer ul li a.footer-tw {
   bottom: 0;
   max-width: 290px;
 }
-.news .news-nav {
+.news .news-prev,
+.news .news-next {
   position: absolute;
   top: 50%;
-  width: 100%;
-  margin-top: -80px;
-}
-.news .news-nav .prev,
-.news .news-nav .next {
   display: block;
   color: #000;
   text-decoration: none;
-  margin: 48px;
+  margin: -30px 48px 48px;
   width: 32px;
   height: 60px;
   background: url(../img/big-arrows-black.png) no-repeat left center;
   overflow: hidden;
   text-indent: -5000px;
 }
-.news .news-nav .prev {
-  float: left;
+.news .news-prev {
+  left: 0;
 }
-.news .news-nav .next {
-  float: right;
+.news .news-next {
+  right: 0;
   background-position: right center;
 }
 .news .news-list .news-content {

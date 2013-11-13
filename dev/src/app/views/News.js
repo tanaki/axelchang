@@ -23,14 +23,14 @@ AC.View.News = AC.View.Base.extend({
 
 		var 
 			newsSwipe = this.newsSwipe,
-			$container = $(".news-list .news-nav");
+			$container = $(".news-list");
 
-		$(".next", $container).on("click", function(e){
+		$(".news-next", $container).on("click", function(e){
 			e.preventDefault();
 			newsSwipe.next();
 		});
 
-		$(".prev", $container).on("click", function(e){
+		$(".news-prev", $container).on("click", function(e){
 			e.preventDefault();
 			newsSwipe.prev();
 		});

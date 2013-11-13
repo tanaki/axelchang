@@ -59,9 +59,9 @@ AC.Controller = function() {
 				e.preventDefault();
 
 				AC.Lang = $(this).data("lang");
-
-				Backbone.history.stop();
-				Backbone.history.start();
+				AC.Utils.eraseCookie("acm_lang");
+				AC.Utils.createCookie("acm_lang", AC.Lang, 365);
+				window.location.reload();
 			});
 		},
 		

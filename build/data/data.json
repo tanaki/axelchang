@@ -178,7 +178,7 @@
 		"en" : "<p>Hello !<br/>Je m'apelle Axel Chang et  je suis maquilleur professionnel depuis dejà plusieurs années...</p><p>Organic kogi cred four loko, salvia marfa church-key mlkshk thundercats actually twee american apparel 8-bit bushwick selvage. You probably haven't heard of them fingerstache put a bird on it skateboard flexitarian pitchfork. Banksy sartorial salvia twee hella. Tonx wayfarers dreamcatcher irony leggings flexitarian, single-origin coffee sustainable meh vice flannel letterpress disrupt yr etsy.</p><p>Odd future fanny pack master cleanse freegan thundercats, lomo blog stumptown food truck. Pour-over seitan try-hard sriracha, raw denim yr next level iphone 3 wolf moon sartorial quinoa. Art party bushwick kogi vice craft beer, keytar narwhal put a bird on </p>",
 		"de" : "<p>Hallo !<br/>Je m'apelle Axel Chang et  je suis maquilleur professionnel depuis dejà plusieurs années...</p><p>Organic kogi cred four loko, salvia marfa church-key mlkshk thundercats actually twee american apparel 8-bit bushwick selvage. You probably haven't heard of them fingerstache put a bird on it skateboard flexitarian pitchfork. Banksy sartorial salvia twee hella. Tonx wayfarers dreamcatcher irony leggings flexitarian, single-origin coffee sustainable meh vice flannel letterpress disrupt yr etsy.</p><p>Odd future fanny pack master cleanse freegan thundercats, lomo blog stumptown food truck. Pour-over seitan try-hard sriracha, raw denim yr next level iphone 3 wolf moon sartorial quinoa. Art party bushwick kogi vice craft beer, keytar narwhal put a bird on </p>"
 	},
-
+	
 	"contact" : {
 		"email" : {
 			"link" : "mailto:chang.axel@gmail.com",
@@ -206,16 +206,22 @@
 		{
 			"id" : 0,
 			"slug" : "news-1",
-			"title" : "Title",
-			"text" : "<p>Text news 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nusquam adhuc vituperata finiri liberos, inferiorem nosmet conquirendae laudatur delectatum discordans, illustribus, bene, scriptorem opibus aequitatem litterae clariora reliqui vidit fonte poterimus ait, inhumanus dicturam vide conclusum convicia amarissimam sic, aiunt optimi aliquo angoribus fatendum ego sin impensa verum fortitudinis.</p>",
+			"text" : {
+				"en" : "English[br]Text",
+				"fr" : "French[br]Text",
+				"de" : "German[br]Text"
+			},
 			"img" : "img/news/img.jpg",
 			"low" : "img/news/img.jpg"
 		},
 		{
 			"id" : 1,
 			"slug" : "news-2",
-			"title" : "Title 2",
-			"text" : "<p>Text news 2</p>",
+			"text" : {
+				"en" : "English[br]Text",
+				"fr" : "French[br]Text",
+				"de" : "German[br]Text 2 lalalala lorem ipsum [br]and again"
+			},
 			"img" : "img/news/img2.jpg",
 			"low" : "img/news/img2.jpg"
 		}

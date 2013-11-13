@@ -7,9 +7,18 @@
 		$BASE_URL = "/test/";
 		$PROD = true;
 	}
+
+	$rawData = json_decode(file_get_contents('data/copy.json'));
+
+	if ( isset($_COOKIE["acm_lang"]) ) {
+		$lang = $_COOKIE["acm_lang"];
+	} else {
+		$lang = "fr";
+		setcookie('acm_lang', $lang, time() + (86400 * 7 * 365));
+	}
 ?>
 <!doctype html>
-<html>
+<html class="lang-<?php echo $lang; ?>">
 	<head>
 
 		<meta charset="utf-8" />
@@ -26,8 +35,8 @@
 			<header>
 				<nav>
 					<ul class="nav-left">
-						<li><a href="/portfolio">Portfolio</a></li>
-						<li><a href="/about">About</a></li>
+						<li><a href="/portfolio"><?php echo $rawData->copy->$lang->portfolio; ?></a></li>
+						<li><a href="/about"><?php echo $rawData->copy->$lang->about; ?></a></li>
 					</ul>
 					<h1>
 						<a href="/">
@@ -36,21 +45,21 @@
 						</a>
 					</h1>
 					<ul class="nav-right">
-						<li><a href="/contact">Contact</a></li>
-						<li class="last"><a href="/news">News</a></li>
+						<li><a href="/contact"><?php echo $rawData->copy->$lang->contact; ?></a></li>
+						<li class="last"><a href="/news"><?php echo $rawData->copy->$lang->news; ?></a></li>
 					</ul>
 				</nav>
 
 				<div class="lang-container">
 					<ul>
 						<li>
-							<a href="#" class="lang" data-lang="fr">FR</a>
+							<a href="#" class="lang fr" data-lang="fr">FR</a>
 						</li>
 						<li>
-							<a href="#" class="lang" data-lang="en">EN</a>
+							<a href="#" class="lang en" data-lang="en">EN</a>
 						</li>
 						<li>
-							<a href="#" class="lang" data-lang="de">DE</a>
+							<a href="#" class="lang de" data-lang="de">DE</a>
 						</li>
 					</ul>
 				</div>
@@ -84,16 +93,15 @@
 		<script type="text/javascript" src="<?php echo $BASE_URL; ?>js/AC.js"></script>
 		<script type="text/javascript">
 
-			// TODO Check on cookies for lang
-			AC.Lang = "fr";
+			AC.Lang = '<?php echo $lang; ?>';
 
 			AC.Utils.isProd = '<?php echo $PROD; ?>';
 			AC.Locations.Root = '<?php echo $BASE_URL; ?>';
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
 			
-			// AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
-			AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
+			AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
+			// AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
 		</script>
 
 		<!--script type="text/javascript">

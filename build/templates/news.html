@@ -8,7 +8,7 @@
 				<div>
 					<img class="news-img" src="<%= article.img %>">
 					<div class="news-text">
-						<%= article.text %>
+						<%= AC.Utils.textToHTML(article.text[AC.Lang]) %>
 					</div>
 				</div>
 				<% }) %>
@@ -17,9 +17,7 @@
 
 	</div>
 
-	<div class="news-nav">
-		<a href="#" class="prev"><</a>
-		<a href="#" class="next">></a>
-	</div>
-
+	<a href="#" class="news-prev"><</a>
+	<a href="#" class="news-next">></a>
+	
 </div>

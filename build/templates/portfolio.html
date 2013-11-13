@@ -10,7 +10,9 @@
 						<div class="mouse-move project-item to-load-bg<%= (index == 0 ? ' move-current' : '') %>" data-item="<%= index %>">
 							<img src="<%= image.low %>" alt="" data-src="<%= image.img %>" />
 							<div class="credits">
-								<%= image.credits %>
+								<div class="credits-inside">
+									<%= AC.Utils.textToHTML(image.credits) %>
+								</div>
 							</div>
 
 							<div class="gradient-top"></div>
@@ -23,13 +25,14 @@
 		</div>
 
 		<% if ( project.images.length > 1 ) { %>
-			<div class="project-nav">
-				<a href="#" class="prev"><</a>
-				<a href="#" class="next">></a>
-			</div>
+			<a href="#" class="news-prev"><</a>
+			<a href="#" class="news-next">></a>
 		<% } %>
 
 		<div class="project-global-nav">
+
+			<a href="#" class="link-credits">Credits</a>
+
 			<div class="current-index">
 				<span class="current">1</span>
 				<span class="total"> / <%= project.images.length %></span>
@@ -80,10 +83,7 @@
 					extraCSS = "margin-top:" + Math.round(( 220 - newH ) * 0.5) + "px;";
 
 				}
-
-
-
-		%>
+			%>
 			<div class="project project-<%= index %> <% if ( preloaded ) { print('loaded') } %>">
 				<a href="/portfolio/<%= project.slug %>">
 					<span class="project-bg"></span>

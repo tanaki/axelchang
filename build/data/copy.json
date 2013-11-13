@@ -1,0 +1,22 @@
+{
+	"copy" : {
+		"fr" : {
+			"portfolio" : "Portfolio",
+			"about" : "A Propos",
+			"contact" : "Contact",
+			"news" : "news"
+		},
+		"en" : {
+			"portfolio" : "Portfolio",
+			"about" : "About",
+			"contact" : "Contact",
+			"news" : "News"	
+		},
+		"de" : {
+			"portfolio" : "Portfolio",
+			"about" : "Über",
+			"contact" : "Kontakt",
+			"news" : "Nachrichten"
+		}
+	}
+}
