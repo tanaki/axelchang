@@ -38,8 +38,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 			img.extraCSS = extraCSS;
 			img.extraClass = extraClass;
-
-			console.log( img );
 		} );
 
 		return data;
@@ -67,10 +65,14 @@ AC.View.Portfolio = AC.View.Base.extend({
 			AC.AppRouter.navigate($(this).attr("href"), true);
 		});
 
-		
 		$(".link-credits").on("click", function(e){
 			e.preventDefault();
 			$(".move-current .credits").toggle();
+		});
+
+		$(".zoomer").on("click", function(e){
+			e.preventDefault();
+			$(this).siblings("img").toggleClass("unzoom");
 		});
 
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {

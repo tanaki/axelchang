@@ -324,15 +324,6 @@ footer ul li a.footer-tw {
   height: 100%;
   margin: 0;
   z-index: -1;
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
-  -moz-filter: blur(3px);
-  -o-filter: blur(3px);
-  -ms-filter: blur(3px);
-  filter: url(blur.svg#blur);
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='@valueIE');
-  -webkit-transition: -webkit-filter 0.2s linear;
-  transition: -webkit-filter 0.2s linear;
 }
 .home.home-loaded .main-content {
   filter: blur(none);
@@ -484,9 +475,6 @@ footer ul li a.footer-tw {
   overflow: hidden;
   z-index: -1;
 }
-.portfolio-detail .project-detail .project-images .project-item img {
-  cursor: crosshair;
-}
 .portfolio-detail .project-detail .project-images .project-item .spinner {
   top: 300px;
 }
@@ -505,6 +493,30 @@ footer ul li a.footer-tw {
   width: 100%;
   height: 177px;
   background: url(../img/gradient-bottom.png) repeat-x left top;
+}
+.portfolio-detail .project-detail .project-images .project-item .zoomer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  cursor: crosshair;
+}
+.portfolio-detail .project-detail .project-images .project-item img {
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+  -webkit-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -o-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+}
+.portfolio-detail .project-detail .project-images .project-item img.unzoom {
+  margin-top: 200px !important;
+  -webkit-transform: scale(0.25);
+  -ms-transform: scale(0.25);
+  transform: scale(0.25);
 }
 .portfolio-detail .project-detail .credits {
   display: none;

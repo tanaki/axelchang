@@ -91,7 +91,7 @@ $(window).ready(function(){
 AC.loop = function() {
 
 	
-	var $img = $(".mouse-move.move-current img");
+	var $img = $(".mouse-move.move-current img:not(.unzoom)");
 	if ( $img.length === 0 ) {
 		setTimeout(AC.loop, 600);
 		return;
