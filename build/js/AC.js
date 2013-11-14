@@ -758,6 +758,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		$(".project a, .project-detail .project-global-nav a:not(.link-credits), .link-back").on("click", function(e){
 			e.preventDefault();
+			alert( $(this).attr("href") );
 			AC.AppRouter.navigate($(this).attr("href"), true);
 		});
 
