@@ -766,10 +766,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 			$(".move-current .credits").toggle();
 		});
 
-		$(".zoomer").on("click", function(e){
-			e.preventDefault();
-			$(this).siblings("img").toggleClass("unzoom");
-		});
+		if ( !Modernizr.touch ) {
+			$(".zoomer").on("click", function(e){
+				e.preventDefault();
+				$(this).siblings("img").toggleClass("unzoom");
+			});
+		}
 
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
 			callback : this._callbackSwipe
@@ -906,12 +908,12 @@ AC.View.Portfolio = AC.View.Base.extend({
 			detailSwipe = this.detailSwipe,
 			$container = $(".project-detail");
 
-		$(".news-next", $container).on("click", function(e){
+		$(".project-next", $container).on("click", function(e){
 			e.preventDefault();
 			detailSwipe.next();
 		});
 
-		$(".news-prev", $container).on("click", function(e){
+		$(".project-prev", $container).on("click", function(e){
 			e.preventDefault();
 			detailSwipe.prev();
 		});

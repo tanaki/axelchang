@@ -1,11 +1,18 @@
-
-@media screen and (max-width:680px) {
+@media screen and (max-width:1000px) {
 	header {
-		height: 115px;
+		.lang-container {
+			right: 20px;
+			top: 20px;
+		}
+	}
+}
+@media screen and (max-width:700px) {
+	header {
+		height: 135px;
 
 		nav {
 			width: 260px;
-			padding-top: 20px;
+			padding-top: 30px;
 
 			ul {
 				text-align: right;
@@ -42,5 +49,38 @@
 			}
 		}
 
+		.lang-container {
+			right: auto;
+			left: 50%;
+			top: 10px;
+			margin-left: -31px;
+		}
+	}
+
+	.lang-en {
+		header {
+			nav {
+				width: 260px;
+			}
+		}
+	}
+
+	.lang-fr {
+		header {
+			nav {
+				width: 260px;
+			}
+		}
+	}
+
+	.lang-de {
+		header {
+			nav {
+				width: 310px;
+				.nav-left {
+					margin-left: 23px;
+				}
+			}
+		}
 	}
 }
