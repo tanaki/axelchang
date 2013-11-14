@@ -168,8 +168,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 			.attr("src", event.item.src)
 			.parents(".project").addClass("loaded");
 
-		// TODO RESIZE IMAGES HERE
-
 		$el.parents(".project").find(".spinner").remove();
 	},
 
@@ -201,8 +199,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 				.removeClass("to-load")
 				.attr("src", $(el).data('src'))
 				.parents(".project").addClass("loaded");
-
-			// TODO RESIZE IMAGES HERE
 		});
 	},
 	

@@ -172,12 +172,13 @@
 				display: block;
 
 				position: absolute;
-				bottom: 45px;
+				bottom: 65px;
 				left: 0;
 				width: 100%;
 
 				.link-back,
 				.link-credits {
+					position: absolute;
 					display: block;
 					overflow: hidden;
 					width: 34px;
@@ -186,8 +187,18 @@
 					background-size: 34px 53px;
 					text-indent: -5000px;
 				}
+				.link-back {
+					top: 0;
+					left: 20px;
+				}
 				.link-credits {
+					top: 0;
+					right: 20px;
 					background-position: left bottom;
+				}
+				.current-index {
+					color: #fff;
+					text-align: center;
 				}
 
 				.mobile-index {

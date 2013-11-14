@@ -617,12 +617,13 @@ footer ul li a.footer-tw {
 .touch .portfolio-detail .project-detail .project-mobile-nav {
   display: block;
   position: absolute;
-  bottom: 45px;
+  bottom: 65px;
   left: 0;
   width: 100%;
 }
 .touch .portfolio-detail .project-detail .project-mobile-nav .link-back,
 .touch .portfolio-detail .project-detail .project-mobile-nav .link-credits {
+  position: absolute;
   display: block;
   overflow: hidden;
   width: 34px;
@@ -631,8 +632,18 @@ footer ul li a.footer-tw {
   background-size: 34px 53px;
   text-indent: -5000px;
 }
+.touch .portfolio-detail .project-detail .project-mobile-nav .link-back {
+  top: 0;
+  left: 20px;
+}
 .touch .portfolio-detail .project-detail .project-mobile-nav .link-credits {
+  top: 0;
+  right: 20px;
   background-position: left bottom;
+}
+.touch .portfolio-detail .project-detail .project-mobile-nav .current-index {
+  color: #fff;
+  text-align: center;
 }
 .touch .portfolio-detail .project-detail .project-mobile-nav .mobile-index ul li {
   display: block;
