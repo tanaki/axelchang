@@ -555,6 +555,9 @@ footer ul li a.footer-tw {
   padding: 20px;
   background: #fff;
 }
+.portfolio-detail .project-detail .credits .credits-inside a {
+  color: #000;
+}
 .portfolio-detail .project-detail .project-global-nav {
   color: #fff;
   text-align: center;
