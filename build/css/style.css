@@ -211,7 +211,7 @@ header .lang-container ul li a {
   font-weight: bold;
 }
 .lang-de header nav {
-  width: 700px;
+  width: 800px;
 }
 .lang-de header nav .nav-left {
   margin-left: 60px;
@@ -286,7 +286,7 @@ footer ul li a.footer-tw {
     top: 20px;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 810px) {
   header {
     height: 135px;
   }
@@ -334,10 +334,13 @@ footer ul li a.footer-tw {
     width: 260px;
   }
   .lang-de header nav {
-    width: 310px;
+    width: 320px;
   }
   .lang-de header nav .nav-left {
-    margin-left: 23px;
+    margin-left: 25px;
+  }
+  .lang-de header .lang-container {
+    margin-left: -35px;
   }
 }
 .home .main-content {

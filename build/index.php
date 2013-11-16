@@ -8,7 +8,8 @@
 		$PROD = true;
 	}
 
-	$rawData = json_decode(file_get_contents('data/copy.json'));
+	$jsonData = file_get_contents('data/copy.json');
+	$rawData = json_decode($jsonData);
 
 	if ( isset($_COOKIE["acm_lang"]) ) {
 		$lang = $_COOKIE["acm_lang"];
@@ -93,6 +94,7 @@
 		<script type="text/javascript">
 
 			AC.Lang = '<?php echo $lang; ?>';
+			AC.Copy = <?php echo $jsonData; ?>;
 
 			AC.Utils.isProd = '<?php echo $PROD; ?>';
 			AC.Locations.Root = '<?php echo $BASE_URL; ?>';

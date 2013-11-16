@@ -2,21 +2,24 @@
 	"copy" : {
 		"fr" : {
 			"portfolio" : "Portfolio",
-			"about" : "A Propos",
+			"about" : "&Agrave; Propos",
 			"contact" : "Contact",
-			"news" : "news"
+			"news" : "News",
+			"credits" : "Crédits"
 		},
 		"en" : {
 			"portfolio" : "Portfolio",
 			"about" : "About",
 			"contact" : "Contact",
-			"news" : "News"	
+			"news" : "News",
+			"credits" : "Credits"
 		},
 		"de" : {
 			"portfolio" : "Portfolio",
-			"about" : "Über",
-			"contact" : "Kontakt",
-			"news" : "Nachrichten"
+			"about" : "Über mich",
+			"contact" : "Kontaktdaten",
+			"news" : "Neuigkeiten",
+			"credits" : "Impressum"
 		}
 	}
 }
