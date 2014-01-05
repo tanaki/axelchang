@@ -4,33 +4,54 @@
 		ul {
 			margin: 0 auto;
 			width: 420px;
-			border-bottom: 1px solid #000;
+			border-bottom: 1px solid #444;
 
 			li {
 				display: block;
-				border-top: 1px solid #000;
+				border-top: 1px solid #444;
 				
 				a {
 					display: block;
-					color: #000;
+					color: #444;
 					text-decoration: none;
 					margin: 0 0 0 55px;
 					padding: 25px 0 25px 60px;
 
-					background: url(../img/sprite_contact.png) no-repeat left 20px;
-					background-size: 44px 400px;
+					background: @sprite no-repeat -980px 20px;
 
+					&:hover {
+						background-position: -980px -420px;
+					}
+					
 					&.phone {
-						background-position: left -55px;
+						background-position: -980px -55px;
+						&:hover {
+							background-position: -980px -495px;
+						}
 					}
 					&.facebook {
-						background-position: left -135px;
+						background-position: -980px -130px;
+						&:hover {
+							background-position: -980px -570px;
+						}
 					}
 					&.tumblr {
-						background-position: left -210px;
+						background-position: -980px -200px;
+						&:hover {
+							background-position: -980px -640px;
+						}
 					}
 					&.twitter {
-						background-position: left -280px;
+						background-position: -980px -280px;
+						&:hover {
+							background-position: -980px -720px;
+						}
+					}
+					&.linkedin {
+						background-position: -980px -350px;
+						&:hover {
+							background-position: -980px -790px;
+						}
 					}
 				}
 			}

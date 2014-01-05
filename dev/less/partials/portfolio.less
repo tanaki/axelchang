@@ -33,11 +33,12 @@
 					left: 20px;
 					padding: 10px 0;
 					width:180px;
+					font-weight: 300;
 
 					text-align: center;
 					text-transform: uppercase;
-					border: 2px solid #000;
-					color: #000;
+					border: 1px solid #444;
+					color: #444;
 
 					.opacity(0);
 					.transition( all 0.1s ease-out 0.05s );
@@ -117,6 +118,31 @@
 				
 				&:nth-child(2n) {
 					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width:767px) {
+	.touch {
+		.portfolio {
+			.projects {
+				.project {
+					height: 272px;
+
+					a {
+						text-decoration: none;
+						
+						.project-title { 
+							top: auto;
+							bottom: 0;
+							.opacity(1);
+
+							width: 216px;
+							left: auto;
+						}
+					}
 				}
 			}
 		}

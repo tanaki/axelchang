@@ -8,7 +8,7 @@
 				<div>
 					<img class="news-img" src="<%= article.img %>">
 					<div class="news-text">
-						<%= AC.Utils.textToHTML(article.text[AC.Lang]) %>
+						<%= AC.Utils.formatNews(article.text[AC.Lang]) %>
 					</div>
 				</div>
 				<% }) %>

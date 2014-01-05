@@ -5,25 +5,33 @@
 		margin: 0 auto 60px;
 		overflow: hidden;
 
-		img {
-			display: block;
+		.image {
 			float: left;
-			margin-right: 20px;
 
-			&.img-tablet {
-				display: none;
+			img {
+				display: block;
+				float: left;
+				margin-right: 20px;
+
+				&.img-tablet {
+					display: none;
+				}
 			}
 		}
 
 		.text {
 			display: block;
 			float: left;
-			max-width: 460px;
+			max-width: 300px;
+
+			border-top: 1px solid #000;
+			padding-top: 15px;
 
 			p {
 				margin-bottom: 24px;
-				font-size: 16px;
-				line-height: 24px;
+				font-size: 14px;
+				line-height: 18px;
+				font-weight: 300;
 			}
 		}
 	}

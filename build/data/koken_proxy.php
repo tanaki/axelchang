@@ -82,14 +82,13 @@
 
 		}
 
-
 	echo '],
 
 		"about" : {
 			"image" : "img/axel-chang.jpg",
 			"imagetablet" : "img/axel-chang-tablet.jpg",
 			"fr" : "' . addslashes(encodeAccent(trim($dataAboutFR))) . '",
-			"en" : "' . addslashes(encodeAccent(trim($dataAboutEN))) . '",
+			"en" : "' . addslashes(trim($dataAboutEN)) . '",
 			"de" : "' . addslashes(encodeAccent(trim($dataAboutDE))) . '"
 		},
 
@@ -113,6 +112,10 @@
 			"twitter" : {
 				"link" : "http://twitter.com/ChangAxel",
 				"label" : "twitter.com/ChangAxel"
+			},
+			"linkedin" : {
+				"link" : "http://linkedin.com/AxelChang",
+				"label" : "LinkedIn"
 			}
 		}';
 	

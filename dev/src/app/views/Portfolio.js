@@ -78,7 +78,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 		}
 
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
-			callback : this._callbackSwipe
+			callback : this._callbackSwipe,
+			speed : 500
 		});
 
 		if ( !this.preloadedImgAll ) {

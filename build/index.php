@@ -49,20 +49,6 @@
 						<li class="last"><a href="/news"><?php echo $rawData->copy->$lang->news; ?></a></li>
 					</ul>
 				</nav>
-
-				<div class="lang-container">
-					<ul>
-						<li>
-							<a href="#" class="lang fr" data-lang="fr">FR</a>
-						</li>
-						<li>
-							<a href="#" class="lang en" data-lang="en">EN</a>
-						</li>
-						<li>
-							<a href="#" class="lang de" data-lang="de">DE</a>
-						</li>
-					</ul>
-				</div>
 			</header>
 
 			<div class="main-content">
@@ -70,11 +56,32 @@
 			</div>
 
 			<footer>
-				<ul>
-					<li><a class="footer-fb" href="http://facebook.com/axel.changmaquilleur" target="_blank">Facebook</a></li>
-					<li><a class="footer-tb" href="http://axelchang.tumblr.com/" target="_blank">Tumblr</a></li>
-					<li><a class="footer-tw" href="http://twitter.com/ChangAxel" target="_blank">Twitter</a></li>
-				</ul>
+
+				<div class="footer-inside">
+					<a href="#website-credits" class="infos">Info</a>
+
+					<div class="social-container">
+						<ul>
+							<li><a class="footer-fb" href="http://facebook.com/axel.changmaquilleur" target="_blank">Facebook</a></li>
+							<li><a class="footer-tb" href="http://axelchang.tumblr.com/" target="_blank">Tumblr</a></li>
+							<li><a class="footer-tw" href="http://twitter.com/ChangAxel" target="_blank">Twitter</a></li>
+						</ul>
+					</div>
+
+					<div class="lang-container">
+						<ul>
+							<li>
+								<a href="#" class="lang fr" data-lang="fr">FR</a>
+							</li>
+							<li>
+								<a href="#" class="lang en" data-lang="en">EN</a>
+							</li>
+							<li>
+								<a href="#" class="lang de" data-lang="de">DE</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</footer>
 
 			<div class="spin-box"></div>
@@ -101,7 +108,7 @@
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
 			
-			// AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
+			//AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
 			AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
 		</script>
 

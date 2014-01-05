@@ -98,7 +98,7 @@ AC.loop = function() {
 	}
 
 	var 
-		refH = $(window).height() - 15,
+		refH = $(window).height(),
 		currentY = parseInt($img.css("margin-top"), 10),
 		imgH = $img.height(),
 		maxM = (imgH - refH),
@@ -774,7 +774,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 		}
 
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
-			callback : this._callbackSwipe
+			callback : this._callbackSwipe,
+			speed : 500
 		});
 
 		if ( !this.preloadedImgAll ) {
@@ -965,6 +966,19 @@ AC.Utils = AC.Utils || {};
 AC.Utils.textToHTML = function( text ) {
 
 	return text
+		.replace(/\[url\(/g, '<a href="')
+		.replace(/\)\]/g, '" target="_blank">')
+		.replace(/\[\/url\]/g, '</a>')
+		.replace(/\[br\]/g, '<br/>');
+};
+
+AC.Utils.formatNews = function( text ) {
+
+	return text
+		.replace(/\[date\]/g, '<span class="date">')
+		.replace(/\[\/date\]/g, '</span>')
+		.replace(/\[title\]/g, '<span class="title">')
+		.replace(/\[\/title\]/g, '</span>')
 		.replace(/\[url\(/g, '<a href="')
 		.replace(/\)\]/g, '" target="_blank">')
 		.replace(/\[\/url\]/g, '</a>')

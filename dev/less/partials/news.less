@@ -6,14 +6,34 @@
 		margin: 0 auto 80px; 
 
 		.news-img {
+			float: left;
 			max-width: 680px;
+			margin-right: 20px;
 		}
 
 		.news-text {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			max-width: 290px;
+			float: left;
+			max-width: 300px;
+
+			border-top: 1px solid #000;
+			padding-top: 15px;
+
+			font-size: 14px;
+			line-height: 18px;
+			font-weight: 300;
+
+			.date {
+				display: block;
+				font-size: 11px;
+				margin-bottom: 5px;
+				font-weight: 400;
+			}
+			.title {
+				display: block;
+				font-size: 24px;
+				text-transform: uppercase;
+				margin-bottom: 10px;
+			}
 		}
 	}
 
@@ -22,22 +42,31 @@
 		position: absolute;
 		top: 50%;
 		display: block;
-		color: #000;
+		color: #444;
 		text-decoration: none;
-		margin: -30px 48px 48px;
+		margin: -14px 30px 0;
+		padding: 10px;
 
-		width: 32px;
-		height: 60px;
-		background: url(../img/big-arrows-black.png) no-repeat left center;
+		width: 16px;
+		height: 28px;
+		background: @sprite no-repeat -70px -70px;
 		overflow: hidden;
 		text-indent: -5000px;
+
+		&:hover {
+			background-position: 10px -70px;
+		}
 	}
 	.news-prev {
 		left: 0;
 	}
 	.news-next {
 		right: 0;
-		background-position: right center;
+		background-position: -110px -70px;
+
+		&:hover {
+			background-position: -30px -70px;
+		}
 	}
 	
 	.news-list {

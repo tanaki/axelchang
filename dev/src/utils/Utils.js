@@ -9,6 +9,19 @@ AC.Utils.textToHTML = function( text ) {
 		.replace(/\[br\]/g, '<br/>');
 };
 
+AC.Utils.formatNews = function( text ) {
+
+	return text
+		.replace(/\[date\]/g, '<span class="date">')
+		.replace(/\[\/date\]/g, '</span>')
+		.replace(/\[title\]/g, '<span class="title">')
+		.replace(/\[\/title\]/g, '</span>')
+		.replace(/\[url\(/g, '<a href="')
+		.replace(/\)\]/g, '" target="_blank">')
+		.replace(/\[\/url\]/g, '</a>')
+		.replace(/\[br\]/g, '<br/>');
+};
+
 AC.Utils.createCookie = function(name,value,days) {
 
 	var expires = "";

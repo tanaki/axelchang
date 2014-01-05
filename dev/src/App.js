@@ -98,7 +98,7 @@ AC.loop = function() {
 	}
 
 	var 
-		refH = $(window).height() - 15,
+		refH = $(window).height(),
 		currentY = parseInt($img.css("margin-top"), 10),
 		imgH = $img.height(),
 		maxM = (imgH - refH),
