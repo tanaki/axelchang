@@ -410,7 +410,7 @@ footer .footer-inside .lang-container ul li a:hover {
     transition: left 0.2s ease-out;
   }
   header {
-    height: 120px;
+    height: 80px;
   }
   header nav {
     padding: 20px 0 0 20px;
@@ -483,6 +483,7 @@ footer .footer-inside .lang-container ul li a:hover {
 .touch footer .footer-inside .lang-container {
   margin-top: 10px;
 }
+.touch .about footer,
 .touch .news footer,
 .touch .contact footer,
 .touch .portfolio footer {
@@ -811,6 +812,9 @@ footer .footer-inside .lang-container ul li a:hover {
   background: url(../img/sprite.png) no-repeat -40px -40px;
   overflow: hidden;
   text-indent: -5000px;
+}
+.touch .portfolio-detail {
+  width: 100%;
 }
 .touch .portfolio-detail .project-detail {
   position: absolute;
