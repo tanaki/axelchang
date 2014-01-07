@@ -391,7 +391,7 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 @media screen and (max-width: 980px) {
   header {
-    height: 161px;
+    height: 160px;
   }
   footer .footer-inside {
     max-width: auto;
