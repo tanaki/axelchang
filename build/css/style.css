@@ -635,9 +635,6 @@ footer .footer-inside .lang-container ul li a:hover {
     margin: 0 auto 20px;
   }
 }
-.portfolio-detail {
-  background: #000;
-}
 .portfolio-detail .project-detail .project-prev,
 .portfolio-detail .project-detail .project-next {
   position: absolute;
@@ -1106,4 +1103,7 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .spin-box .spinner {
   top: 50%;
+}
+.touch .spin-box {
+  top: 200px;
 }
