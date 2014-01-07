@@ -48,7 +48,7 @@ AC.SpinOptions = {
 	corners: 1,
 	rotate: 0,
 	direction: 1,
-	color: '#000',
+	color: '#fff',
 	speed: 1.1,
 	trail: 10,
 	shadow: false,
