@@ -68,12 +68,14 @@ $(window).ready(function(){
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
 
 	// TEMP
-	// $("html").removeClass("no-touch").addClass("touch");
+	$("html").removeClass("no-touch").addClass("touch");
 
 	if ( AC.Utils.isProd ) {
 		$("html").on("contextmenu", function(e){
 			e.preventDefault();
-			alert("© Copyright 2013 - Content Protected");
+			var year = new Date();
+			year = year.getFullYear();
+			alert("© Copyright " + year + " - Content Protected");
 		});
 	}
 

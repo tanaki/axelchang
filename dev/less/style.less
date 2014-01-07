@@ -216,9 +216,11 @@ footer {
 
 /* LANG Container */
 .lang-en {
-	header {
-		nav {
-			width: 507px;
+	@media screen and (min-width:811px) {
+		header {
+			nav {
+				width: 507px;
+			}
 		}
 	}
 	footer .footer-inside .lang-container ul li a {
@@ -230,9 +232,11 @@ footer {
 }
 
 .lang-fr {
-	header {
-		nav {
-			width: 560px;
+	@media screen and (min-width:811px) {
+		header {
+			nav {
+				width: 560px;
+			}
 		}
 	}
 	footer .footer-inside .lang-container ul li a {
@@ -244,11 +248,13 @@ footer {
 }
 
 .lang-de {
-	header {
-		nav {
-			width: 707px;
-			.nav-left {
-				margin-left: 60px;
+	@media screen and (min-width:811px) {
+		header {
+			nav {
+				width: 707px;
+				.nav-left {
+					margin-left: 60px;
+				}
 			}
 		}
 	}
@@ -389,6 +395,7 @@ footer {
 
 .simplemodal-container {
 
+	min-width: 250px;
 	color: #fff;
 	font-size: 14px;
 	text-align: center;

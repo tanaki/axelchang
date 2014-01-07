@@ -264,25 +264,31 @@ footer .footer-inside .lang-container ul li a:hover {
   text-decoration: underline;
 }
 /* LANG Container */
-.lang-en header nav {
-  width: 507px;
+@media screen and (min-width: 811px) {
+  .lang-en header nav {
+    width: 507px;
+  }
 }
 .lang-en footer .footer-inside .lang-container ul li a.en {
   color: #7d7d7d;
   text-decoration: underline;
 }
-.lang-fr header nav {
-  width: 560px;
+@media screen and (min-width: 811px) {
+  .lang-fr header nav {
+    width: 560px;
+  }
 }
 .lang-fr footer .footer-inside .lang-container ul li a.fr {
   color: #7d7d7d;
   text-decoration: underline;
 }
-.lang-de header nav {
-  width: 707px;
-}
-.lang-de header nav .nav-left {
-  margin-left: 60px;
+@media screen and (min-width: 811px) {
+  .lang-de header nav {
+    width: 707px;
+  }
+  .lang-de header nav .nav-left {
+    margin-left: 60px;
+  }
 }
 .lang-de footer .footer-inside .lang-container ul li a.de {
   color: #7d7d7d;
@@ -370,6 +376,7 @@ footer .footer-inside .lang-container ul li a:hover {
   cursor: pointer;
 }
 .simplemodal-container {
+  min-width: 250px;
   color: #fff;
   font-size: 14px;
   text-align: center;
@@ -395,75 +402,31 @@ footer .footer-inside .lang-container ul li a:hover {
 .simplemodal-container a:hover {
   text-decoration: underline;
 }
-@media screen and (max-width: 1000px) {
-  header .lang-container {
-    right: 20px;
-    top: 20px;
+@media screen and (max-width: 980px) {
+  footer .footer-inside {
+    max-width: auto;
+    margin: 20px 20px 0;
   }
 }
 @media screen and (max-width: 810px) {
   header {
-    height: 135px;
+    height: 80px;
   }
   header nav {
-    width: 260px;
-    padding-top: 30px;
+    padding: 20px 0 0 20px;
   }
   header nav ul {
-    text-align: right;
-    display: block;
-    float: left;
-    margin-top: 14px;
-  }
-  header nav ul.nav-right {
-    text-align: left;
-  }
-  header nav ul li {
-    float: none;
-    margin-right: 0;
-    padding-top: 0;
-  }
-  header nav ul li a {
-    font-size: 13px;
-    line-height: 22	px;
-  }
-  header nav ul li.last {
-    margin-right: 0;
-  }
-  header nav h1 {
-    margin: 0 25px;
+    display: none;
   }
   header nav h1 img {
-    width: 75px;
+    width: 30px;
   }
-  header .lang-container {
-    right: auto;
-    left: 50%;
-    top: 10px;
-    margin-left: -31px;
+  header .mobile-nav {
+    display: block;
   }
-  .lang-en header nav {
-    width: 260px;
+  .main-content {
+    margin-bottom: 60px;
   }
-  .lang-fr header nav {
-    width: 260px;
-  }
-  .lang-de header nav {
-    width: 315px;
-  }
-  .lang-de header nav .nav-left {
-    margin-left: 20px;
-  }
-  .lang-de header .lang-container {
-    margin-left: -38px;
-  }
-}
-.touch footer {
-  position: relative;
-  padding-top: 1px;
-}
-.touch footer ul {
-  overflow: hidden;
 }
 .home .main-content {
   position: absolute;
@@ -883,16 +846,16 @@ footer .footer-inside .lang-container ul li a:hover {
     max-width: 700px;
     margin: 0 auto 60px;
   }
-  .about .main-content img {
+  .about .main-content .image img {
     float: none;
     margin-right: 0;
     margin-bottom: 20px;
     width: 100%;
   }
-  .about .main-content img.img-main {
+  .about .main-content .image img.img-main {
     display: none;
   }
-  .about .main-content img.img-tablet {
+  .about .main-content .image img.img-tablet {
     display: block;
   }
   .about .main-content .text {
@@ -963,7 +926,7 @@ footer .footer-inside .lang-container ul li a:hover {
     width: auto;
   }
   .contact .main-content ul li a {
-    padding: 28px 0 25px 60px;
+    padding: 28px 0 25px 55px;
     font-size: 13px;
     margin: 0;
   }

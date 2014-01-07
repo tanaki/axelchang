@@ -1,100 +1,39 @@
-@media screen and (max-width:1000px) {
-	header {
-		.lang-container {
-			right: 20px;
-			top: 20px;
+@media screen and (max-width:980px) {
+	footer {
+		.footer-inside {
+			max-width: auto;
+			margin: 20px 20px 0;
 		}
 	}
 }
 @media screen and (max-width:810px) {
 	header {
-		height: 135px;
+		height: 80px;
 
 		nav {
-			width: 260px;
-			padding-top: 30px;
-
+			padding: 20px 0 0 20px;
+			
 			ul {
-				text-align: right;
-				display: block;
-				float: left;
-				margin-top: 14px;
-
-				&.nav-right {
-					text-align: left;
-				}
-
-				li {
-					float: none;
-					margin-right: 0;
-					padding-top: 0;
-
-					a {
-						font-size: 13px;
-						line-height: 22	px;
-					}
-
-					&.last {
-						margin-right: 0;
-					}
-				}
+				display: none;
 			}
 			
 			h1 {
-				margin: 0 25px;
-				
 				img {
-					width: 75px;
+					width: 30px;
 				}
 			}
 		}
 
-		.lang-container {
-			right: auto;
-			left: 50%;
-			top: 10px;
-			margin-left: -31px;
+		.mobile-nav {
+			display: block;
 		}
 	}
 
-	.lang-en {
-		header {
-			nav {
-				width: 260px;
-			}
-		}
-	}
-
-	.lang-fr {
-		header {
-			nav {
-				width: 260px;
-			}
-		}
-	}
-
-	.lang-de {
-		header {
-			nav {
-				width: 315px;
-				.nav-left {
-					margin-left: 20px;
-				}
-			}
-			.lang-container {
-				margin-left: -38px;
-			}
-		}
+	.main-content {
+		margin-bottom: 60px;
 	}
 }
 
 .touch {
-	footer {
-		position: relative;
-		padding-top: 1px;
-		
-		ul {
-			overflow: hidden;
-		}
-	}
+
 }
