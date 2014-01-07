@@ -674,6 +674,7 @@ footer .footer-inside .lang-container ul li a:hover {
   z-index: -1;
 }
 .portfolio-detail .project-detail .project-images .project-item {
+  background-color: #000;
   /*
 				.zoomer {
 					position: absolute;
@@ -688,7 +689,7 @@ footer .footer-inside .lang-container ul li a:hover {
 				*/
 }
 .portfolio-detail .project-detail .project-images .project-item .spinner {
-  top: 300px;
+  top: 200px;
 }
 .portfolio-detail .project-detail .project-images .project-item .gradient-top {
   position: absolute;
