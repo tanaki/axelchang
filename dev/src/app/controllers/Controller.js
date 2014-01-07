@@ -47,7 +47,7 @@ AC.Controller = function() {
 		 */
 		_initNav = function() {
 
-			$("body").delegate('a[rel=nav], nav a:not(.external), .mobile-nav a', "click", function(e){
+			$("body").delegate('a[rel=nav], nav a:not(.external), .mobile-nav a:not(.open)', "click", function(e){
 				e.preventDefault();
 
 				if ( Modernizr.touch ) $("html").removeClass("show-menu");
