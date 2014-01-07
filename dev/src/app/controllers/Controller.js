@@ -22,6 +22,7 @@ AC.Controller = function() {
 			_initEventHandlers();
 			_initNav();
 			_initLang();
+			_initModal();
 		},
 
 		/*
@@ -62,6 +63,21 @@ AC.Controller = function() {
 				AC.Utils.eraseCookie("acm_lang");
 				AC.Utils.createCookie("acm_lang", AC.Lang, 365);
 				window.location.reload();
+			});
+		},
+		
+		/*
+		 * init modal boxes
+		 * @private
+		 */
+		_initModal = function () {
+
+			$("body").delegate('[rel=modal]', "click", function(e){
+				e.preventDefault();
+				$($(this).attr("href")).modal({
+					overlayClose : true,
+					opacity : 60
+				});
 			});
 		},
 		

@@ -355,6 +355,7 @@ footer {
 	margin-bottom: 44px;
 }
 
+// SWIPE
 .swipe {
 	overflow: hidden;
 	visibility: hidden;
@@ -374,6 +375,50 @@ footer {
 	height: 100%;
 	background: no-repeat center center;
 	background-size: cover;
+}
+
+// SIMPLE MODAL
+.hidden {
+	display: none;
+}
+
+.simplemodal-overlay {
+	background: #000;
+	cursor: pointer;
+}
+
+.simplemodal-container {
+
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	
+	a.modalCloseImg {
+		
+		width:30px;
+		height:30px;
+		display: block;
+		
+		position:absolute;
+		top:-70px;
+		left: 50%;
+		margin-left: -15px;
+		z-index:3200;
+		cursor: pointer;
+
+		background: @sprite no-repeat left -120px;
+	}
+
+	a {
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		font-size: 24px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 @import "responsive.less";

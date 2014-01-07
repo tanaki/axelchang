@@ -58,7 +58,7 @@
 			<footer>
 
 				<div class="footer-inside">
-					<a href="#website-credits" class="infos">Info</a>
+					<a href="#modal-credits" class="infos" rel="modal">Info</a>
 
 					<div class="social-container">
 						<ul>
@@ -88,6 +88,11 @@
 
 		</div>
 
+		<div id="modal-credits" class="hidden">
+			Design<br/><a href="http://marielaurent.fr" target="_blank">Marie Laurent</a><br/><br/>
+			Developpement<br/><a href="http://cargocollective.com/nicopigelet" target="_blank">Nicolas Pigelet</a>
+		</div>
+
 
 		<!-- LIBS -->
 		<!-- // <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script> -->
@@ -108,8 +113,8 @@
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
 			
-			//AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
-			AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
+			AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
+			//AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
 		</script>
 
 		<!--script type="text/javascript">

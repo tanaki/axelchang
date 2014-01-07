@@ -67,15 +67,21 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		$(".link-credits").on("click", function(e){
 			e.preventDefault();
-			$(".move-current .credits").toggle();
+			//$(".move-current .credits").toggle();
+			$(".move-current .credits").modal({
+				overlayClose : true,
+				opacity : 60
+			});
 		});
 
+		/*
 		if ( !Modernizr.touch ) {
 			$(".zoomer").on("click", function(e){
 				e.preventDefault();
 				$(this).siblings("img").toggleClass("unzoom");
 			});
 		}
+		*/
 
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
 			callback : this._callbackSwipe,
@@ -106,9 +112,10 @@ AC.View.Portfolio = AC.View.Base.extend({
 		$(".current-index .current").html( index + 1 );
 
 		var $currentImg = $(".swipe-wrap .move-current");
-		$currentImg
-			.removeClass("move-current")
-			.find(".credits").hide();
+		$currentImg.removeClass("move-current");
+		//.find(".credits").hide();
+		$.modal.close();
+
 		$($(".swipe-wrap .mouse-move").get(index)).addClass("move-current");
 	},
 
