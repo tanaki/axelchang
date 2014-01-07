@@ -23,6 +23,9 @@ AC.Controller = function() {
 			_initNav();
 			_initLang();
 			_initModal();
+
+			if ( Modernizr.touch )
+				_initMobile();
 		},
 
 		/*
@@ -46,6 +49,8 @@ AC.Controller = function() {
 
 			$("body").delegate('a[rel=nav], nav a:not(.external)', "click", function(e){
 				e.preventDefault();
+
+				if ( Modernizr.touch ) $("html").removeClass("show-menu");
 				AC.AppRouter.navigate($(this).attr("href"), true);
 			});
 		},
@@ -78,6 +83,18 @@ AC.Controller = function() {
 					overlayClose : true,
 					opacity : 60
 				});
+			});
+		},
+
+		/*
+		 * init modal boxes
+		 * @private
+		 */
+		_initMobile = function () {
+
+			$(".open").on("click", function(e){
+				e.preventDefault();
+				$("html").toggleClass("show-menu");
 			});
 		},
 		

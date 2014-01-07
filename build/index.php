@@ -49,6 +49,16 @@
 						<li class="last"><a href="/news"><?php echo $rawData->copy->$lang->news; ?></a></li>
 					</ul>
 				</nav>
+
+				<div class="mobile-nav">
+					<a href="#" class="open">Open</a>
+					<ul>
+						<li><a href="/portfolio"><?php echo $rawData->copy->$lang->portfolio; ?></a></li>
+						<li><a href="/about"><?php echo $rawData->copy->$lang->about; ?></a></li>
+						<li><a href="/contact"><?php echo $rawData->copy->$lang->contact; ?></a></li>
+						<li><a href="/news"><?php echo $rawData->copy->$lang->news; ?></a></li>
+					</ul>
+				</div>
 			</header>
 
 			<div class="main-content">

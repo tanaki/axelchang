@@ -1,4 +1,8 @@
+
 @media screen and (max-width:980px) {
+	header {
+		height: 160px;
+	}
 	footer {
 		.footer-inside {
 			max-width: auto;
@@ -7,8 +11,19 @@
 	}
 }
 @media screen and (max-width:810px) {
+	#wrapper {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow-x: hidden;
+
+		background: url(../img/bg-mobile.png) repeat-y 100% top;
+
+		.transition( left 0.2s ease-out );
+	}
 	header {
-		height: 80px;
+		height: 120px;
 
 		nav {
 			padding: 20px 0 0 20px;
@@ -26,14 +41,95 @@
 
 		.mobile-nav {
 			display: block;
+			width: 149px;
+			height: 100%;
+
+			position: absolute;
+			top: 0;
+			right: -150px;
+			
+			.open {
+				position: absolute;
+				left: -50px;
+				top: 20px;
+
+				width: 30px;
+				height: 30px;
+				background: @sprite no-repeat -70px -60px;
+				background-size: 512px 512px;
+
+				text-indent: -5000px;
+				overflow: hidden;
+			}
+
+			ul {
+				margin: 13px 0 0 20px;
+
+				li {
+					margin-bottom: 5px;
+					a {
+						text-transform: uppercase;
+						text-decoration: none;
+						color: #444;
+						font-size: 14px;
+						line-height: 18px;
+					}
+				}
+			}
 		}
 	}
 
 	.main-content {
 		margin-bottom: 60px;
 	}
+
+	.show-menu {
+		#wrapper {
+			left: -150px;
+			overflow-x: visible;
+		}
+	}
+
+
+	.home-loaded,
+	.portfolio-detail {
+		header {
+			.mobile-nav {
+				.open {
+					background-position: -30px -60px;
+				}
+			}
+		}
+	}
 }
 
 .touch {
+	header {
+		position: relative;
+		z-index: 2;
+	}
+	footer {
+		position: absolute;
+		z-index: 2;
 
+		.footer-inside {
+			height: 40px;
+			.social-container,
+			.infos {
+				top: 10px;
+			}
+			.lang-container {
+				margin-top: 10px;
+			}
+		}
+				
+	}
+
+	.news,
+	.contact,
+	.portfolio {
+		footer {
+			position: static;
+		}
+	}
 }

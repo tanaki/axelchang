@@ -169,21 +169,8 @@ header nav h1 img {
 header nav h1 .logo-white {
   display: none;
 }
-header .lang-container {
-  position: absolute;
-  right: 40px;
-  top: 40px;
-  font-size: 12px;
-}
-header .lang-container ul li {
-  display: block;
-  float: left;
-}
-header .lang-container ul li a {
-  display: block;
-  margin-right: 10px;
-  color: #444;
-  text-decoration: none;
+header .mobile-nav {
+  display: none;
 }
 /* Footer */
 footer {
@@ -403,14 +390,27 @@ footer .footer-inside .lang-container ul li a:hover {
   text-decoration: underline;
 }
 @media screen and (max-width: 980px) {
+  header {
+    height: 160px;
+  }
   footer .footer-inside {
     max-width: auto;
     margin: 20px 20px 0;
   }
 }
 @media screen and (max-width: 810px) {
+  #wrapper {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background: url(../img/bg-mobile.png) repeat-y 100% top;
+    -webkit-transition: left 0.2s ease-out;
+    transition: left 0.2s ease-out;
+  }
   header {
-    height: 80px;
+    height: 120px;
   }
   header nav {
     padding: 20px 0 0 20px;
@@ -423,10 +423,70 @@ footer .footer-inside .lang-container ul li a:hover {
   }
   header .mobile-nav {
     display: block;
+    width: 149px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -150px;
+  }
+  header .mobile-nav .open {
+    position: absolute;
+    left: -50px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: url(../img/sprite.png) no-repeat -70px -60px;
+    background-size: 512px 512px;
+    text-indent: -5000px;
+    overflow: hidden;
+  }
+  header .mobile-nav ul {
+    margin: 13px 0 0 20px;
+  }
+  header .mobile-nav ul li {
+    margin-bottom: 5px;
+  }
+  header .mobile-nav ul li a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+    line-height: 18px;
   }
   .main-content {
     margin-bottom: 60px;
   }
+  .show-menu #wrapper {
+    left: -150px;
+    overflow-x: visible;
+  }
+  .home-loaded header .mobile-nav .open,
+  .portfolio-detail header .mobile-nav .open {
+    background-position: -30px -60px;
+  }
+}
+.touch header {
+  position: relative;
+  z-index: 2;
+}
+.touch footer {
+  position: absolute;
+  z-index: 2;
+}
+.touch footer .footer-inside {
+  height: 40px;
+}
+.touch footer .footer-inside .social-container,
+.touch footer .footer-inside .infos {
+  top: 10px;
+}
+.touch footer .footer-inside .lang-container {
+  margin-top: 10px;
+}
+.touch .news footer,
+.touch .contact footer,
+.touch .portfolio footer {
+  position: static;
 }
 .home .main-content {
   position: absolute;
@@ -752,58 +812,44 @@ footer .footer-inside .lang-container ul li a:hover {
   overflow: hidden;
   text-indent: -5000px;
 }
-.portfolio-detail .project-detail .project-mobile-nav {
-  display: none;
-}
-.portfolio-detail .project-detail .mobile-credits {
-  display: none;
+.touch .portfolio-detail .project-detail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 .touch .portfolio-detail .project-detail .project-prev,
 .touch .portfolio-detail .project-detail .project-next {
   display: none;
 }
 .touch .portfolio-detail .project-detail .project-global-nav {
-  display: none;
-}
-.touch .portfolio-detail .project-detail .project-mobile-nav {
   display: block;
-  position: absolute;
-  bottom: 65px;
-  left: 0;
-  width: 100%;
+  bottom: 48px;
 }
-.touch .portfolio-detail .project-detail .project-mobile-nav .link-back,
-.touch .portfolio-detail .project-detail .project-mobile-nav .link-credits {
-  position: absolute;
-  display: block;
-  overflow: hidden;
-  width: 34px;
-  height: 26px;
-  background: url(../img/sprite_touch.png) no-repeat left top;
-  background-size: 34px 53px;
-  text-indent: -5000px;
-}
-.touch .portfolio-detail .project-detail .project-mobile-nav .link-back {
-  top: 0;
+.touch .portfolio-detail .project-detail .project-global-nav .link-credits {
+  z-index: 10;
   left: 20px;
 }
-.touch .portfolio-detail .project-detail .project-mobile-nav .link-credits {
-  top: 0;
+.touch .portfolio-detail .project-detail .project-global-nav .project-title-container {
+  width: 100%;
+  left: 0;
+  margin-left: 0;
+}
+.touch .portfolio-detail .project-detail .project-global-nav .project-title-container .project-title {
+  display: none;
+}
+.touch .portfolio-detail .project-detail .project-global-nav .project-nav-container {
   right: 20px;
-  background-position: left bottom;
 }
-.touch .portfolio-detail .project-detail .project-mobile-nav .current-index {
-  color: #fff;
-  text-align: center;
+.touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .next-project,
+.touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .prev-project {
+  display: none;
 }
-.touch .portfolio-detail .project-detail .project-mobile-nav .mobile-index ul li {
-  display: block;
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  float: left;
-  margin-right: 10px;
-  border-radius: 10px;
+.touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .back {
+  margin-right: 0;
+  width: 17px;
 }
 .touch .portfolio-detail .project-detail .project-images .mouse-move {
   background: no-repeat center center;
@@ -999,18 +1045,28 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 @media screen and (max-width: 1100px) {
   .news #news-slider {
-    margin-left: 5%;
-    max-width: 90%;
+    max-width: 940px;
   }
   .news #news-slider .news-img {
+    max-width: 620px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .news #news-slider {
+    margin: 0 20px;
+    max-width: 100%;
+  }
+  .news #news-slider .news-img {
+    max-width: 100%;
     width: 100%;
     display: block;
     margin: 0 auto;
   }
   .news #news-slider .news-text {
     position: static;
-    max-width: 680px;
+    max-width: 100%;
     margin: 20px auto;
+    width: 100%;
   }
 }
 .mouse-move {

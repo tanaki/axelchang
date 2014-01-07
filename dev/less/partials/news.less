@@ -85,14 +85,25 @@
 		}
 	}
 }
-
 @media screen and (max-width:1100px) {
 	.news {
 		#news-slider {
-			margin-left: 5%;
-			max-width: 90%;
+			max-width: 940px;
 
 			.news-img {
+				max-width: 620px;
+			}
+		}
+	}
+}
+@media screen and (max-width:980px) {
+	.news {
+		#news-slider {
+			margin: 0 20px;
+			max-width: 100%;
+
+			.news-img {
+				max-width: 100%;
 				width: 100%;
 				display: block;
 				margin: 0 auto;
@@ -100,8 +111,9 @@
 
 			.news-text {
 				position: static;
-				max-width: 680px;
+				max-width: 100%;
 				margin: 20px auto;
+				width: 100%;
 			}
 		}
 	}

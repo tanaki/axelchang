@@ -48,7 +48,7 @@ AC.SpinOptions = {
 	corners: 1,
 	rotate: 0,
 	direction: 1,
-	color: '#000',
+	color: '#fff',
 	speed: 1.1,
 	trail: 10,
 	shadow: false,
@@ -66,9 +66,6 @@ $(window).ready(function(){
 	
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
-
-	// TEMP
-	$("html").removeClass("no-touch").addClass("touch");
 
 	if ( AC.Utils.isProd ) {
 		$("html").on("contextmenu", function(e){
@@ -139,6 +136,9 @@ AC.Controller = function() {
 			_initNav();
 			_initLang();
 			_initModal();
+
+			if ( Modernizr.touch )
+				_initMobile();
 		},
 
 		/*
@@ -162,6 +162,8 @@ AC.Controller = function() {
 
 			$("body").delegate('a[rel=nav], nav a:not(.external)', "click", function(e){
 				e.preventDefault();
+
+				if ( Modernizr.touch ) $("html").removeClass("show-menu");
 				AC.AppRouter.navigate($(this).attr("href"), true);
 			});
 		},
@@ -194,6 +196,18 @@ AC.Controller = function() {
 					overlayClose : true,
 					opacity : 60
 				});
+			});
+		},
+
+		/*
+		 * init modal boxes
+		 * @private
+		 */
+		_initMobile = function () {
+
+			$(".open").on("click", function(e){
+				e.preventDefault();
+				$("html").toggleClass("show-menu");
 			});
 		},
 		

@@ -48,7 +48,7 @@ AC.SpinOptions = {
 	corners: 1,
 	rotate: 0,
 	direction: 1,
-	color: '#000',
+	color: '#fff',
 	speed: 1.1,
 	trail: 10,
 	shadow: false,
@@ -66,9 +66,6 @@ $(window).ready(function(){
 	
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
-
-	// TEMP
-	$("html").removeClass("no-touch").addClass("touch");
 
 	if ( AC.Utils.isProd ) {
 		$("html").on("contextmenu", function(e){

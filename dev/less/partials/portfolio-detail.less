@@ -193,76 +193,56 @@
 				}
 			}
 		}
-
-		.project-mobile-nav {
-			display: none;
-		}
-
-		.mobile-credits {
-			display: none;
-		}
 	}
 
 }
 
 .touch {
 	.portfolio-detail {
+
 		.project-detail {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+
 			.project-prev,
 			.project-next {
 				display: none;
 			}
 			.project-global-nav {
-				display: none;
-			}
-			.project-mobile-nav {
 				display: block;
+				bottom: 48px;
 
-				position: absolute;
-				bottom: 65px;
-				left: 0;
-				width: 100%;
-
-				.link-back,
 				.link-credits {
-					position: absolute;
-					display: block;
-					overflow: hidden;
-					width: 34px;
-					height: 26px;
-					background: url(../img/sprite_touch.png) no-repeat left top;
-					background-size: 34px 53px;
-					text-indent: -5000px;
-				}
-				.link-back {
-					top: 0;
+					z-index: 10;
 					left: 20px;
 				}
-				.link-credits {
-					top: 0;
+				.project-title-container {
+					width: 100%;
+					left: 0;
+					margin-left: 0;
+
+					.project-title {
+						display: none;
+					}
+				}
+				.project-nav-container {
 					right: 20px;
-					background-position: left bottom;
-				}
-				.current-index {
-					color: #fff;
-					text-align: center;
-				}
 
-				.mobile-index {
-					ul {
-						li {
-							display: block;
-							width: 10px;
-							height: 10px;
-							background: #fff;
-							float: left;
-							margin-right: 10px;
-
-							border-radius: 10px;
-						}
+					.next-project,
+					.prev-project {
+						display: none;
+					}
+					.back {
+						margin-right: 0;
+						width: 17px;
 					}
 				}
 			}
+			
 			.project-images {
 				.mouse-move {
 					background: no-repeat center center;
