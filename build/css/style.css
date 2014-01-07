@@ -665,6 +665,7 @@ footer .footer-inside .lang-container ul li a:hover {
   background-position: -110px -70px;
 }
 .portfolio-detail .project-detail .project-images {
+  background-color: #000;
   position: absolute;
   left: 0;
   top: 0;
@@ -674,7 +675,6 @@ footer .footer-inside .lang-container ul li a:hover {
   z-index: -1;
 }
 .portfolio-detail .project-detail .project-images .project-item {
-  background-color: #000;
   /*
 				.zoomer {
 					position: absolute;
@@ -689,7 +689,7 @@ footer .footer-inside .lang-container ul li a:hover {
 				*/
 }
 .portfolio-detail .project-detail .project-images .project-item .spinner {
-  top: 200px;
+  top: 300px;
 }
 .portfolio-detail .project-detail .project-images .project-item .gradient-top {
   position: absolute;
@@ -859,6 +859,9 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .touch .portfolio-detail .project-detail .project-images .mouse-move img {
   display: none;
+}
+.touch .portfolio-detail .project-detail .project-images .spinner {
+  top: 50px;
 }
 .about .main-content {
   max-width: 940px;
