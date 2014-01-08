@@ -469,6 +469,9 @@ footer .footer-inside .lang-container ul li a:hover {
   position: relative;
   z-index: 2;
 }
+.touch .main-content {
+  max-width: 100%;
+}
 .touch footer {
   position: absolute;
   z-index: 2;
