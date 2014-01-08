@@ -67,6 +67,11 @@ $(window).ready(function(){
 	AC.AppRouter = new AC.Router();
 	Backbone.history.start({ pushState : true, root : AC.Locations.Root });
 
+	// TEMP
+	$("html")
+		.removeClass("no-touch")
+		.addClass("touch");
+
 	if ( AC.Utils.isProd ) {
 		$("html").on("contextmenu", function(e){
 			e.preventDefault();
@@ -752,6 +757,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 				imgHeight = img.height,
 				extraClass = "",
 				extraCSS = "";
+
+			console.log( imgWidth, imgHeight );
 				
 			if ( imgWidth > imgHeight ) {
 				var newW = (220 * imgWidth) / imgHeight;

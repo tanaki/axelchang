@@ -125,22 +125,39 @@
 }
 
 @media screen and (max-width:767px) {
-	.touch {
-		.portfolio {
-			.projects {
-				.project {
-					height: 272px;
+	
+	.portfolio {
+		.projects {
+			.project {
+				height: 272px;
 
-					a {
-						text-decoration: none;
-						
-						.project-title { 
+				a {
+					text-decoration: none;
+					
+					.project-title { 
+						top: auto;
+						bottom: 0;
+						.opacity(1);
+
+						width: 216px;
+						left: auto;
+						.transition( none );
+					}
+
+					img {
+						&.resized {
+							height: 220px;
+						}
+					}
+
+					&:hover {
+				
+						.project-title {
 							top: auto;
-							bottom: 0;
 							.opacity(1);
-
-							width: 216px;
-							left: auto;
+						}
+						.project-bg {
+							.opacity(0);
 						}
 					}
 				}
@@ -152,10 +169,27 @@
 @media screen and (max-width:479px) {
 	.portfolio {
 		.projects {
-			max-width: 220px;
-			
+			max-width: 100%;
+			margin: 0 20px;
+
 			.project {
-				margin: 0 auto 20px;
+				margin: 40px auto 20px;
+				width: 100%;
+				height: 0;
+				padding-bottom: 100%;
+
+				a {
+					height: auto;
+					padding-bottom: 50px;
+					.project-bg {
+						display: none;
+					}
+					.project-title {
+						left: 0;
+						right: 0;
+						width: auto;
+					}
+				}
 			}
 		}
 	}

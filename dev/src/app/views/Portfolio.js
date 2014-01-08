@@ -26,6 +26,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 				imgHeight = img.height,
 				extraClass = "",
 				extraCSS = "";
+
+			console.log( imgWidth, imgHeight );
 				
 			if ( imgWidth > imgHeight ) {
 				var newW = (220 * imgWidth) / imgHeight;
