@@ -423,11 +423,11 @@ footer .footer-inside .lang-container ul li a:hover {
   }
   header .mobile-nav {
     display: block;
-    width: 149px;
+    width: 0;
     height: 100%;
     position: absolute;
     top: 0;
-    right: -150px;
+    right: 0;
   }
   header .mobile-nav .open {
     position: absolute;
@@ -441,6 +441,7 @@ footer .footer-inside .lang-container ul li a:hover {
     overflow: hidden;
   }
   header .mobile-nav ul {
+    display: none;
     margin: 13px 0 0 20px;
   }
   header .mobile-nav ul li {
@@ -459,6 +460,13 @@ footer .footer-inside .lang-container ul li a:hover {
   .show-menu #wrapper {
     left: -150px;
     overflow-x: visible;
+  }
+  .show-menu #wrapper header .mobile-nav {
+    width: 149px;
+    right: -150px;
+  }
+  .show-menu #wrapper header .mobile-nav ul {
+    display: block;
   }
   .home-loaded header .mobile-nav .open,
   .portfolio-detail header .mobile-nav .open {

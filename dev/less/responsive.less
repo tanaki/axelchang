@@ -40,12 +40,12 @@
 		}
 		.mobile-nav {
 			display: block;
-			width: 149px;
+			width: 0;
 			height: 100%;
 
 			position: absolute;
 			top: 0;
-			right: -150px;
+			right: 0;
 			
 			.open {
 				position: absolute;
@@ -62,6 +62,7 @@
 			}
 
 			ul {
+				display: none;
 				margin: 13px 0 0 20px;
 
 				li {
@@ -86,6 +87,17 @@
 		#wrapper {
 			left: -150px;
 			overflow-x: visible;
+
+			header {
+				.mobile-nav {
+					width: 149px;
+					right: -150px;
+
+					ul {
+						display: block;
+					}
+				}
+			}
 		}
 	}
 
