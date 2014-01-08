@@ -790,6 +790,7 @@ footer .footer-inside .lang-container ul li a:hover {
   font-weight: 600;
   color: #fff;
   text-decoration: none;
+  z-index: 2;
 }
 .portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-title-container {
   position: absolute;
@@ -798,6 +799,7 @@ footer .footer-inside .lang-container ul li a:hover {
   margin-left: -250px;
   width: 500px;
   text-align: center;
+  z-index: 1;
 }
 .portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-title-container .current-index {
   font-size: 11px;
@@ -813,6 +815,7 @@ footer .footer-inside .lang-container ul li a:hover {
   bottom: 0;
   right: 0;
   width: 66px;
+  z-index: 2;
 }
 .portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-nav-container .prev-project,
 .portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-nav-container .next-project {
