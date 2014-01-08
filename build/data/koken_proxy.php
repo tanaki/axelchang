@@ -31,9 +31,9 @@
 			echo '"id" : "' . $album->id . '",';
 			echo '"title" : "' . $album->title . '",';
 			echo '"slug" : "' . $album->slug . '",';
-			echo '"cover" : "' . $album->covers[0]->presets->medium->url . '",';
-			echo '"width" : "' . $album->covers[0]->presets->medium->width . '",';
-			echo '"height" : "' . $album->covers[0]->presets->medium->height . '",';
+			echo '"cover" : "' . $album->covers[0]->presets->large->url . '",';
+			echo '"width" : "' . $album->covers[0]->presets->large->width . '",';
+			echo '"height" : "' . $album->covers[0]->presets->large->height . '",';
 			echo '"images" : [';
 
 				$jsonAlbum = json_decode(file_get_contents('http://axelchang.com/koken/api.php?/albums/'.$album->id.'/content')); 
