@@ -422,7 +422,7 @@ footer .footer-inside .lang-container ul li a:hover {
     width: 60px;
   }
   header .mobile-nav {
-    display: block;
+    display: none;
     width: 149px;
     height: 100%;
     position: absolute;
@@ -459,6 +459,9 @@ footer .footer-inside .lang-container ul li a:hover {
   .show-menu #wrapper {
     left: -150px;
     overflow-x: visible;
+  }
+  .show-menu #wrapper header .mobile-nav {
+    display: block;
   }
   .home-loaded header .mobile-nav .open,
   .portfolio-detail header .mobile-nav .open {
