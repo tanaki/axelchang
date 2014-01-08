@@ -56,6 +56,11 @@
 					.transition( opacity 0.1s ease-out );
 				}
 
+				.img-container {
+					display: block;
+					height: 100%;
+				}
+
 				img {
 					position: relative;
 					z-index: -1;
@@ -139,8 +144,14 @@
 							bottom: 0;
 							.opacity(1);
 
-							width: 216px;
+							width: 218px;
 							left: auto;
+						}
+
+
+						.img-container {
+							height: 220px;
+							overflow: hidden;
 						}
 
 						img.resized {

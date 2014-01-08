@@ -571,6 +571,10 @@ footer .footer-inside .lang-container ul li a:hover {
   -webkit-transition: opacity 0.1s ease-out;
   transition: opacity 0.1s ease-out;
 }
+.portfolio .projects .project a .img-container {
+  display: block;
+  height: 100%;
+}
 .portfolio .projects .project a img {
   position: relative;
   z-index: -1;
@@ -623,8 +627,12 @@ footer .footer-inside .lang-container ul li a:hover {
     bottom: 0;
     opacity: 1;
     filter: alpha(opacity=100);
-    width: 216px;
+    width: 218px;
     left: auto;
+  }
+  .touch .portfolio .projects .project a .img-container {
+    height: 220px;
+    overflow: hidden;
   }
   .touch .portfolio .projects .project a img.resized {
     height: 220px;
