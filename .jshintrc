@@ -24,6 +24,7 @@
     "Spinner" : true,
     "requestAnimationFrame" : true,
     "Modernizr" : true,
+    "navigator" : true,
     "_gaq" : true
   }
 }

@@ -29,6 +29,16 @@ AC.View.Base = Backbone.View.extend({
 			self.tpl = tpl;
 			self._display();
 		});
+
+		if (navigator.userAgent.match(/iPad;.*CPU.*OS 7_\d/i)) {
+			$('html')
+				.css({
+					"min-height": window.innerHeight,
+					"position" : "relative"
+				});
+				
+			window.scrollTo(0, 0);
+		}
 	},
 	
 	_display : function() {

@@ -26,8 +26,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 				imgHeight = img.height,
 				extraClass = "",
 				extraCSS = "";
-
-			console.log( imgWidth, imgHeight );
 				
 			if ( imgWidth > imgHeight ) {
 				var newW = (220 * imgWidth) / imgHeight;
@@ -58,6 +56,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 				callback();
 			}
 		});
+
+		$(document).off( "keydown", $.proxy(this.keyNav, this) );
 	},
 
 	_displayComplete : function () {
@@ -99,12 +99,24 @@ AC.View.Portfolio = AC.View.Base.extend({
 		this.addLoaders(".mouse-move");
 		this.initBGPreload();
 		this.initProjectNav();
+
+		var $spin = $(".spin-box");
+		$spin.fadeOut(100, function(){
+			$spin.remove();
+		});
 	},
 
 	addLoaders : function(selector) {
 		
+
+		var spinOpts = AC.SpinOptions;
+		spinOpts.color = "#fff";
+
+		var acSpin = new Spinner( spinOpts ).spin();
+
 		$(selector).each(function(index, el){
-			var spiner = $(AC.Spinner.el).clone();
+
+			var spiner = $(acSpin.el).clone();
 			$(el).append( spiner );
 		});	
 	},
@@ -228,13 +240,15 @@ AC.View.Portfolio = AC.View.Base.extend({
 			detailSwipe.prev();
 		});
 
-		$(document).keydown(function(e){
-			if ( e.keyCode == 37 ) {
-				detailSwipe.prev();
-			} else if ( e.keyCode == 39 ) {
-				detailSwipe.next();
-			}
-		});
+		$(document).on( "keydown", $.proxy(this.keyNav, this) );
+	},
+
+	keyNav : function(e){
+		if ( e.keyCode == 37 ) {
+			this.detailSwipe.prev();
+		} else if ( e.keyCode == 39 ) {
+			this.detailSwipe.next();
+		}
 	},
 
 	update : function ( slug, imgIndex ){

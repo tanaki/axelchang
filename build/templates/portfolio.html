@@ -11,7 +11,7 @@
 							<img src="<%= image.low %>" alt="" data-src="<%= image.img %>" />
 							<div class="credits">
 								<div class="credits-inside">
-									<%= AC.Utils.textToHTML(image.credits) %>
+									<%= AC.Utils.textToHTML(image.credits[AC.Lang]) %>
 								</div>
 							</div>
 
@@ -41,7 +41,7 @@
 						<span class="current">1</span>
 						<span class="total"> / <%= project.images.length %></span>
 					</div>
-					<span class="project-title"><%= project.title %></span>
+					<span class="project-title"><%= project.title[AC.Lang] %></span>
 				</div>
 				
 				<div class="project-nav-container">
@@ -62,7 +62,7 @@
 			<div class="project project-<%= index %> <% if ( preloaded ) { print('loaded') } %>">
 				<a href="/portfolio/<%= project.slug %>">
 					<span class="project-bg"></span>
-					<span class="project-title"><%= project.title %></span>
+					<span class="project-title"><%= project.title[AC.Lang] %></span>
 
 					<span class="img-container">
 						<% if ( preloaded ) { %>

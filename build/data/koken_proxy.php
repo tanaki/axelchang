@@ -27,9 +27,15 @@
 	echo '"portfolio" : [';
 	foreach ( $data->albums as $album ) {
 
+		$descTrans = getTranslation($album->description);
+
 		echo '{';
 			echo '"id" : "' . $album->id . '",';
-			echo '"title" : "' . $album->title . '",';
+			echo '"title" : {';
+				echo '"en" : "' . $descTrans['en'] . '",';
+				echo '"fr" : "' . $descTrans['fr'] . '",';
+				echo '"de" : "' . $descTrans['de'] . '"';
+			echo '},';
 			echo '"slug" : "' . $album->slug . '",';
 			echo '"cover" : "' . $album->covers[0]->presets->medium->url . '",';
 			echo '"width" : "' . $album->covers[0]->presets->medium->width . '",';
@@ -40,9 +46,16 @@
 				$maxContent = count($jsonAlbum->content);
 				$j = 0;
 				foreach ( $jsonAlbum->content as $content ) {
+
+					$captionTrans = getTranslation($content->caption);
+
 					echo '{';
 						echo '"img" : "' . $content->presets->huge->url . '",';
-						echo '"credits" : "' . clean($content->caption) . '"';
+						echo '"credits" : {';
+							echo '"en" : "' . clean($captionTrans['en']) . '",';
+							echo '"fr" : "' . clean($captionTrans['fr']) . '",';
+							echo '"de" : "' . clean($captionTrans['de']) . '"';
+						echo '}';
 					echo '}';
 
 					if ( $j < $maxContent - 1 ) echo ',';

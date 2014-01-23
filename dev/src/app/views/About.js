@@ -6,6 +6,14 @@ AC.View.About = AC.View.Base.extend({
 
 	initialize : function (){
 		this.params.about = AC.Data.JSON.about;
+	},
+
+	_displayComplete : function () {
+		
+		var $spin = $(".spin-box");
+		$spin.fadeOut(100, function(){
+			$spin.remove();
+		});
 	}
 	
 });

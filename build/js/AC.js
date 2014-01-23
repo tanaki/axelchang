@@ -48,7 +48,7 @@ AC.SpinOptions = {
 	corners: 1,
 	rotate: 0,
 	direction: 1,
-	color: '#fff',
+	color: '#000',
 	speed: 1.1,
 	trail: 10,
 	shadow: false,
@@ -76,6 +76,10 @@ $(window).ready(function(){
 			var year = new Date();
 			year = year.getFullYear();
 			alert("© Copyright " + year + " - Content Protected");
+		});
+
+		$("body").on('dragstart', function(e){
+			e.preventDefault();
 		});
 	}
 
@@ -220,8 +224,8 @@ AC.Controller = function() {
 		 */
 		displayPage = function ( callbackEvent, hideFirst, urlData ) {
 
-			$("nav .selected").removeClass("selected");
-			$("nav a[href='/"+Backbone.history.fragment+"']").addClass("selected");
+			$("nav .selected, .mobile-nav .selected").removeClass("selected");
+			$("nav a[href='/"+Backbone.history.fragment+"'], .mobile-nav a[href='/"+Backbone.history.fragment+"']").addClass("selected");
 
 			if ( currentView && hideFirst ) {
 				
@@ -340,16 +344,18 @@ AC.DataManager = AC.DataManager || {
 	getData : function ( ) {
 
 		var 
-			$spin = $(".spin-box"),
+			//$spin = $(".spin-box"),
 			self = this;
 
 		$.get(AC.Locations.JSON, function( data ) {
 			
 			AC.Data.JSON = data;
 			
+			/*
 			$spin.fadeOut(100, function(){
 				$spin.remove();
 			});
+			*/
 
 			self.dataLoaded = true;
 			self.check( self.currentEvent, self.currentSlug );
@@ -569,6 +575,16 @@ AC.View.Base = Backbone.View.extend({
 			self.tpl = tpl;
 			self._display();
 		});
+
+		if (navigator.userAgent.match(/iPad;.*CPU.*OS 7_\d/i)) {
+			$('html')
+				.css({
+					"min-height": window.innerHeight,
+					"position" : "relative"
+				});
+				
+			window.scrollTo(0, 0);
+		}
 	},
 	
 	_display : function() {
@@ -602,6 +618,14 @@ AC.View.About = AC.View.Base.extend({
 
 	initialize : function (){
 		this.params.about = AC.Data.JSON.about;
+	},
+
+	_displayComplete : function () {
+		
+		var $spin = $(".spin-box");
+		$spin.fadeOut(100, function(){
+			$spin.remove();
+		});
 	}
 	
 });
@@ -613,6 +637,14 @@ AC.View.Contact = AC.View.Base.extend({
 
 	initialize : function(){
 		this.params.contact = AC.Data.JSON.contact;
+	},
+
+	_displayComplete : function () {
+		
+		var $spin = $(".spin-box");
+		$spin.fadeOut(100, function(){
+			$spin.remove();
+		});
 	}
 	
 });
@@ -642,12 +674,19 @@ AC.View.Home = AC.View.Base.extend({
 	handleComplete : function() {
 
 		this.params.preloaded = true;
-		$("body").data("home-preload", true);
 	},
 
 	handleFileLoad : function(event) {
 		
 		if ( event.item.id === "home-bg" ) {
+
+			$("body").data("home-preload", true);
+
+			var $spin = $(".spin-box");
+			$spin.fadeOut(100, function(){
+				$spin.remove();
+			});
+
 			$(".home").addClass("home-loaded");
 			$("#img-home").attr("src", "img/bg.jpg");
 		}
@@ -664,14 +703,25 @@ AC.View.Home = AC.View.Base.extend({
 			}
 		});
 	},
+	
+	_display : function() {
 
-	_displayComplete : function() {
+		
+		var self = this;
+		
+		self.slug = self.params.slug;
+		self.prevId = $("body").attr("class");
+		
+		$("body").removeClass(self.prevId).addClass(self.id);
 
 		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
 		}
+
+		$(this.el).html( this.tpl(this.params) ).fadeIn(AC.Data.FADE_IN_DURATION, function() {
+			self._displayComplete(self);
+		});
 	}
-	
 });
 
 AC.View.Loading = AC.View.Base.extend({
@@ -692,7 +742,24 @@ AC.View.News = AC.View.Base.extend({
 		this.params.news = AC.Data.JSON.news;
 	},
 
+	hide : function ( callback ) {
+		
+		var $el = $(this.el);
+		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {
+			if (callback) {
+				callback();
+			}
+		});
+
+		$(document).off( "keydown", $.proxy(this.keyNav, this) );
+	},
+
 	_displayComplete : function() {
+		
+		var $spin = $(".spin-box");
+		$spin.fadeOut(100, function(){
+			$spin.remove();
+		});
 
 		this.newsSwipe = new Swipe(document.getElementById("news-slider"), {
 			callback : this._callbackSwipe
@@ -717,14 +784,16 @@ AC.View.News = AC.View.Base.extend({
 			newsSwipe.prev();
 		});
 
-		$(document).keydown(function(e){
-			if ( e.keyCode == 37 ) {
-				newsSwipe.prev();
-			} else if ( e.keyCode == 39 ) {
-				newsSwipe.next();
-			}
-		});
+		$(document).on( "keydown", $.proxy(this.keyNav, this) );
 	},
+
+	keyNav : function(e){
+		if ( e.keyCode == 37 ) {
+			this.newsSwipe.prev();
+		} else if ( e.keyCode == 39 ) {
+			this.newsSwipe.next();
+		}
+	}
 	
 });
 
@@ -755,8 +824,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 				imgHeight = img.height,
 				extraClass = "",
 				extraCSS = "";
-
-			console.log( imgWidth, imgHeight );
 				
 			if ( imgWidth > imgHeight ) {
 				var newW = (220 * imgWidth) / imgHeight;
@@ -787,6 +854,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 				callback();
 			}
 		});
+
+		$(document).off( "keydown", $.proxy(this.keyNav, this) );
 	},
 
 	_displayComplete : function () {
@@ -828,12 +897,24 @@ AC.View.Portfolio = AC.View.Base.extend({
 		this.addLoaders(".mouse-move");
 		this.initBGPreload();
 		this.initProjectNav();
+
+		var $spin = $(".spin-box");
+		$spin.fadeOut(100, function(){
+			$spin.remove();
+		});
 	},
 
 	addLoaders : function(selector) {
 		
+
+		var spinOpts = AC.SpinOptions;
+		spinOpts.color = "#fff";
+
+		var acSpin = new Spinner( spinOpts ).spin();
+
 		$(selector).each(function(index, el){
-			var spiner = $(AC.Spinner.el).clone();
+
+			var spiner = $(acSpin.el).clone();
 			$(el).append( spiner );
 		});	
 	},
@@ -957,13 +1038,15 @@ AC.View.Portfolio = AC.View.Base.extend({
 			detailSwipe.prev();
 		});
 
-		$(document).keydown(function(e){
-			if ( e.keyCode == 37 ) {
-				detailSwipe.prev();
-			} else if ( e.keyCode == 39 ) {
-				detailSwipe.next();
-			}
-		});
+		$(document).on( "keydown", $.proxy(this.keyNav, this) );
+	},
+
+	keyNav : function(e){
+		if ( e.keyCode == 37 ) {
+			this.detailSwipe.prev();
+		} else if ( e.keyCode == 39 ) {
+			this.detailSwipe.next();
+		}
 	},
 
 	update : function ( slug, imgIndex ){
@@ -1008,10 +1091,14 @@ AC.Utils = AC.Utils || {};
 AC.Utils.textToHTML = function( text ) {
 
 	return text
+		.replace(/\[name\]/g, '<div class="name">')
+		.replace(/\[\/name\]/g, '</div>')
 		.replace(/\[url\(/g, '<a href="')
 		.replace(/\)\]/g, '" target="_blank">')
 		.replace(/\[\/url\]/g, '</a>')
 		.replace(/\[br\]/g, '<br/>');
+
+
 };
 
 AC.Utils.formatNews = function( text ) {

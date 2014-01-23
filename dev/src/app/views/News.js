@@ -10,7 +10,24 @@ AC.View.News = AC.View.Base.extend({
 		this.params.news = AC.Data.JSON.news;
 	},
 
+	hide : function ( callback ) {
+		
+		var $el = $(this.el);
+		$el.fadeOut(AC.Data.FADE_OUT_DURATION, function() {
+			if (callback) {
+				callback();
+			}
+		});
+
+		$(document).off( "keydown", $.proxy(this.keyNav, this) );
+	},
+
 	_displayComplete : function() {
+		
+		var $spin = $(".spin-box");
+		$spin.fadeOut(100, function(){
+			$spin.remove();
+		});
 
 		this.newsSwipe = new Swipe(document.getElementById("news-slider"), {
 			callback : this._callbackSwipe
@@ -35,13 +52,15 @@ AC.View.News = AC.View.Base.extend({
 			newsSwipe.prev();
 		});
 
-		$(document).keydown(function(e){
-			if ( e.keyCode == 37 ) {
-				newsSwipe.prev();
-			} else if ( e.keyCode == 39 ) {
-				newsSwipe.next();
-			}
-		});
+		$(document).on( "keydown", $.proxy(this.keyNav, this) );
 	},
+
+	keyNav : function(e){
+		if ( e.keyCode == 37 ) {
+			this.newsSwipe.prev();
+		} else if ( e.keyCode == 39 ) {
+			this.newsSwipe.next();
+		}
+	}
 	
 });

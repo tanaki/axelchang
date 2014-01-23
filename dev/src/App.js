@@ -48,7 +48,7 @@ AC.SpinOptions = {
 	corners: 1,
 	rotate: 0,
 	direction: 1,
-	color: '#fff',
+	color: '#000',
 	speed: 1.1,
 	trail: 10,
 	shadow: false,
@@ -76,6 +76,10 @@ $(window).ready(function(){
 			var year = new Date();
 			year = year.getFullYear();
 			alert("© Copyright " + year + " - Content Protected");
+		});
+
+		$("body").on('dragstart', function(e){
+			e.preventDefault();
 		});
 	}
 

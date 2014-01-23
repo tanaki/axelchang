@@ -24,12 +24,19 @@ AC.View.Home = AC.View.Base.extend({
 	handleComplete : function() {
 
 		this.params.preloaded = true;
-		$("body").data("home-preload", true);
 	},
 
 	handleFileLoad : function(event) {
 		
 		if ( event.item.id === "home-bg" ) {
+
+			$("body").data("home-preload", true);
+
+			var $spin = $(".spin-box");
+			$spin.fadeOut(100, function(){
+				$spin.remove();
+			});
+
 			$(".home").addClass("home-loaded");
 			$("#img-home").attr("src", "img/bg.jpg");
 		}
@@ -46,12 +53,23 @@ AC.View.Home = AC.View.Base.extend({
 			}
 		});
 	},
+	
+	_display : function() {
 
-	_displayComplete : function() {
+		
+		var self = this;
+		
+		self.slug = self.params.slug;
+		self.prevId = $("body").attr("class");
+		
+		$("body").removeClass(self.prevId).addClass(self.id);
 
 		if ( $("body").data("home-preload") ) {
 			$(".home").addClass("home-loaded");
 		}
+
+		$(this.el).html( this.tpl(this.params) ).fadeIn(AC.Data.FADE_IN_DURATION, function() {
+			self._displayComplete(self);
+		});
 	}
-	
 });
