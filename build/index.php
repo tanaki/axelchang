@@ -21,6 +21,8 @@
 <html class="lang-<?php echo $lang; ?>">
 	<head>
 
+		<link rel="shortcut icon" href="/favicon.ico" />
+
 		<meta charset="utf-8" />
 		<title>Axel Chang - Make up Artist</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -122,8 +124,8 @@
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
 			
-			AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
-			// AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
+			// AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
+			AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
 		</script>
 
 		<!--script type="text/javascript">

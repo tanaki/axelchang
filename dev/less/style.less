@@ -59,6 +59,7 @@ header {
 					font-size: 14px;
 					line-height: 18px;
 
+					&:hover,
 					&.selected {
 						opacity: 0.5;
 					}
@@ -119,9 +120,9 @@ footer {
 			text-indent: -5000px;
 
 			background: @sprite no-repeat -20px top;
-
+			
 			&:hover {
-				//background-position: left top;
+				background-position: left top;
 			}
 		}
 
@@ -146,7 +147,7 @@ footer {
 						overflow: hidden;
 						text-indent: -5000px;
 						background: @sprite no-repeat -92px top;
-
+						
 						&:hover {
 							background-position: -32px top;
 						}
@@ -280,6 +281,10 @@ footer {
 
 			.infos {
 				background-position: left top;
+
+				&:hover {
+					opacity: 0.5;
+				}
 			}
 
 			.social-container {
@@ -287,6 +292,10 @@ footer {
 					li {
 						a {
 							background-position: -32px top;
+
+							&:hover {
+								opacity: 0.8;
+							}
 							
 							&.footer-tb {
 								background-position: -52px top;
@@ -399,6 +408,10 @@ footer {
 		cursor: pointer;
 
 		background: @sprite no-repeat left -120px;
+
+		&:hover {
+			opacity: 0.5;
+		}
 	}
 
 	a {
@@ -424,4 +437,5 @@ footer {
 @import "partials/contact.less";
 @import "partials/news.less";
 @import "partials/components.less";
+@import "partials/retina.less";
 

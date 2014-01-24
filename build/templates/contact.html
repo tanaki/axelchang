@@ -1,7 +1,10 @@
 <ul>
 	<% _.each ( contact, function ( contact, key ) { %>
 		<li>
-			<a href="<%= contact.link %>" target="_blank" class="<%= key %>"><%= contact.label %></a>
+			<a href="<%= contact.link %>" target="_blank" class="<%= key %>">
+				<span class="icon"></span>
+				<span class="text"><%= contact.label %></span>
+			</a>
 		</li>
 	<% }) %>
 </ul>

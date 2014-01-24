@@ -1,6 +1,8 @@
 
 .contact {
 	.main-content {
+		margin-bottom: 84px;
+
 		ul {
 			margin: 0 auto;
 			width: 420px;
@@ -16,41 +18,73 @@
 					text-decoration: none;
 					margin: 0 0 0 55px;
 					padding: 25px 0 25px 60px;
+					position: relative;
 
-					background: @sprite no-repeat -980px 20px;
+					.icon {
+						position: absolute;
+						left: 0;
+						top: 0;
+
+						width: 50px;
+						height: 70px;
+
+						background: @sprite no-repeat -980px 20px;
+					}
 
 					&:hover {
-						background-position: -980px -420px;
+						.icon {
+							background-position: -980px -420px;
+						}
 					}
 					
 					&.phone {
-						background-position: -980px -55px;
+						.icon {
+							background-position: -980px -55px;
+						}
 						&:hover {
-							background-position: -980px -495px;
+							.icon {
+								background-position: -980px -495px;
+							}
 						}
 					}
 					&.facebook {
-						background-position: -980px -130px;
+						.icon {
+							background-position: -980px -130px;
+						}
 						&:hover {
-							background-position: -980px -570px;
+							.icon {
+								background-position: -980px -570px;
+							}
 						}
 					}
 					&.tumblr {
-						background-position: -980px -200px;
+						.icon {
+							background-position: -980px -200px;
+						}
 						&:hover {
-							background-position: -980px -640px;
+							.icon {
+								background-position: -980px -640px;
+							}
 						}
 					}
 					&.twitter {
-						background-position: -980px -280px;
+						.icon {
+							background-position: -980px -280px;
+						}
 						&:hover {
-							background-position: -980px -720px;
+							.icon {
+								background-position: -980px -720px;
+							}
 						}
 					}
 					&.linkedin {
-						background-position: -980px -350px;
+						.icon {
+							background-position: -980px -350px;
+						}
 						&:hover {
-							background-position: -980px -790px;
+							.icon {
+								background-position: -980px -790px;
+							}
 						}
 					}
 				}

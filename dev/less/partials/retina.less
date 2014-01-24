@@ -1,0 +1,99 @@
+
+@media 
+(-webkit-min-device-pixel-ratio: 1.25), 
+(min-resolution: 120dpi){ 
+    
+	footer {
+		.footer-inside {
+			.infos {
+				background-image: @spriteRetina;
+				background-size: 1024px 1024px;
+			}
+			.social-container {
+				ul {
+					li {
+						a {
+							background-image: @spriteRetina;
+							background-size: 1024px 1024px;
+						}
+					}
+				}
+			}			
+		}
+	}
+
+	.contact {
+		.main-content {
+			ul {
+				li {
+					a {
+						.icon {
+							top: 20px;
+							height: 40px;
+							background: @spriteRetina no-repeat -980px 0;
+							background-size: 1024px 1024px;
+						}
+
+						&:hover {
+							.icon {
+								background-position: -980px -289px;
+							}
+						}
+						
+						&.phone {
+							.icon {
+								background-position: -980px -49px;
+							}
+							&:hover {
+								.icon {
+									background-position: -980px -338px;
+								}
+							}
+						}
+						&.facebook {
+							.icon {
+								background-position: -980px -97px;
+							}
+							&:hover {
+								.icon {
+									background-position: -980px -386px;
+								}
+							}
+						}
+						&.tumblr {
+							.icon {
+								background-position: -980px -145px;
+							}
+							&:hover {
+								.icon {
+									background-position: -980px -434px;
+								}
+							}
+						}
+						&.twitter {
+							.icon {
+								background-position: -980px -241px;
+							}
+							&:hover {
+								.icon {
+									background-position: -980px -530px;
+								}
+							}
+						}
+						&.linkedin {
+							.icon {
+								background-position: -980px -193px;
+							}
+							&:hover {
+								.icon {
+									background-position: -980px -482px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}

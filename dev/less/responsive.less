@@ -63,16 +63,16 @@
 
 			ul {
 				display: none;
-				margin: 13px 0 0 20px;
+				padding: 13px 0 0 20px;
 
 				li {
-					margin-bottom: 5px;
+					margin: 5px 0 18px;
 					a {
 						text-transform: uppercase;
 						text-decoration: none;
-						color: #444;
 						font-size: 14px;
-						line-height: 18px;
+						line-height: 23px;
+						font-weight: 600;
 
 						&.selected {
 							opacity: 0.5;
@@ -94,11 +94,19 @@
 
 			header {
 				.mobile-nav {
-					width: 149px;
+					width: 150px;
 					right: -150px;
 
 					ul {
 						display: block;
+						height: 100%;
+						background: #444;
+
+						li {
+							a {
+								color:#f4f4f4;
+							}
+						}
 					}
 				}
 			}
@@ -115,11 +123,31 @@
 			}
 		}
 	}
+
+	.show-menu {
+		.home-loaded,
+		.portfolio-detail {
+			#wrapper {
+				header {
+					.mobile-nav {
+						ul {
+							background: transparent;
+							li {
+								a {
+									color: #444;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .touch {
 	header {
-		position: relative;
+		position: static;
 		z-index: 2;
 	}
 	.main-content {
@@ -135,6 +163,17 @@
 			.social-container,
 			.infos {
 				top: 10px;
+			}
+			.social-container {
+				width: 120px;
+				margin-left: -60px;
+
+				.footer-fb {
+					margin-right: 20px;
+				}
+				.footer-tb {
+					margin-right: 20px;
+				}
 			}
 			.lang-container {
 				margin-top: 10px;

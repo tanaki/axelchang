@@ -150,6 +150,7 @@ header nav ul li a {
   font-size: 14px;
   line-height: 18px;
 }
+header nav ul li a:hover,
 header nav ul li a.selected {
   opacity: 0.5;
 }
@@ -198,6 +199,9 @@ footer .footer-inside .infos {
   overflow: hidden;
   text-indent: -5000px;
   background: url(../img/sprite.png) no-repeat -20px top;
+}
+footer .footer-inside .infos:hover {
+  background-position: left top;
 }
 footer .footer-inside .social-container {
   position: absolute;
@@ -306,9 +310,17 @@ footer .footer-inside .lang-container ul li a:hover {
 .portfolio-detail footer .footer-inside .infos {
   background-position: left top;
 }
+.home-loaded footer .footer-inside .infos:hover,
+.portfolio-detail footer .footer-inside .infos:hover {
+  opacity: 0.5;
+}
 .home-loaded footer .footer-inside .social-container ul li a,
 .portfolio-detail footer .footer-inside .social-container ul li a {
   background-position: -32px top;
+}
+.home-loaded footer .footer-inside .social-container ul li a:hover,
+.portfolio-detail footer .footer-inside .social-container ul li a:hover {
+  opacity: 0.8;
 }
 .home-loaded footer .footer-inside .social-container ul li a.footer-tb,
 .portfolio-detail footer .footer-inside .social-container ul li a.footer-tb {
@@ -383,6 +395,9 @@ footer .footer-inside .lang-container ul li a:hover {
   cursor: pointer;
   background: url(../img/sprite.png) no-repeat left -120px;
 }
+.simplemodal-container a.modalCloseImg:hover {
+  opacity: 0.5;
+}
 .simplemodal-container a {
   display: block;
   color: #fff;
@@ -448,17 +463,17 @@ footer .footer-inside .lang-container ul li a:hover {
   }
   header .mobile-nav ul {
     display: none;
-    margin: 13px 0 0 20px;
+    padding: 13px 0 0 20px;
   }
   header .mobile-nav ul li {
-    margin-bottom: 5px;
+    margin: 5px 0 18px;
   }
   header .mobile-nav ul li a {
     text-transform: uppercase;
     text-decoration: none;
-    color: #444;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 23px;
+    font-weight: 600;
   }
   header .mobile-nav ul li a.selected {
     opacity: 0.5;
@@ -471,19 +486,32 @@ footer .footer-inside .lang-container ul li a:hover {
     overflow-x: visible;
   }
   .show-menu #wrapper header .mobile-nav {
-    width: 149px;
+    width: 150px;
     right: -150px;
   }
   .show-menu #wrapper header .mobile-nav ul {
     display: block;
+    height: 100%;
+    background: #444;
+  }
+  .show-menu #wrapper header .mobile-nav ul li a {
+    color: #f4f4f4;
   }
   .home-loaded header .mobile-nav .open,
   .portfolio-detail header .mobile-nav .open {
     background-position: -30px -60px;
   }
+  .show-menu .home-loaded #wrapper header .mobile-nav ul,
+  .show-menu .portfolio-detail #wrapper header .mobile-nav ul {
+    background: transparent;
+  }
+  .show-menu .home-loaded #wrapper header .mobile-nav ul li a,
+  .show-menu .portfolio-detail #wrapper header .mobile-nav ul li a {
+    color: #444;
+  }
 }
 .touch header {
-  position: relative;
+  position: static;
   z-index: 2;
 }
 .touch .main-content {
@@ -499,6 +527,16 @@ footer .footer-inside .lang-container ul li a:hover {
 .touch footer .footer-inside .social-container,
 .touch footer .footer-inside .infos {
   top: 10px;
+}
+.touch footer .footer-inside .social-container {
+  width: 120px;
+  margin-left: -60px;
+}
+.touch footer .footer-inside .social-container .footer-fb {
+  margin-right: 20px;
+}
+.touch footer .footer-inside .social-container .footer-tb {
+  margin-right: 20px;
 }
 .touch footer .footer-inside .lang-container {
   margin-top: 10px;
@@ -968,6 +1006,9 @@ footer .footer-inside .lang-container ul li a:hover {
     margin: 0 20px 60px;
   }
 }
+.contact .main-content {
+  margin-bottom: 84px;
+}
 .contact .main-content ul {
   margin: 0 auto;
   width: 420px;
@@ -983,39 +1024,47 @@ footer .footer-inside .lang-container ul li a:hover {
   text-decoration: none;
   margin: 0 0 0 55px;
   padding: 25px 0 25px 60px;
+  position: relative;
+}
+.contact .main-content ul li a .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 70px;
   background: url(../img/sprite.png) no-repeat -980px 20px;
 }
-.contact .main-content ul li a:hover {
+.contact .main-content ul li a:hover .icon {
   background-position: -980px -420px;
 }
-.contact .main-content ul li a.phone {
+.contact .main-content ul li a.phone .icon {
   background-position: -980px -55px;
 }
-.contact .main-content ul li a.phone:hover {
+.contact .main-content ul li a.phone:hover .icon {
   background-position: -980px -495px;
 }
-.contact .main-content ul li a.facebook {
+.contact .main-content ul li a.facebook .icon {
   background-position: -980px -130px;
 }
-.contact .main-content ul li a.facebook:hover {
+.contact .main-content ul li a.facebook:hover .icon {
   background-position: -980px -570px;
 }
-.contact .main-content ul li a.tumblr {
+.contact .main-content ul li a.tumblr .icon {
   background-position: -980px -200px;
 }
-.contact .main-content ul li a.tumblr:hover {
+.contact .main-content ul li a.tumblr:hover .icon {
   background-position: -980px -640px;
 }
-.contact .main-content ul li a.twitter {
+.contact .main-content ul li a.twitter .icon {
   background-position: -980px -280px;
 }
-.contact .main-content ul li a.twitter:hover {
+.contact .main-content ul li a.twitter:hover .icon {
   background-position: -980px -720px;
 }
-.contact .main-content ul li a.linkedin {
+.contact .main-content ul li a.linkedin .icon {
   background-position: -980px -350px;
 }
-.contact .main-content ul li a.linkedin:hover {
+.contact .main-content ul li a.linkedin:hover .icon {
   background-position: -980px -790px;
 }
 @media screen and (max-width: 460px) {
@@ -1050,7 +1099,7 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .news #news-slider .news-text .date {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   margin-bottom: 5px;
   font-weight: 400;
 }
@@ -1059,6 +1108,12 @@ footer .footer-inside .lang-container ul li a:hover {
   font-size: 24px;
   text-transform: uppercase;
   margin-bottom: 10px;
+}
+.news #news-slider .news-text a {
+  color: #000;
+}
+.news #news-slider .news-text a:hover {
+  opacity: 0.5;
 }
 .news .news-prev,
 .news .news-next {
@@ -1159,4 +1214,53 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .touch .spin-box {
   top: 200px;
+}
+@media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  footer .footer-inside .infos {
+    background-image: url(../img/sprite_retina.png);
+    background-size: 1024px 1024px;
+  }
+  footer .footer-inside .social-container ul li a {
+    background-image: url(../img/sprite_retina.png);
+    background-size: 1024px 1024px;
+  }
+  .contact .main-content ul li a .icon {
+    top: 20px;
+    height: 40px;
+    background: url(../img/sprite_retina.png) no-repeat -980px 0;
+    background-size: 1024px 1024px;
+  }
+  .contact .main-content ul li a:hover .icon {
+    background-position: -980px -289px;
+  }
+  .contact .main-content ul li a.phone .icon {
+    background-position: -980px -49px;
+  }
+  .contact .main-content ul li a.phone:hover .icon {
+    background-position: -980px -338px;
+  }
+  .contact .main-content ul li a.facebook .icon {
+    background-position: -980px -97px;
+  }
+  .contact .main-content ul li a.facebook:hover .icon {
+    background-position: -980px -386px;
+  }
+  .contact .main-content ul li a.tumblr .icon {
+    background-position: -980px -145px;
+  }
+  .contact .main-content ul li a.tumblr:hover .icon {
+    background-position: -980px -434px;
+  }
+  .contact .main-content ul li a.twitter .icon {
+    background-position: -980px -241px;
+  }
+  .contact .main-content ul li a.twitter:hover .icon {
+    background-position: -980px -530px;
+  }
+  .contact .main-content ul li a.linkedin .icon {
+    background-position: -980px -193px;
+  }
+  .contact .main-content ul li a.linkedin:hover .icon {
+    background-position: -980px -482px;
+  }
 }

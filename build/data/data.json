@@ -234,7 +234,7 @@
 			"slug" : "news-1",
 			"text" : {
 				"en" : "English[br]Text",
-				"fr" : "[date]10 Juin 2013[/date][title]Body Painting[/title]Lorem ipsum Amet dolore Excepteur minim aliqua irure occaecat nostrud sint.[br]Lorem ipsum Officia aute ut voluptate ad officia est tempor ex aliqua.",
+				"fr" : "[date]10 Juin 2013[/date][title]Body Painting[/title]Lorem [url(http://)]ipsum Amet[/url] dolore Excepteur minim aliqua irure occaecat nostrud sint.[br]Lorem ipsum Officia aute ut voluptate ad officia est tempor ex aliqua.",
 				"de" : "German[br]Text"
 			},
 			"img" : "img/news/img.jpg",
