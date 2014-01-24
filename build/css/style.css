@@ -1216,6 +1216,10 @@ footer .footer-inside .lang-container ul li a:hover {
   top: 200px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  footer .footer-inside {
+    background-image: url(../img/bg-footer-dark_retina.png);
+    background-size: 1px 2px;
+  }
   footer .footer-inside .infos {
     background-image: url(../img/sprite_retina.png);
     background-size: 1024px 1024px;
@@ -1223,6 +1227,10 @@ footer .footer-inside .lang-container ul li a:hover {
   footer .footer-inside .social-container ul li a {
     background-image: url(../img/sprite_retina.png);
     background-size: 1024px 1024px;
+  }
+  .home-loaded footer .footer-inside,
+  .portfolio-detail footer .footer-inside {
+    background-image: url(../img/bg-footer_retina.png);
   }
   .contact .main-content ul li a .icon {
     top: 20px;
