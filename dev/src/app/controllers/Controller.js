@@ -77,6 +77,8 @@ AC.Controller = function() {
 		 */
 		_initModal = function () {
 
+			console.log("init modal");
+
 			$("body").delegate('[rel=modal]', "click", function(e){
 				e.preventDefault();
 				$($(this).attr("href")).modal({

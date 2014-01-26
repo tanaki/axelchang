@@ -85,6 +85,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 		}
 		*/
 
+		console.log("init swipe");
+
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
 			callback : this._callbackSwipe,
 			speed : 500

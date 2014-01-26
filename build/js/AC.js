@@ -197,6 +197,8 @@ AC.Controller = function() {
 		 */
 		_initModal = function () {
 
+			console.log("init modal");
+
 			$("body").delegate('[rel=modal]', "click", function(e){
 				e.preventDefault();
 				$($(this).attr("href")).modal({
@@ -882,6 +884,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 			});
 		}
 		*/
+
+		console.log("init swipe");
 
 		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
 			callback : this._callbackSwipe,
