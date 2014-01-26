@@ -258,7 +258,7 @@ footer .footer-inside .lang-container ul li a:hover {
 /* LANG Container */
 @media screen and (min-width: 811px) {
   .lang-en header nav {
-    width: 507px;
+    width: 520px;
   }
 }
 .lang-en footer .footer-inside .lang-container ul li a.en {
@@ -379,7 +379,6 @@ footer .footer-inside .lang-container ul li a:hover {
 .simplemodal-container {
   z-index: 2000000003 !important;
   min-width: 350px;
-  min-height: 350px;
   color: #fff;
   font-size: 14px;
   text-align: center;
