@@ -201,7 +201,7 @@ footer .footer-inside .infos {
   background: url(../img/sprite.png) no-repeat -20px top;
 }
 footer .footer-inside .infos:hover {
-  background-position: left top;
+  opacity: 0.6;
 }
 footer .footer-inside .social-container {
   position: absolute;
@@ -223,19 +223,13 @@ footer .footer-inside .social-container ul li a {
   background: url(../img/sprite.png) no-repeat -92px top;
 }
 footer .footer-inside .social-container ul li a:hover {
-  background-position: -32px top;
+  opacity: 0.8;
 }
 footer .footer-inside .social-container ul li a.footer-tb {
   background-position: -112px top;
 }
-footer .footer-inside .social-container ul li a.footer-tb:hover {
-  background-position: -52px top;
-}
 footer .footer-inside .social-container ul li a.footer-tw {
   background-position: -132px 1px;
-}
-footer .footer-inside .social-container ul li a.footer-tw:hover {
-  background-position: -72px 1px;
 }
 footer .footer-inside .lang-container {
   float: right;
@@ -310,17 +304,9 @@ footer .footer-inside .lang-container ul li a:hover {
 .portfolio-detail footer .footer-inside .infos {
   background-position: left top;
 }
-.home-loaded footer .footer-inside .infos:hover,
-.portfolio-detail footer .footer-inside .infos:hover {
-  opacity: 0.5;
-}
 .home-loaded footer .footer-inside .social-container ul li a,
 .portfolio-detail footer .footer-inside .social-container ul li a {
   background-position: -32px top;
-}
-.home-loaded footer .footer-inside .social-container ul li a:hover,
-.portfolio-detail footer .footer-inside .social-container ul li a:hover {
-  opacity: 0.8;
 }
 .home-loaded footer .footer-inside .social-container ul li a.footer-tb,
 .portfolio-detail footer .footer-inside .social-container ul li a.footer-tb {
@@ -831,6 +817,9 @@ footer .footer-inside .lang-container ul li a:hover {
   color: #fff;
   text-decoration: none;
 }
+.portfolio-detail .project-detail .project-global-nav .project-nav-inside .link-credits:hover {
+  opacity: 0.6;
+}
 .portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-title-container {
   position: absolute;
   bottom: 0;
@@ -866,6 +855,10 @@ footer .footer-inside .lang-container ul li a:hover {
   text-indent: -5000px;
   background: url(../img/sprite.png) no-repeat left -40px;
 }
+.portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-nav-container .prev-project:hover,
+.portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-nav-container .next-project:hover {
+  opacity: 0.6;
+}
 .portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-nav-container .prev-project {
   margin-right: 10px;
 }
@@ -881,6 +874,9 @@ footer .footer-inside .lang-container ul li a:hover {
   background: url(../img/sprite.png) no-repeat -40px -40px;
   overflow: hidden;
   text-indent: -5000px;
+}
+.portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-nav-container .back:hover {
+  opacity: 0.6;
 }
 .touch .portfolio-detail {
   width: 100%;
