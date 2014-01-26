@@ -112,7 +112,7 @@
 			},
 			"phone" : {
 				"link" : "#",
-				"label" : "06 39 78 52 70"
+				"label" : "06 59 56 11 10"
 			},
 			"facebook" : {
 				"link" : "http://facebook.com/axel.changmaquilleur",
