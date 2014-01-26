@@ -197,7 +197,7 @@ AC.Controller = function() {
 		 */
 		_initModal = function () {
 
-			console.log("init modal");
+			// console.log("init modal");
 
 			$("body").delegate('[rel=modal]', "click", function(e){
 				e.preventDefault();
@@ -480,7 +480,7 @@ AC.Model.About = Backbone.Model.extend({
 	
 	update : function (){
 
-		console.log( "test", AC.Data.JSON.about );
+		// console.log( "test", AC.Data.JSON.about );
 		
 	}
 	
@@ -870,12 +870,19 @@ AC.View.Portfolio = AC.View.Base.extend({
 		$(".link-credits").on("click", function(e){
 			e.preventDefault();
 
-			console.log("click");
-
 			//$(".move-current .credits").toggle();
 			$(".move-current .credits").modal({
 				overlayClose : true,
-				opacity : 60
+				opacity : 60,
+
+				onShow: function(dialog){
+
+					dialog.container.css({
+						"height":"auto",
+						"width":"auto"
+					});
+					$(window).trigger("resize");
+				}
 			});
 		});
 
@@ -890,7 +897,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		if ( document.getElementById("detail-slider") && !this.detailSwipe ) {
 
-			console.log("init swipe");
+			// console.log("init swipe");
 
 			this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
 				callback : this._callbackSwipe,

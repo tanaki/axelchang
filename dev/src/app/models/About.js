@@ -9,7 +9,7 @@ AC.Model.About = Backbone.Model.extend({
 	
 	update : function (){
 
-		console.log( "test", AC.Data.JSON.about );
+		// console.log( "test", AC.Data.JSON.about );
 		
 	}
 	
