@@ -885,12 +885,15 @@ AC.View.Portfolio = AC.View.Base.extend({
 		}
 		*/
 
-		console.log("init swipe");
+		if ( document.getElementById("detail-slider") ) {
 
-		this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
-			callback : this._callbackSwipe,
-			speed : 500
-		});
+			console.log("init swipe");
+
+			this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
+				callback : this._callbackSwipe,
+				speed : 500
+			});
+		}
 
 		if ( !this.preloadedImgAll ) {
 			this.addLoaders(".project");
