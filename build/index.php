@@ -21,7 +21,7 @@
 <html class="lang-<?php echo $lang; ?>">
 	<head>
 
-		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="<?php echo $BASE_URL; ?>favicon.ico" />
 
 		<meta charset="utf-8" />
 		<title>Axel Chang - Make up Artist</title>

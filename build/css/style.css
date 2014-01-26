@@ -522,11 +522,11 @@ footer .footer-inside .lang-container ul li a:hover {
   z-index: 2;
 }
 .touch footer .footer-inside {
-  height: 40px;
+  height: 50px;
 }
 .touch footer .footer-inside .social-container,
 .touch footer .footer-inside .infos {
-  top: 10px;
+  top: 20px;
 }
 .touch footer .footer-inside .social-container {
   width: 120px;
@@ -539,7 +539,7 @@ footer .footer-inside .lang-container ul li a:hover {
   margin-right: 20px;
 }
 .touch footer .footer-inside .lang-container {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .touch .about #wrapper,
 .touch .news #wrapper,
