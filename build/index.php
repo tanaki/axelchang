@@ -18,7 +18,9 @@
 	}
 ?>
 <!doctype html>
-<html class="lang-<?php echo $lang; ?>">
+<!--[if lt IE 8]>      <html class="lang-<?php echo $lang; ?> ie8 ie7 ie"> <![endif]-->
+<!--[if IE 8]>         <html class="lang-<?php echo $lang; ?> ie8 ie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="lang-<?php echo $lang; ?>">         <!--<![endif]-->
 	<head>
 
 		<link rel="shortcut icon" href="<?php echo $BASE_URL; ?>favicon.ico" />
@@ -29,6 +31,10 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL; ?>css/style.css">
+
+		<!--[if lt IE 9]>
+		    <script src="js/libs/html5shiv.js"></script>
+		<![endif]-->
 	</head>
 	<body>
 
