@@ -17,9 +17,9 @@
 					"img" : "/img/portfolio/project-1/1.jpg",
 					"low" : "/img/portfolio/project-1/1.jpg",
 					"credits" : {
-						"en" : "Maquillage [url(http://test.com)]untel[/url][br]Model [url(http://modele.com)]unetelle[/url]",
-						"fr" : "Maquillage [url(http://test.com)]untel[/url][br]Model [url(http://modele.com)]unetelle[/url]",
-						"de" : "Maquillage [url(http://test.com)]untel[/url][br]Model [url(http://modele.com)]unetelle[/url]"
+						"en" : "[url(http://lesdiablesdeloudun.wordpress.com/)]&quot;Loudun&quot;[/url] [br]Actors [name]Michael Msihid[/name][url(http://www.jpdauphin.com)]Jean-Pierre Dauphin[/url][url(http://www.alexandre-triaca.book.fr/)]Alexandre Triaca[/url][br]Photographer [name]Patrick Dubois[/name][br]Sc&eacute;nography [url(http://adelinegauvreau.com/)]Adeline Gauvreau[/url]",
+						"fr" : "[url(http://lesdiablesdeloudun.wordpress.com/)]&quot;Loudun&quot;[/url] [br]Com&eacute;diens [name]Michael Msihid[/name][url(http://www.jpdauphin.com)]Jean-Pierre Dauphin[/url][url(http://www.alexandre-triaca.book.fr/)]Alexandre Triaca[/url]Photographe [name]Patrick Dubois[/name][br]Sc&eacute;nographie [url(http://adelinegauvreau.com/)]Adeline Gauvreau[/url]",
+						"de" : "[url(http://lesdiablesdeloudun.wordpress.com/)]&quot;Loudun&quot;[/url] [br]Schauspielern [name]Michael Msihid[/name][url(http://www.jpdauphin.com)]Jean-Pierre Dauphin[/url][url(http://www.alexandre-triaca.book.fr/)]Alexandre Triaca[/url][br]Fotograph [name]Patrick Dubois[/name][br]B&uuml;hnenbildne [url(http://adelinegauvreau.com/)]Adeline Gauvreau[/url]"
 					}
 				},
 				{

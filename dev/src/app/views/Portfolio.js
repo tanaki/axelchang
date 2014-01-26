@@ -69,6 +69,9 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 		$(".link-credits").on("click", function(e){
 			e.preventDefault();
+
+			console.log("click");
+
 			//$(".move-current .credits").toggle();
 			$(".move-current .credits").modal({
 				overlayClose : true,
@@ -85,7 +88,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 		}
 		*/
 
-		if ( document.getElementById("detail-slider") ) {
+		if ( document.getElementById("detail-slider") && !this.detailSwipe ) {
 
 			console.log("init swipe");
 
