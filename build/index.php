@@ -109,7 +109,8 @@
 
 		<div id="modal-credits" class="hidden">
 			Design<br/><a href="http://marielaurent.fr" target="_blank">Marie Laurent</a><br/><br/>
-			Developpement<br/><a href="http://cargocollective.com/nicopigelet" target="_blank">Nicolas Pigelet</a>
+			Developpement<br/><a href="http://cargocollective.com/nicopigelet" target="_blank">Nicolas Pigelet</a><br/><br/>
+			Traducteurs<br/><div class="name">Gillian McBride<br/>Cora Ungeheuer</div><br/><br/>
 		</div>
 		
 		<!-- LIBS -->
@@ -131,7 +132,7 @@
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
 			
-			// AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
+			//AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
 			AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
 		</script>
 
