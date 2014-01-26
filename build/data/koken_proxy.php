@@ -111,7 +111,7 @@
 				"label" : "chang.axel@gmail.com"
 			},
 			"phone" : {
-				"link" : "#",
+				"link" : "tel:0033659561110",
 				"label" : "06 59 56 11 10"
 			},
 			"facebook" : {
@@ -127,7 +127,7 @@
 				"label" : "twitter.com/ChangAxel"
 			},
 			"linkedin" : {
-				"link" : "http://linkedin.com/AxelChang",
+				"link" : "http://fr.linkedin.com/pub/axel-chang/4a/207/732",
 				"label" : "LinkedIn"
 			}
 		}';
