@@ -39,6 +39,7 @@ AC.View.Home = AC.View.Base.extend({
 
 			$(".home").addClass("home-loaded");
 			$("#img-home").attr("src", "img/bg.jpg");
+			$(window).resize();
 		}
 	},
 
@@ -55,7 +56,6 @@ AC.View.Home = AC.View.Base.extend({
 	},
 	
 	_display : function() {
-
 		
 		var self = this;
 		
@@ -70,6 +70,7 @@ AC.View.Home = AC.View.Base.extend({
 
 		$(this.el).html( this.tpl(this.params) ).fadeIn(AC.Data.FADE_IN_DURATION, function() {
 			self._displayComplete(self);
+			$(window).resize();
 		});
 	}
 });

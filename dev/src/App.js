@@ -84,6 +84,7 @@ $(window).ready(function(){
 	}
 
 	if ( !Modernizr.touch ) {
+		$(window).resize();
 		AC.loop();
 		
 		$("body").on('mousemove', function(e){
@@ -135,7 +136,6 @@ AC.loop = function() {
 			"margin-left" : ( (refW - newW) / 2 ) + "px"
 		});
 
-		$(window).on("resize");
 		setTimeout(AC.loop, 200);
 		return;
 	}
