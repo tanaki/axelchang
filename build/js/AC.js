@@ -124,7 +124,7 @@ AC.loop = function() {
 		maxM = (imgH - refH),
 		targetY = -(maxM * (AC.MouseY / refH));
 
-	if ( refH > imgH ) {
+	if ( refH >= imgH ) {
 
 		var 
 			ratio = refH / imgH,
