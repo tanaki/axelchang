@@ -923,7 +923,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 		}
 		*/
 
-		console.log( document.getElementById("detail-slider") );
 		if ( document.getElementById("detail-slider") ) {
 
 			// console.log("init swipe");
@@ -1035,6 +1034,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 			.parents(".project").addClass("loaded");
 
 		$el.parents(".project").find(".spinner").remove();
+		$(window).resize();
 	},
 
 	handleFileLoadBG : function (event) {
@@ -1055,6 +1055,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 		}
 
 		$spinner.remove();
+		$(window).resize();
 	},
 
 	prepImages : function() {
