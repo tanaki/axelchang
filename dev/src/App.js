@@ -108,7 +108,6 @@ $(window).on("resize", function(){
 
 AC.loop = function() {
 
-	
 	var $img = $(".mouse-move.move-current img:not(.unzoom)");
 	if ( $img.length === 0 ) {
 		setTimeout(AC.loop, 200);
@@ -124,7 +123,7 @@ AC.loop = function() {
 		maxM = (imgH - refH),
 		targetY = -(maxM * (AC.MouseY / refH));
 
-	if ( refH >= imgH ) {
+	if ( refH > imgH ) {
 
 		var 
 			ratio = refH / imgH,
@@ -136,6 +135,7 @@ AC.loop = function() {
 			"margin-left" : ( (refW - newW) / 2 ) + "px"
 		});
 
+		$(window).on("resize");
 		setTimeout(AC.loop, 200);
 		return;
 	}
