@@ -95,7 +95,6 @@ $(window).ready(function(){
 $(window).on("resize", function(){
 	var $img = $(".mouse-move.move-current img:not(.unzoom)");
 	if ( $img.length === 0 ) {
-		setTimeout(AC.loop, 600);
 		return;
 	}
 
@@ -112,7 +111,7 @@ AC.loop = function() {
 	
 	var $img = $(".mouse-move.move-current img:not(.unzoom)");
 	if ( $img.length === 0 ) {
-		setTimeout(AC.loop, 600);
+		setTimeout(AC.loop, 200);
 		return;
 	}
 
@@ -137,7 +136,7 @@ AC.loop = function() {
 			"margin-left" : ( (refW - newW) / 2 ) + "px"
 		});
 
-		setTimeout(AC.loop, 600);
+		setTimeout(AC.loop, 200);
 		return;
 	}
 	currentY += (targetY - currentY) * 0.15;
