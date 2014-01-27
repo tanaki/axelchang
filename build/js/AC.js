@@ -895,7 +895,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 		}
 		*/
 
-		if ( document.getElementById("detail-slider") && !this.detailSwipe ) {
+		if ( document.getElementById("detail-slider") ) {
 
 			// console.log("init swipe");
 
