@@ -92,6 +92,21 @@ $(window).ready(function(){
 	}
 });
 
+$(window).on("resize", function(){
+	var $img = $(".mouse-move.move-current img:not(.unzoom)");
+	if ( $img.length === 0 ) {
+		setTimeout(AC.loop, 600);
+		return;
+	}
+
+	$img.css({
+		"width" : "",
+		"height": "",
+		"margin-left" : ""
+	});
+
+});
+
 AC.loop = function() {
 
 	
@@ -103,12 +118,25 @@ AC.loop = function() {
 
 	var 
 		refH = $(window).height(),
+		refW = $(window).width(),
 		currentY = parseInt($img.css("margin-top"), 10),
 		imgH = $img.height(),
+		imgW = $img.width(),
 		maxM = (imgH - refH),
 		targetY = -(maxM * (AC.MouseY / refH));
 
 	if ( refH > imgH ) {
+
+		var 
+			ratio = refH / imgH,
+			newW = imgW * ratio;
+
+		$img.css({
+			"width" : "auto",
+			"height": "100%",
+			"margin-left" : ( (refW - newW) / 2 ) + "px"
+		});
+
 		setTimeout(AC.loop, 600);
 		return;
 	}

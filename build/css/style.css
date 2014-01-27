@@ -116,6 +116,9 @@ body {
 ul {
   list-style: none;
 }
+img {
+  max-width: none;
+}
 .load {
   text-align: center;
   margin-top: 40px;
