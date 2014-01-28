@@ -138,7 +138,7 @@
 			//AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
 		</script>
 
-		<!--script type="text/javascript">
+		<script type="text/javascript">
 
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-37550556-1']);
@@ -150,6 +150,6 @@
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 
-		</script-->
+		</script>
 	</body>
 </html>
