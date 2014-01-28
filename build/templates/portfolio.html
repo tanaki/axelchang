@@ -7,8 +7,8 @@
 			<div id="detail-slider" class="swipe">
 				<div class="swipe-wrap">
 					<% _.each( project.images, function(image, index){ %>
-						<div class="mouse-move project-item to-load-bg<%= (index == 0 ? ' move-current' : '') %>" data-item="<%= index %>" data-width="<%= image.width %>" data-height="<%= image.height %>">
-							<img src="<%= image.low %>" alt="" data-src="<%= image.img %>" />
+						<div class="mouse-move project-item to-load-bg<%= (index == 0 ? ' move-current' : '') %>" data-item="<%= index %>">
+							<img src="<%= image.low %>" alt="" data-src="<%= image.img %>" data-width="<%= image.width %>" data-height="<%= image.height %>" />
 							<div class="credits">
 								<div class="credits-inside">
 									<%= AC.Utils.textToHTML(image.credits[AC.Lang]) %>

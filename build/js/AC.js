@@ -111,6 +111,8 @@ AC.resizeImg = function ( $el ) {
 		imgRatio = $el.data("width") / $el.data("height"),
 		windowRatio = AC.Utils.WIDTH / AC.Utils.HEIGHT;
 
+	console.log( windowRatio, imgRatio );
+
 	if ( windowRatio < imgRatio ) {
 
 		var 
@@ -125,14 +127,15 @@ AC.resizeImg = function ( $el ) {
 
 	} else {
 
-		var targetY = -( ( $el.height() - AC.Utils.HEIGHT ) / 2 );
-
+		// var targetY = -( ( $el.height() - AC.Utils.HEIGHT ) / 2 );
+		
 		$el.css({
 			"width" : "",
 			"height": "",
-			"margin-left" : "",
-			"margin-top": targetY + "px"
+			"margin-left" : ""
 		});
+
+		// ,"margin-top": targetY + "px"
 	}
 };
 
