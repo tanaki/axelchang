@@ -641,20 +641,20 @@ AC.View.Base = Backbone.View.extend({
 			self._display();
 		});
 
-		if (navigator.userAgent.match(/iPad;.*CPU.*OS 7_\d/i)) {
+		if (navigator.userAgent.match(/iPad/i)) {
+
 			$('html')
 				.css({
 					"min-height": window.innerHeight,
 					"position" : "relative"
 				});
-				
+
 			window.scrollTo(0, 0);
 		}
 	},
 	
 	_display : function() {
 
-		
 		var self = this;
 		
 		self.slug = self.params.slug;
@@ -663,6 +663,7 @@ AC.View.Base = Backbone.View.extend({
 		$("body").removeClass(self.prevId).addClass(self.id);
 		$(this.el).html( this.tpl(this.params) ).fadeIn(AC.Data.FADE_IN_DURATION, function() {
 			self._displayComplete(self);
+			$(window).resize();
 		});
 	},
 
@@ -691,6 +692,8 @@ AC.View.About = AC.View.Base.extend({
 		$spin.fadeOut(100, function(){
 			$spin.remove();
 		});
+
+		AC.Utils.positionFooter(true);
 	}
 	
 });
@@ -710,6 +713,8 @@ AC.View.Contact = AC.View.Base.extend({
 		$spin.fadeOut(100, function(){
 			$spin.remove();
 		});
+
+		AC.Utils.positionFooter(true);
 	}
 	
 });
@@ -786,6 +791,8 @@ AC.View.Home = AC.View.Base.extend({
 		$(this.el).html( this.tpl(this.params) ).fadeIn(AC.Data.FADE_IN_DURATION, function() {
 			self._displayComplete(self);
 			$(window).resize();
+
+			AC.Utils.positionFooter(false);
 		});
 	}
 });
@@ -832,6 +839,8 @@ AC.View.News = AC.View.Base.extend({
 		});
 
 		this.initProjectNav();
+
+		AC.Utils.positionFooter(false);
 	},
 
 	initProjectNav : function(){
@@ -980,6 +989,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 		$spin.fadeOut(100, function(){
 			$spin.remove();
 		});
+
+		AC.Utils.positionFooter(false);
 	},
 
 	addLoaders : function(selector) {
@@ -1221,6 +1232,20 @@ AC.Utils.readCookie = function(name) {
 
 AC.Utils.eraseCookie = function(name) {
 	AC.Utils.createCookie(name,"",-1);
+};
+
+AC.Utils.isIpad = navigator.userAgent.match(/iPad/i) != null;
+AC.Utils.isPortrait = Math.abs(window.orientation) != 90;
+
+AC.Utils.positionFooter = function ( forceDown ) {
+
+	if ( AC.Utils.isIpad && AC.Utils.isPortrait && forceDown ) {
+		$("#wrapper").css("height", "100%");
+		$("footer").css("position", "absolute");
+	} else {
+		$("#wrapper").css("height", "");
+		$("footer").css("position", "");
+	}
 };
 
 AC.Utils.WIDTH = 0;

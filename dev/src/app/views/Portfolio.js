@@ -116,6 +116,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 		$spin.fadeOut(100, function(){
 			$spin.remove();
 		});
+
+		AC.Utils.positionFooter(false);
 	},
 
 	addLoaders : function(selector) {

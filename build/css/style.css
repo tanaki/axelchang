@@ -566,6 +566,7 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .touch .home .main-content {
   background-size: cover;
+  background-position: center center;
 }
 .touch .home .main-content .mouse-move {
   display: none;
@@ -1201,6 +1202,9 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .spin-box .spinner {
   top: 50%;
+}
+.touch .spin-box {
+  top: 200px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   footer .footer-inside .infos {

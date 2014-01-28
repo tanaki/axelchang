@@ -34,6 +34,8 @@ AC.View.News = AC.View.Base.extend({
 		});
 
 		this.initProjectNav();
+
+		AC.Utils.positionFooter(false);
 	},
 
 	initProjectNav : function(){

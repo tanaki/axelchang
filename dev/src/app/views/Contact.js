@@ -14,6 +14,8 @@ AC.View.Contact = AC.View.Base.extend({
 		$spin.fadeOut(100, function(){
 			$spin.remove();
 		});
+
+		AC.Utils.positionFooter(true);
 	}
 	
 });

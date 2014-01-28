@@ -71,6 +71,8 @@ AC.View.Home = AC.View.Base.extend({
 		$(this.el).html( this.tpl(this.params) ).fadeIn(AC.Data.FADE_IN_DURATION, function() {
 			self._displayComplete(self);
 			$(window).resize();
+
+			AC.Utils.positionFooter(false);
 		});
 	}
 });

@@ -52,5 +52,19 @@ AC.Utils.eraseCookie = function(name) {
 	AC.Utils.createCookie(name,"",-1);
 };
 
+AC.Utils.isIpad = navigator.userAgent.match(/iPad/i) != null;
+AC.Utils.isPortrait = Math.abs(window.orientation) != 90;
+
+AC.Utils.positionFooter = function ( forceDown ) {
+
+	if ( AC.Utils.isIpad && AC.Utils.isPortrait && forceDown ) {
+		$("#wrapper").css("height", "100%");
+		$("footer").css("position", "absolute");
+	} else {
+		$("#wrapper").css("height", "");
+		$("footer").css("position", "");
+	}
+};
+
 AC.Utils.WIDTH = 0;
 AC.Utils.HEIGHT = 0;
