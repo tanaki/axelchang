@@ -112,7 +112,7 @@
 		<div id="modal-credits" class="hidden">
 			Design<br/><a href="http://marielaurent.fr" target="_blank">Marie Laurent</a><br/><br/>
 			Developpement<br/><a href="http://cargocollective.com/nicopigelet" target="_blank">Nicolas Pigelet</a><br/><br/>
-			Traducteurs<br/><div class="name">Gillian McBride<br/>Cora Ungeheuer</div><br/><br/>
+			Traducteurs<br/><div class="name">Gillian McBride<br/>Cora Ungeheuer<br/>Mariam-Alice Saad</div><br/><br/>
 		</div>
 		
 		<!-- LIBS -->
