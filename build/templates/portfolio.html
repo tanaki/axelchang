@@ -67,9 +67,9 @@
 
 					<span class="img-container">
 						<% if ( preloaded ) { %>
-							<img src="<%= project.cover %>" alt="<%= project.title[AC.Lang] %>" style="<%= project.extraCSS %>" class="<%= project.extraClass %>" />
+							<img src="<%= project.cover %>" alt="" style="<%= project.extraCSS %>" class="<%= project.extraClass %>" />
 						<% } else { %>
-							<img class="to-load <%= project.extraClass %>" src="" data-src="<%= project.cover %>" alt="<%= project.title[AC.Lang] %>" style="<%= project.extraCSS %>" />
+							<img class="to-load <%= project.extraClass %>" src="" data-src="<%= project.cover %>" alt="" style="<%= project.extraCSS %>" />
 						<% } %>
 					</span>
 				</a>

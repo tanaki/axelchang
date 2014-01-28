@@ -673,38 +673,36 @@ footer .footer-inside .lang-container ul li a:hover {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 767px) {
-  .touch .portfolio .projects .project {
-    background: transparent !important;
-    height: 272px;
-  }
-  .touch .portfolio .projects .project a {
-    text-decoration: none;
-  }
-  .touch .portfolio .projects .project a .project-title {
-    top: auto;
-    bottom: 0;
-    opacity: 1;
-    filter: alpha(opacity=100);
-    width: 218px;
-    left: auto;
-  }
-  .touch .portfolio .projects .project a .img-container {
-    height: 220px;
-    overflow: hidden;
-  }
-  .touch .portfolio .projects .project a img.resized {
-    height: 220px;
-  }
-  .touch .portfolio .projects .project a:hover .project-title {
-    top: auto;
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-  .touch .portfolio .projects .project a:hover .project-bg {
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
+.touch .portfolio .projects .project {
+  background: transparent !important;
+  height: 272px;
+}
+.touch .portfolio .projects .project a {
+  text-decoration: none;
+}
+.touch .portfolio .projects .project a .project-title {
+  top: auto;
+  bottom: 0;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  width: 218px;
+  left: auto;
+}
+.touch .portfolio .projects .project a .img-container {
+  height: 220px;
+  overflow: hidden;
+}
+.touch .portfolio .projects .project a img.resized {
+  height: 220px;
+}
+.touch .portfolio .projects .project a:hover .project-title {
+  top: auto;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.touch .portfolio .projects .project a:hover .project-bg {
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 @media screen and (max-width: 479px) {
   .portfolio .projects {
