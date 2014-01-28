@@ -1,6 +1,7 @@
 {
 	"copy" : {
 		"fr" : {
+			"title" : "Maquilleur",
 			"portfolio" : "Portfolio",
 			"about" : "&Agrave; Propos",
 			"contact" : "Contact",
@@ -8,6 +9,7 @@
 			"credits" : "Crédits"
 		},
 		"en" : {
+			"title" : "Make up Artist",
 			"portfolio" : "Portfolio",
 			"about" : "About",
 			"contact" : "Contact",
@@ -15,6 +17,7 @@
 			"credits" : "Credits"
 		},
 		"de" : {
+			"title" : "Make up Artist",
 			"portfolio" : "Portfolio",
 			"about" : "Über mich",
 			"contact" : "Kontaktdaten",
