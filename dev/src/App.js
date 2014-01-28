@@ -103,6 +103,24 @@ $(window).on("resize", function() {
 	$(".mouse-move img").each(function(i, el){
 		AC.resizeImg( $(el) );
 	});
+
+	if ( $("body").hasClass("contact") && !Modernizr.touch ) {
+
+		var 
+			$ul = $(".main-content ul"),
+			ulH = (AC.Utils.HEIGHT - $ul.height() - 400) /2;
+
+		$ul.css("margin-top", Math.max(0, ulH) );
+	}
+
+	if ( $("body").hasClass("news") && !Modernizr.touch ) {
+
+		var 
+			$div = $("#news-slider"),
+			divH = (AC.Utils.HEIGHT - $div.height() - 400) /2;
+
+		$div.css("margin-top", Math.max(0, divH) );
+	}
 });
 
 AC.resizeImg = function ( $el ) {
