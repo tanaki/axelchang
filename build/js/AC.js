@@ -125,14 +125,13 @@ AC.resizeImg = function ( $el ) {
 
 	} else {
 
-		var targetY = -( ( $el.height() - AC.Utils.HEIGHT ) / 2 );
-
+		//var targetY = -( ( $el.height() - AC.Utils.HEIGHT ) / 2 );
 		$el.css({
 			"width" : "",
 			"height": "",
-			"margin-left" : "",
-			"margin-top": targetY + "px"
+			"margin-left" : ""
 		});
+		//,"margin-top": targetY + "px"
 	}
 };
 
