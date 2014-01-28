@@ -436,7 +436,6 @@ AC.TemplateManager = AC.TemplateManager || {
 };
 
 AC.Router = Backbone.Router.extend({
-	
 	/*
 	 * controller
 	 * @private

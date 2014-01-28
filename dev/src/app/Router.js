@@ -1,6 +1,5 @@
 
 AC.Router = Backbone.Router.extend({
-	
 	/*
 	 * controller
 	 * @private
