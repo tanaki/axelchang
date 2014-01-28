@@ -104,6 +104,7 @@ $(window).on("resize", function() {
 		AC.resizeImg( $(el) );
 	});
 
+	/* Center vertically
 	if ( $("body").hasClass("contact") && !Modernizr.touch ) {
 
 		var 
@@ -121,6 +122,7 @@ $(window).on("resize", function() {
 
 		$div.css("margin-top", Math.max(0, divH) );
 	}
+	*/
 });
 
 AC.resizeImg = function ( $el ) {

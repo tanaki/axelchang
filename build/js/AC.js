@@ -104,6 +104,7 @@ $(window).on("resize", function() {
 		AC.resizeImg( $(el) );
 	});
 
+	/* Center vertically
 	if ( $("body").hasClass("contact") && !Modernizr.touch ) {
 
 		var 
@@ -121,6 +122,7 @@ $(window).on("resize", function() {
 
 		$div.css("margin-top", Math.max(0, divH) );
 	}
+	*/
 });
 
 AC.resizeImg = function ( $el ) {
@@ -287,8 +289,9 @@ AC.Controller = function() {
 		 */
 		displayPage = function ( callbackEvent, hideFirst, urlData ) {
 
+			var fragment = Backbone.history.fragment.split("/")[0];
 			$("nav .selected, .mobile-nav .selected").removeClass("selected");
-			$("nav a[href='/"+Backbone.history.fragment+"'], .mobile-nav a[href='/"+Backbone.history.fragment+"']").addClass("selected");
+			$("nav a[href='/" + fragment + "'], .mobile-nav a[href='/" + fragment + "']").addClass("selected");
 
 			if ( currentView && hideFirst ) {
 				
@@ -707,14 +710,6 @@ AC.View.Contact = AC.View.Base.extend({
 		$spin.fadeOut(100, function(){
 			$spin.remove();
 		});
-
-		if ( !Modernizr.touch ) {
-			var 
-				$ul = $(".main-content ul"),
-				ulH = (AC.Utils.HEIGHT - $ul.height() - 400) /2;
-
-			$ul.css("margin-top", Math.max(0, ulH) );
-		}
 	}
 	
 });
@@ -837,14 +832,6 @@ AC.View.News = AC.View.Base.extend({
 		});
 
 		this.initProjectNav();
-
-		if ( !Modernizr.touch ) {
-			var 
-				$div = $("#news-slider"),
-				divH = (AC.Utils.HEIGHT - $div.height() - 400) /2;
-
-			$div.css("margin-top", Math.max(0, divH) );
-		}
 	},
 
 	initProjectNav : function(){

@@ -193,66 +193,68 @@
 
 }
 
-.touch {
-	.portfolio-detail {
-		width: 100%;
-
-		.project-detail {
-			position: absolute;
-			top: 0;
-			left: 0;
+@media screen and (max-width:1020px) {
+	.touch {
+		.portfolio-detail {
 			width: 100%;
-			height: 100%;
-			z-index: 1;
 
-			.project-prev,
-			.project-next {
-				display: none;
-			}
-			.project-global-nav {
-				display: block;
+			.project-detail {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+
+				.project-prev,
+				.project-next {
+					display: none;
+				}
+				.project-global-nav {
+					display: block;
+					
+					.link-credits {
+						z-index: 10;
+						padding: 20px 20px 0 20px;
+					}
+					.project-title-container {
+						width: 100%;
+						left: 0;
+						margin-left: 0;
+
+						.project-title {
+							display: none;
+						}
+					}
+					.project-nav-container {
+						right: 20px;
+						z-index: 10;
+
+						.next-project,
+						.prev-project {
+							display: none;
+						}
+						.back {
+							margin-right: 0;
+							width: 17px;
+						}
+					}
+				}
 				
-				.link-credits {
-					z-index: 10;
-					padding: 20px 20px 0 20px;
-				}
-				.project-title-container {
-					width: 100%;
-					left: 0;
-					margin-left: 0;
+				.project-images {
 
-					.project-title {
-						display: none;
+					.mouse-move {
+						background: no-repeat center center;
+						background-size: cover;
+
+						img {
+							display: none;
+						}
 					}
-				}
-				.project-nav-container {
-					right: 20px;
-					z-index: 10;
 
-					.next-project,
-					.prev-project {
-						display: none;
+					.spinner {
+						top: 150px;
 					}
-					.back {
-						margin-right: 0;
-						width: 17px;
-					}
-				}
-			}
-			
-			.project-images {
-
-				.mouse-move {
-					background: no-repeat center center;
-					background-size: cover;
-
-					img {
-						display: none;
-					}
-				}
-
-				.spinner {
-					top: 150px;
 				}
 			}
 		}

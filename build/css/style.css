@@ -565,7 +565,6 @@ footer .footer-inside .lang-container ul li a:hover {
   filter: none;
 }
 .touch .home .main-content {
-  background: url(../img/bg_low.jpg) no-repeat center center;
   background-size: cover;
 }
 .touch .home .main-content .mouse-move {
@@ -886,57 +885,59 @@ footer .footer-inside .lang-container ul li a:hover {
 .portfolio-detail .project-detail .project-global-nav .project-nav-inside .project-nav-container .back:hover {
   opacity: 0.6;
 }
-.touch .portfolio-detail {
-  width: 100%;
-}
-.touch .portfolio-detail .project-detail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.touch .portfolio-detail .project-detail .project-prev,
-.touch .portfolio-detail .project-detail .project-next {
-  display: none;
-}
-.touch .portfolio-detail .project-detail .project-global-nav {
-  display: block;
-}
-.touch .portfolio-detail .project-detail .project-global-nav .link-credits {
-  z-index: 10;
-  padding: 20px 20px 0 20px;
-}
-.touch .portfolio-detail .project-detail .project-global-nav .project-title-container {
-  width: 100%;
-  left: 0;
-  margin-left: 0;
-}
-.touch .portfolio-detail .project-detail .project-global-nav .project-title-container .project-title {
-  display: none;
-}
-.touch .portfolio-detail .project-detail .project-global-nav .project-nav-container {
-  right: 20px;
-  z-index: 10;
-}
-.touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .next-project,
-.touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .prev-project {
-  display: none;
-}
-.touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .back {
-  margin-right: 0;
-  width: 17px;
-}
-.touch .portfolio-detail .project-detail .project-images .mouse-move {
-  background: no-repeat center center;
-  background-size: cover;
-}
-.touch .portfolio-detail .project-detail .project-images .mouse-move img {
-  display: none;
-}
-.touch .portfolio-detail .project-detail .project-images .spinner {
-  top: 150px;
+@media screen and (max-width: 1020px) {
+  .touch .portfolio-detail {
+    width: 100%;
+  }
+  .touch .portfolio-detail .project-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .touch .portfolio-detail .project-detail .project-prev,
+  .touch .portfolio-detail .project-detail .project-next {
+    display: none;
+  }
+  .touch .portfolio-detail .project-detail .project-global-nav {
+    display: block;
+  }
+  .touch .portfolio-detail .project-detail .project-global-nav .link-credits {
+    z-index: 10;
+    padding: 20px 20px 0 20px;
+  }
+  .touch .portfolio-detail .project-detail .project-global-nav .project-title-container {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+  }
+  .touch .portfolio-detail .project-detail .project-global-nav .project-title-container .project-title {
+    display: none;
+  }
+  .touch .portfolio-detail .project-detail .project-global-nav .project-nav-container {
+    right: 20px;
+    z-index: 10;
+  }
+  .touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .next-project,
+  .touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .prev-project {
+    display: none;
+  }
+  .touch .portfolio-detail .project-detail .project-global-nav .project-nav-container .back {
+    margin-right: 0;
+    width: 17px;
+  }
+  .touch .portfolio-detail .project-detail .project-images .mouse-move {
+    background: no-repeat center center;
+    background-size: cover;
+  }
+  .touch .portfolio-detail .project-detail .project-images .mouse-move img {
+    display: none;
+  }
+  .touch .portfolio-detail .project-detail .project-images .spinner {
+    top: 150px;
+  }
 }
 .about .main-content {
   max-width: 940px;
@@ -1200,9 +1201,6 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .spin-box .spinner {
   top: 50%;
-}
-.touch .spin-box {
-  top: 200px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   footer .footer-inside .infos {

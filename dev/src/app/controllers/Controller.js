@@ -106,8 +106,9 @@ AC.Controller = function() {
 		 */
 		displayPage = function ( callbackEvent, hideFirst, urlData ) {
 
+			var fragment = Backbone.history.fragment.split("/")[0];
 			$("nav .selected, .mobile-nav .selected").removeClass("selected");
-			$("nav a[href='/"+Backbone.history.fragment+"'], .mobile-nav a[href='/"+Backbone.history.fragment+"']").addClass("selected");
+			$("nav a[href='/" + fragment + "'], .mobile-nav a[href='/" + fragment + "']").addClass("selected");
 
 			if ( currentView && hideFirst ) {
 				
