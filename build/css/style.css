@@ -450,6 +450,7 @@ footer .footer-inside .lang-container ul li a:hover {
     background-size: 512px 512px;
     text-indent: -5000px;
     overflow: hidden;
+    z-index: 2;
   }
   header .mobile-nav ul {
     display: none;
@@ -502,6 +503,9 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .touch header {
   position: static;
+}
+.touch header nav {
+  position: relative;
   z-index: 2;
 }
 .touch .main-content {
@@ -899,7 +903,6 @@ footer .footer-inside .lang-container ul li a:hover {
 }
 .touch .portfolio-detail .project-detail .project-global-nav {
   display: block;
-  bottom: 48px;
 }
 .touch .portfolio-detail .project-detail .project-global-nav .link-credits {
   z-index: 10;

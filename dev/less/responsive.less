@@ -59,6 +59,7 @@
 
 				text-indent: -5000px;
 				overflow: hidden;
+				z-index: 2;
 			}
 
 			ul {
@@ -148,7 +149,13 @@
 .touch {
 	header {
 		position: static;
-		z-index: 2;
+
+		nav {
+			position: relative;
+			z-index: 2;
+		}
+
+
 	}
 	.main-content {
 		max-width: 100%;

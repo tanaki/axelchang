@@ -91,25 +91,55 @@ $(window).ready(function(){
 			AC.MouseY = e.pageY;
 		});
 	}
+
+	$(window).resize();
 });
 
-$(window).on("resize", function(){
-	var $img = $(".mouse-move.move-current img:not(.unzoom)");
-	if ( $img.length === 0 ) {
-		return;
-	}
+$(window).on("resize", function() {
 
-	$img.css({
-		"width" : "",
-		"height": "",
-		"margin-left" : ""
+	AC.Utils.WIDTH = $(window).width();
+	AC.Utils.HEIGHT = $(window).height();
+
+	$(".mouse-move img").each(function(i, el){
+		AC.resizeImg( $(el) );
 	});
-
 });
+
+AC.resizeImg = function ( $el ) {
+
+	var
+		imgRatio = $el.data("width") / $el.data("height"),
+		windowRatio = AC.Utils.WIDTH / AC.Utils.HEIGHT;
+
+	if ( windowRatio < imgRatio ) {
+
+		var 
+			ratioW = AC.Utils.HEIGHT / $el.data("height"),
+			newW = $el.data("width") * ratioW;
+
+		$el.css({
+			"width" : "auto",
+			"height": "100%",
+			"margin-left" : ( (AC.Utils.WIDTH - newW) / 2 ) + "px"
+		});
+
+	} else {
+
+		var targetY = -( ( $el.height() - AC.Utils.HEIGHT ) / 2 );
+
+		$el.css({
+			"width" : "",
+			"height": "",
+			"margin-left" : "",
+			"margin-top": targetY + "px"
+		});
+	}
+};
 
 AC.loop = function() {
 
 	var $img = $(".mouse-move.move-current img:not(.unzoom)");
+
 	if ( $img.length === 0 ) {
 		setTimeout(AC.loop, 200);
 		return;
@@ -117,25 +147,12 @@ AC.loop = function() {
 
 	var 
 		refH = $(window).height(),
-		refW = $(window).width(),
 		currentY = parseInt($img.css("margin-top"), 10),
 		imgH = $img.height(),
-		imgW = $img.width(),
 		maxM = (imgH - refH),
 		targetY = -(maxM * (AC.MouseY / refH));
 
 	if ( refH > imgH ) {
-
-		var 
-			ratio = refH / imgH,
-			newW = imgW * ratio;
-
-		$img.css({
-			"width" : "auto",
-			"height": "100%",
-			"margin-left" : ( (refW - newW) / 2 ) + "px"
-		});
-
 		setTimeout(AC.loop, 200);
 		return;
 	}
@@ -898,7 +915,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 		$(".link-credits").on("click", function(e){
 			e.preventDefault();
 
-			//$(".move-current .credits").toggle();
 			$(".move-current .credits").modal({
 				overlayClose : true,
 				opacity : 60,
@@ -909,7 +925,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 						"height":"auto",
 						"width":"auto"
 					});
-					$(window).trigger("resize");
+					$(window).resize();
 				}
 			});
 		});
@@ -924,8 +940,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 		*/
 
 		if ( document.getElementById("detail-slider") ) {
-
-			// console.log("init swipe");
 
 			this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
 				callback : this._callbackSwipe,
@@ -951,7 +965,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	addLoaders : function(selector) {
 		
-
 		var spinOpts = AC.SpinOptions;
 		spinOpts.color = "#fff";
 
@@ -1023,6 +1036,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleComplete : function() {
 		$("body").data("all-img-loaded", true);
+		$(window).resize();
 	},
 
 	handleFileLoad : function (event) {
@@ -1067,6 +1081,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 				.attr("src", $(el).data('src'))
 				.parents(".project").addClass("loaded");
 		});
+
 	},
 	
 	initProjectNav : function(){
@@ -1119,6 +1134,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 					else self.params.next = null;
 				}
 			});
+			$(window).resize();
+			
 		} else {
 			this.id = "portfolio";
 		}
@@ -1186,3 +1203,6 @@ AC.Utils.readCookie = function(name) {
 AC.Utils.eraseCookie = function(name) {
 	AC.Utils.createCookie(name,"",-1);
 };
+
+AC.Utils.WIDTH = 0;
+AC.Utils.HEIGHT = 0;

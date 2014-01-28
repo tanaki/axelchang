@@ -51,3 +51,6 @@ AC.Utils.readCookie = function(name) {
 AC.Utils.eraseCookie = function(name) {
 	AC.Utils.createCookie(name,"",-1);
 };
+
+AC.Utils.WIDTH = 0;
+AC.Utils.HEIGHT = 0;

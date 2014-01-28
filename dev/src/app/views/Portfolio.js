@@ -70,7 +70,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 		$(".link-credits").on("click", function(e){
 			e.preventDefault();
 
-			//$(".move-current .credits").toggle();
 			$(".move-current .credits").modal({
 				overlayClose : true,
 				opacity : 60,
@@ -81,7 +80,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 						"height":"auto",
 						"width":"auto"
 					});
-					$(window).trigger("resize");
+					$(window).resize();
 				}
 			});
 		});
@@ -96,8 +95,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 		*/
 
 		if ( document.getElementById("detail-slider") ) {
-
-			// console.log("init swipe");
 
 			this.detailSwipe = new Swipe(document.getElementById("detail-slider"), {
 				callback : this._callbackSwipe,
@@ -123,7 +120,6 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	addLoaders : function(selector) {
 		
-
 		var spinOpts = AC.SpinOptions;
 		spinOpts.color = "#fff";
 
@@ -195,6 +191,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 
 	handleComplete : function() {
 		$("body").data("all-img-loaded", true);
+		$(window).resize();
 	},
 
 	handleFileLoad : function (event) {
@@ -239,6 +236,7 @@ AC.View.Portfolio = AC.View.Base.extend({
 				.attr("src", $(el).data('src'))
 				.parents(".project").addClass("loaded");
 		});
+
 	},
 	
 	initProjectNav : function(){
@@ -291,6 +289,8 @@ AC.View.Portfolio = AC.View.Base.extend({
 					else self.params.next = null;
 				}
 			});
+			$(window).resize();
+			
 		} else {
 			this.id = "portfolio";
 		}

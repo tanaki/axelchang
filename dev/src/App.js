@@ -91,25 +91,55 @@ $(window).ready(function(){
 			AC.MouseY = e.pageY;
 		});
 	}
+
+	$(window).resize();
 });
 
-$(window).on("resize", function(){
-	var $img = $(".mouse-move.move-current img:not(.unzoom)");
-	if ( $img.length === 0 ) {
-		return;
-	}
+$(window).on("resize", function() {
 
-	$img.css({
-		"width" : "",
-		"height": "",
-		"margin-left" : ""
+	AC.Utils.WIDTH = $(window).width();
+	AC.Utils.HEIGHT = $(window).height();
+
+	$(".mouse-move img").each(function(i, el){
+		AC.resizeImg( $(el) );
 	});
-
 });
+
+AC.resizeImg = function ( $el ) {
+
+	var
+		imgRatio = $el.data("width") / $el.data("height"),
+		windowRatio = AC.Utils.WIDTH / AC.Utils.HEIGHT;
+
+	if ( windowRatio < imgRatio ) {
+
+		var 
+			ratioW = AC.Utils.HEIGHT / $el.data("height"),
+			newW = $el.data("width") * ratioW;
+
+		$el.css({
+			"width" : "auto",
+			"height": "100%",
+			"margin-left" : ( (AC.Utils.WIDTH - newW) / 2 ) + "px"
+		});
+
+	} else {
+
+		var targetY = -( ( $el.height() - AC.Utils.HEIGHT ) / 2 );
+
+		$el.css({
+			"width" : "",
+			"height": "",
+			"margin-left" : "",
+			"margin-top": targetY + "px"
+		});
+	}
+};
 
 AC.loop = function() {
 
 	var $img = $(".mouse-move.move-current img:not(.unzoom)");
+
 	if ( $img.length === 0 ) {
 		setTimeout(AC.loop, 200);
 		return;
@@ -117,25 +147,12 @@ AC.loop = function() {
 
 	var 
 		refH = $(window).height(),
-		refW = $(window).width(),
 		currentY = parseInt($img.css("margin-top"), 10),
 		imgH = $img.height(),
-		imgW = $img.width(),
 		maxM = (imgH - refH),
 		targetY = -(maxM * (AC.MouseY / refH));
 
 	if ( refH > imgH ) {
-
-		var 
-			ratio = refH / imgH,
-			newW = imgW * ratio;
-
-		$img.css({
-			"width" : "auto",
-			"height": "100%",
-			"margin-left" : ( (refW - newW) / 2 ) + "px"
-		});
-
 		setTimeout(AC.loop, 200);
 		return;
 	}

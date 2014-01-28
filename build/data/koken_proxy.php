@@ -51,6 +51,8 @@
 
 					echo '{';
 						echo '"img" : "' . $content->presets->huge->url . '",';
+						echo '"width" : "' . $content->presets->huge->width . '",';
+						echo '"height" : "' . $content->presets->huge->height . '",';
 						echo '"credits" : {';
 							echo '"en" : "' . clean($captionTrans['en']) . '",';
 							echo '"fr" : "' . clean($captionTrans['fr']) . '",';
