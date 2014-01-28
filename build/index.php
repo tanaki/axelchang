@@ -1,12 +1,14 @@
 <?php
 	
 	$BASE_URL = "/";
-	$PROD = false;
+	$PROD = true;
 
+	/*
 	if ( preg_match( '/test/', $_SERVER["REQUEST_URI"] ) ) {
 		$BASE_URL = "/test/";
 		$PROD = true;
 	}
+	*/
 
 	$jsonData = file_get_contents('data/copy.json');
 	$rawData = json_decode($jsonData);
@@ -132,8 +134,8 @@
 			AC.Locations.Templates = '<?php echo $BASE_URL; ?>templates/';
 			AC.Locations.Images = '<?php echo $BASE_URL; ?>img/';
 			
-			//AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
-			AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
+			AC.Locations.JSON = '<?php echo $BASE_URL; ?>data/koken_proxy.php';
+			//AC.Locations.JSON = '<?php echo $BASE_URL . ( $PROD ? "data/koken_proxy.php" : "data/data.json"); ?>';
 		</script>
 
 		<!--script type="text/javascript">
