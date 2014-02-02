@@ -1,5 +1,13 @@
 <?php
 	
+	/*
+	if (substr($_SERVER['SERVER_NAME'], 0, 4) === 'www.') {
+		$pageURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+		$pageURL .= substr($_SERVER['SERVER_NAME'], 4).$_SERVER["REQUEST_URI"];
+		header('Location: '. $pageURL);
+	}
+	*/
+
 	$BASE_URL = "/";
 	$PROD = true;
 
