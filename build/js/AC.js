@@ -298,11 +298,9 @@ AC.Controller = function() {
 				currentView.hide( function() {
 					displayPage(callbackEvent, false, urlData);
 
-					/*
 					if ( _gaq ) {
 						_gaq.push(['_trackPageview', '/'+Backbone.history.fragment ]);
 					}
-					*/
 				});
 
 			} else {
